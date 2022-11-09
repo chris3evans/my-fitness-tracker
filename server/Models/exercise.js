@@ -1,8 +1,7 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("./index");
-
-const Exercise = sequelize.define("Exercise", {
-  exercisename: { type: DataTypes, required: false },
-});
+const Exercise = (sequelize, DataTypes) => {
+  return sequelize.define("Exercise", {
+    exercisename: { type: DataTypes.TEXT, required: false },
+  });
+};
 
 module.exports = Exercise;
