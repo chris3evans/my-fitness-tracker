@@ -1,8 +1,8 @@
-const baseUrl = "http://localhost:3000";
+const baseUrl = "http://localhost:4000";
 
 const postNewWorkout = async function (data) {
   try {
-    const response = await fetch(`${baseUrl}/add-wrokout`, {
+    const response = await fetch(`${baseUrl}/add-workout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

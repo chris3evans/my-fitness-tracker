@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
+const apiService = require("../Utils/api-service");
 
 const WorkoutForm = function (props) {
   const [workoutNameField, setWorkoutNameField] = useState("");
@@ -24,6 +25,8 @@ const WorkoutForm = function (props) {
       workoutname: event.target.workoutname.value,
     };
     console.log(formData, "workout name");
+
+    apiService.postNewWorkout(formData);
 
     setWorkoutNameField("");
   };
