@@ -5,8 +5,6 @@ import { useContext, useState } from "react";
 
 const ExercisesView = function () {
   const data = useContext(Context);
-  console.log(data);
-
   const [enteringExercise, setEnteringExercise] = useState(false);
 
   const enterAddExerciseHandler = function () {
