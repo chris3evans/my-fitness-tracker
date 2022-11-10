@@ -5,7 +5,6 @@ const apiService = require("../../Utils/api-service");
 
 const ExerciseForm = function (props) {
   const data = useContext(Context);
-  const [exerciseNameField, setExerciseNameField] = useState("");
   const [exitForm, setExitForm] = useState(false);
   const [addExercise, setAddExercise] = useState("");
 
@@ -13,9 +12,6 @@ const ExerciseForm = function (props) {
     props.render();
   }, [addExercise]);
 
-  const exerciseNameFieldChangeHandler = function (event) {
-    setExerciseNameField(event.target.value);
-  };
   const exitFormHandler = function () {
     setExitForm(true);
     props.navigate(exitForm);
@@ -32,9 +28,10 @@ const ExerciseForm = function (props) {
       workoutId: data.curExercises,
     };
 
+    event.target.reset();
+
     try {
       await apiService.postNewExercise(formData);
-      setExerciseNameField("");
       props.navigate();
       return "Exercise was not saved";
     } catch (error) {
@@ -53,8 +50,6 @@ const ExerciseForm = function (props) {
         placeholder="What is this exercise called?"
         type="text"
         required
-        value={exerciseNameField}
-        onChange={exerciseNameFieldChangeHandler}
       ></input>
       <Button
         btnType="submit"

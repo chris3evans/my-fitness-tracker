@@ -3,19 +3,12 @@ import Button from "../Button";
 const apiService = require("../../Utils/api-service");
 
 const WorkoutForm = function (props) {
-  const [workoutNameField, setWorkoutNameField] = useState("");
   const [addWorkout, setAddWorkout] = useState("");
 
   useEffect(() => {
     props.render();
   }, [addWorkout]);
 
-  const workoutNameChangeHandler = function (event) {
-    setWorkoutNameField(event.target.value);
-  };
-  // const enterExerciseHandler = function () {
-  //   setAddExercises(true);
-  // };
   const finishWorkoutHandler = function () {
     setAddWorkout(true);
   };
@@ -27,10 +20,11 @@ const WorkoutForm = function (props) {
       workoutname: event.target.workoutname.value,
     };
 
+    event.target.reset();
+
     try {
       await apiService.postNewWorkout(formData);
       props.navigate();
-      setWorkoutNameField("");
       return "Workout was saved";
     } catch (error) {
       console.log(error, "error in posting workout in form (client side)");
@@ -48,8 +42,6 @@ const WorkoutForm = function (props) {
         name="workoutname"
         id="workout-name"
         placeholder="What is this workout called?"
-        onChange={workoutNameChangeHandler}
-        value={workoutNameField}
         required
       ></input>
 

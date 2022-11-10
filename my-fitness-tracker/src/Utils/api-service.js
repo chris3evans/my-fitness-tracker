@@ -1,13 +1,13 @@
 const baseUrl = "http://localhost:4000";
 
-const postNewWorkout = async function (data) {
+const postNewWorkout = async function (workoutData) {
   try {
     const response = await fetch(`${baseUrl}/add-workout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(workoutData),
     });
 
     return await response.json();
@@ -36,14 +36,14 @@ const getAllWorkouts = async function () {
   }
 };
 
-const postNewExercise = async function (data) {
+const postNewExercise = async function (exerciseData) {
   try {
     const response = await fetch(`${baseUrl}/add-exercise`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(exerciseData),
     });
 
     return await response.json();
@@ -72,9 +72,28 @@ const getAllExercises = async function (workoutId) {
   }
 };
 
+const postNewSession = async function (sessionData) {
+  try {
+    const response = await fetch(`${baseUrl}/add-session`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(sessionData),
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    console.log("Error in saving session");
+    return "Error in saving session";
+  }
+};
+
 module.exports = {
   postNewWorkout,
   getAllWorkouts,
   postNewExercise,
   getAllExercises,
+  postNewSession,
 };
