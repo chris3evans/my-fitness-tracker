@@ -25,7 +25,7 @@ const WorkoutsView = function () {
       return "retrieved all workouts";
     } catch (error) {
       console.log(error, "error getting all the workouts");
-      return "failed to retrieved all workouts";
+      return "failed to retrieve all workouts";
     }
   };
 

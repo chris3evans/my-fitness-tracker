@@ -54,4 +54,27 @@ const postNewExercise = async function (data) {
   }
 };
 
-module.exports = { postNewWorkout, getAllWorkouts, postNewExercise };
+const getAllExercises = async function (workoutId) {
+  try {
+    const response = await fetch(`${baseUrl}/exercises/${workoutId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const exercisesData = await response.json();
+    return exercisesData;
+  } catch (error) {
+    console.error(error);
+    console.log("Error in retrieving all the exercises (client side)");
+    return "Error in retrieving all exercises";
+  }
+};
+
+module.exports = {
+  postNewWorkout,
+  getAllWorkouts,
+  postNewExercise,
+  getAllExercises,
+};

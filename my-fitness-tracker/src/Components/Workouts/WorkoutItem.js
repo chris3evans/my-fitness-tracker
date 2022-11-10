@@ -8,6 +8,9 @@ const WorkoutItem = function (props) {
     // Know which workout has been clicked
     const workoutId = +event.target.id;
 
+    // Obtain the name of this workout
+    data.getCurWorkout(props.workoutData.workoutname);
+
     // Stop rendering the workouts view
     // Render the exercises view
     data.toggleView();

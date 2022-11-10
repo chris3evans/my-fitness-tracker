@@ -7,5 +7,6 @@ router.post("/add-workout", WorkoutControllers.addNewWorkout);
 router.get("/workouts", WorkoutControllers.getAllWorkouts);
 
 router.post("/add-exercise", ExerciseControllers.addNewWorkout);
+router.get("/exercises/:workoutId", ExerciseControllers.getAllExercises);
 
 module.exports = router;

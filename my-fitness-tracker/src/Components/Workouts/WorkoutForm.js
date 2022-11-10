@@ -16,7 +16,7 @@ const WorkoutForm = function (props) {
   // const enterExerciseHandler = function () {
   //   setAddExercises(true);
   // };
-  const finishWorkoutHander = function () {
+  const finishWorkoutHandler = function () {
     setAddWorkout(true);
   };
 
@@ -61,7 +61,7 @@ const WorkoutForm = function (props) {
       <Button
         btnType="submit"
         content="Create Workout"
-        handler={finishWorkoutHander}
+        handler={finishWorkoutHandler}
       ></Button>
     </form>
   );

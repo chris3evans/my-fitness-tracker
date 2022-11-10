@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Button from "../Button";
 import Context from "../../Utils/context";
 const apiService = require("../../Utils/api-service");
@@ -7,6 +7,11 @@ const ExerciseForm = function (props) {
   const data = useContext(Context);
   const [exerciseNameField, setExerciseNameField] = useState("");
   const [exitForm, setExitForm] = useState(false);
+  const [addExercise, setAddExercise] = useState("");
+
+  useEffect(() => {
+    props.render();
+  }, [addExercise]);
 
   const exerciseNameFieldChangeHandler = function (event) {
     setExerciseNameField(event.target.value);
@@ -14,6 +19,10 @@ const ExerciseForm = function (props) {
   const exitFormHandler = function () {
     setExitForm(true);
     props.navigate(exitForm);
+  };
+
+  const finishExerciseHandler = function () {
+    setAddExercise(true);
   };
 
   const exerciseSubmitHandler = async function (event) {
@@ -25,6 +34,8 @@ const ExerciseForm = function (props) {
 
     try {
       await apiService.postNewExercise(formData);
+      setExerciseNameField("");
+      props.navigate();
       return "Exercise was not saved";
     } catch (error) {
       console.log(error, "error in posting new exercise (client side)");
@@ -45,7 +56,11 @@ const ExerciseForm = function (props) {
         value={exerciseNameField}
         onChange={exerciseNameFieldChangeHandler}
       ></input>
-      <Button btnType="submit" content="Save Exercise To Workout"></Button>
+      <Button
+        btnType="submit"
+        content="Save Exercise To Workout"
+        handler={finishExerciseHandler}
+      ></Button>
     </form>
   );
 };
