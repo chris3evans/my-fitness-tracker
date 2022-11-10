@@ -18,6 +18,7 @@ for (let file of files) {
   // ignore index.js
   if (file !== "index.js") {
     // For each model file, require a function which creates the model and then call it with sequelize + Sequelize.DataTypes to get the resultant model
+    // Specify files
     const model = require(path.join(__dirname, file))(
       sequelize,
       Sequelize.DataTypes

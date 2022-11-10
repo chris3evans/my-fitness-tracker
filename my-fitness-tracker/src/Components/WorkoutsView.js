@@ -1,8 +1,15 @@
 import Button from "./Button";
 import WorkoutForm from "./WorkoutForm";
-import { useState } from "react";
+import WorkoutList from "./WorkoutList";
+import { useState, useEffect } from "react";
+const apiService = require("../Utils/api-service");
 
 const WorkoutsView = function () {
+  useEffect(() => {
+    workoutDataHandler();
+  }, []);
+
+  const [workoutData, setWorkoutData] = useState("");
   const [enteringWorkout, setEnteringWorkout] = useState(false);
 
   const enterWorkoutHandler = function () {
@@ -11,11 +18,20 @@ const WorkoutsView = function () {
   const exitWorkoutHandler = function () {
     setEnteringWorkout(false);
   };
+  const workoutDataHandler = async function () {
+    try {
+      const workouts = await apiService.getAllWorkouts();
+      setWorkoutData(workouts);
+      return "retrieved all workouts";
+    } catch (error) {
+      console.log(error, "error getting all the workouts");
+      return "failed to retrieved all workouts";
+    }
+  };
 
   return (
     <>
       <h1>{enteringWorkout ? "Enter Workout" : "Your Workouts"}</h1>
-      {/* Either render message if no workouts or render list of created workouts */}
       {enteringWorkout ? (
         ""
       ) : (
@@ -25,8 +41,16 @@ const WorkoutsView = function () {
           handler={enterWorkoutHandler}
         ></Button>
       )}
+      {workoutData.length > 0 ? (
+        <WorkoutList workouts={workoutData}></WorkoutList>
+      ) : (
+        ""
+      )}
       {enteringWorkout ? (
-        <WorkoutForm navigate={exitWorkoutHandler}></WorkoutForm>
+        <WorkoutForm
+          render={workoutDataHandler}
+          navigate={exitWorkoutHandler}
+        ></WorkoutForm>
       ) : (
         ""
       )}

@@ -1,38 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "./Button";
 const apiService = require("../Utils/api-service");
 
 const WorkoutForm = function (props) {
   const [workoutNameField, setWorkoutNameField] = useState("");
-  const [addExercises, setAddExercises] = useState("");
+  const [addWorkout, setAddWorkout] = useState("");
+
+  useEffect(() => {
+    props.render();
+  }, [addWorkout]);
 
   const workoutNameChangeHandler = function (event) {
     setWorkoutNameField(event.target.value);
   };
-
-  const enterExerciseHandler = function () {
-    setAddExercises(true);
+  // const enterExerciseHandler = function () {
+  //   setAddExercises(true);
+  // };
+  const finishWorkoutHander = function () {
+    setAddWorkout(true);
   };
 
-  const submitWorkoutHander = function () {
-    setAddExercises(false);
-  };
-
-  const workoutSubmitHandler = function (event) {
+  const workoutSubmitHandler = async function (event) {
     event.preventDefault();
 
     const formData = {
       workoutname: event.target.workoutname.value,
     };
-    console.log(formData, "workout name");
 
-    apiService.postNewWorkout(formData);
-
-    setWorkoutNameField("");
+    try {
+      await apiService.postNewWorkout(formData);
+      props.navigate();
+      setWorkoutNameField("");
+      return "Workout was saved";
+    } catch (error) {
+      console.log(error, "error in posting workout in form (client side)");
+      return "Workout was not saved";
+    }
   };
 
   return (
     <form onSubmit={workoutSubmitHandler}>
+      {/* use aria label if using icon for back button */}
       <div onClick={props.navigate}>BACK BTN</div>
       <label htmlFor="workout-name">Workout Name:</label>
       <input
@@ -42,17 +50,18 @@ const WorkoutForm = function (props) {
         placeholder="What is this workout called?"
         onChange={workoutNameChangeHandler}
         value={workoutNameField}
+        required
       ></input>
 
-      <Button
+      {/* <Button
         btnType="submit"
         content="Add Exercise"
         handler={enterExerciseHandler}
-      ></Button>
+      ></Button> */}
       <Button
         btnType="submit"
-        content="Create Workout (add exercises later)"
-        handler={submitWorkoutHander}
+        content="Create Workout"
+        handler={finishWorkoutHander}
       ></Button>
     </form>
   );

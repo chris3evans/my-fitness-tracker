@@ -15,4 +15,19 @@ const addNewWorkout = async function (req, res) {
   }
 };
 
-module.exports = { addNewWorkout };
+const getAllWorkouts = async function (req, res) {
+  try {
+    const allWorkouts = await db.Workout.findAll();
+    console.log(allWorkouts, "all workouts in database");
+    res.send(allWorkouts);
+    res.status(200);
+  } catch (error) {
+    res.status(500);
+    res.send(
+      error,
+      "Error in getting all the workouts from the database (server side)"
+    );
+  }
+};
+
+module.exports = { addNewWorkout, getAllWorkouts };
