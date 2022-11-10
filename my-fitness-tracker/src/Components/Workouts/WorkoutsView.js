@@ -1,8 +1,8 @@
-import Button from "./Button";
-import WorkoutForm from "./WorkoutForm";
-import WorkoutList from "./WorkoutList";
+import Button from "../Button";
+import WorkoutForm from "../Workouts/WorkoutForm";
+import WorkoutList from "../Workouts/WorkoutList";
 import { useState, useEffect } from "react";
-const apiService = require("../Utils/api-service");
+const apiService = require("../../Utils/api-service");
 
 const WorkoutsView = function () {
   useEffect(() => {
@@ -41,7 +41,7 @@ const WorkoutsView = function () {
           handler={enterWorkoutHandler}
         ></Button>
       )}
-      {workoutData.length > 0 ? (
+      {workoutData.length > 0 && !enteringWorkout ? (
         <WorkoutList workouts={workoutData}></WorkoutList>
       ) : (
         ""

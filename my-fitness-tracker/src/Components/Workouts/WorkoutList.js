@@ -1,11 +1,11 @@
+import WorkoutItem from "../Workouts/WorkoutItem";
+
 const WorkoutList = function (props) {
   return (
     <ul>
       {props.workouts.map((workout) => {
         return (
-          <div key={workout.id}>
-            <h2>{workout.workoutname}</h2>
-          </div>
+          <WorkoutItem key={workout.id} workoutData={workout}></WorkoutItem>
         );
       })}
     </ul>

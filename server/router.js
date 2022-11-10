@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const WorkoutControllers = require("./workout-controller");
+const WorkoutControllers = require("./Controllers/workout-controller");
 
 router.post("/add-workout", WorkoutControllers.addNewWorkout);
 router.get("/workouts", WorkoutControllers.getAllWorkouts);

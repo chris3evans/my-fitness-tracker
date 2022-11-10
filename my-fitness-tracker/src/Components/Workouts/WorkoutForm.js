@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Button from "./Button";
-const apiService = require("../Utils/api-service");
+import Button from "../Button";
+const apiService = require("../../Utils/api-service");
 
 const WorkoutForm = function (props) {
   const [workoutNameField, setWorkoutNameField] = useState("");

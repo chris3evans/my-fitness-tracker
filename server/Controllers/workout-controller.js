@@ -1,10 +1,8 @@
-const db = require("./Models/index");
+const db = require("../Models/index");
 
 const addNewWorkout = async function (req, res) {
   try {
-    console.log(req.body);
     const workoutData = req.body;
-
     const workout = await db.Workout.create(workoutData);
 
     res.send(workout);
@@ -18,7 +16,6 @@ const addNewWorkout = async function (req, res) {
 const getAllWorkouts = async function (req, res) {
   try {
     const allWorkouts = await db.Workout.findAll();
-    console.log(allWorkouts, "all workouts in database");
     res.send(allWorkouts);
     res.status(200);
   } catch (error) {

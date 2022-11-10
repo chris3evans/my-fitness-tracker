@@ -28,7 +28,6 @@ const getAllWorkouts = async function () {
     });
 
     const workoutsData = await response.json();
-    console.log(workoutsData, "retrieved workout data");
     return workoutsData;
   } catch (error) {
     console.error(error);
@@ -37,4 +36,22 @@ const getAllWorkouts = async function () {
   }
 };
 
-module.exports = { postNewWorkout, getAllWorkouts };
+const postNewExercise = async function (data) {
+  try {
+    const response = await fetch(`${baseUrl}/add-exercise`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    console.log("Error in posting a new exercise (client side)");
+    return "Error in saving exercise";
+  }
+};
+
+module.exports = { postNewWorkout, getAllWorkouts, postNewExercise };
