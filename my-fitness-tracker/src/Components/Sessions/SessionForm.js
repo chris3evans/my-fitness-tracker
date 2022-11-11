@@ -1,19 +1,8 @@
 import Button from "../Button";
-import { useState, useEffect } from "react";
 const apiService = require("../../Utils/api-service");
 
 const SessionForm = function (props) {
-  const [addSession, setAddSession] = useState("");
-
-  // useEffect(() => {
-  //   props.renderSessions();
-  // }, [addSession]);
-
-  const finishSessionHandler = function () {
-    setAddSession(true);
-  };
-
-  const sessionSubmitHandler = function (event) {
+  const sessionSubmitHandler = async function (event) {
     event.preventDefault();
 
     const formData = {
@@ -27,8 +16,8 @@ const SessionForm = function (props) {
     event.target.reset();
 
     try {
-      apiService.postNewSession(formData);
-      finishSessionHandler();
+      await apiService.postNewSession(formData);
+      props.submitSession(Math.random());
       return "Session data was saved successfully";
     } catch (error) {
       console.error(

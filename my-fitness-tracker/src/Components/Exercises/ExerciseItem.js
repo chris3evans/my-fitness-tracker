@@ -1,33 +1,48 @@
-import Context from "../../Utils/context";
-import { useContext, useState } from "react";
+import { useState, useEffect } from "react";
 import SessionForm from "../Sessions/SessionForm";
+import SessionList from "../Sessions/SessionList";
+const apiService = require("../../Utils/api-service");
 
 const ExerciseItem = function (props) {
-  const data = useContext(Context);
-  const [showSessionForm, setShowSessionForm] = useState(0);
+  const [sessionsData, setSessionsData] = useState("");
+  const [addSession, setAddSession] = useState(false);
 
-  const exerciseClickHandler = function (event) {
-    const exerciseId = +event.target.id;
-    console.log(exerciseId);
-
-    if (exerciseId === showSessionForm) {
-      setShowSessionForm(0);
-    } else {
-      setShowSessionForm(exerciseId);
+  useEffect(() => {
+    if (addSession) {
+      sessionDataHandler();
     }
+  }, [addSession]);
 
-    data.getCurExercise(exerciseId);
+  const sessionDataHandler = async function () {
+    try {
+      const sessions = await apiService.getAllSessions(props.exerciseId);
+      console.log(sessions, "123");
+      setSessionsData(sessions);
+      console.log(sessionsData);
+      return "Sessions were retrieved";
+    } catch (error) {
+      console.log(`Error in retrieiving the sessions: ${error}`);
+      return "Error in retrieving the sessions";
+    }
   };
 
   return (
     <>
-      <li onClick={exerciseClickHandler}>
-        <h2 id={props.exerciseData.id}>{props.exerciseData.exercisename}</h2>
-        {showSessionForm === props.exerciseData.id ? (
-          <SessionForm exerciseId={props.exerciseData.id}></SessionForm>
+      <li>
+        <h2 onClick={props.handler} id={props.exerciseData.id}>
+          {props.exerciseData.exercisename}
+        </h2>
+        {props.selectedExerciseId === props.exerciseId && props.showForm ? (
+          <SessionForm
+            submitSession={setAddSession}
+            exerciseId={props.exerciseData.id}
+          ></SessionForm>
         ) : (
           ""
         )}
+        <SessionList
+          sessionData={sessionsData ? sessionsData : []}
+        ></SessionList>
       </li>
     </>
   );

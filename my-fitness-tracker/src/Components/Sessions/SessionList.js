@@ -1,6 +1,7 @@
 const SessionList = function (props) {
   return (
     <ul>
+      <li>Session list</li>
       {props.sessionData.map((session) => {
         return (
           <li key={session.id}>

@@ -1,35 +1,20 @@
 import ExerciseItem from "./ExerciseItem";
-import SessionForm from "../Sessions/SessionForm";
-import SessionList from "../Sessions/SessionList";
-import { useState, useContext, useEffect } from "react";
-const Context = require("../../Utils/context");
-const apiService = require("../../Utils/api-service");
+import { useState } from "react";
 
 const ExerciseList = function (props) {
-  const data = useContext(Context);
+  const [clickedExercise, setClickedExercise] = useState("");
+  const [showSessionForm, setShowSessionForm] = useState(false);
 
-  // const [showSessionForm, setShowSessionForm] = useState(0);
-  // const [renderSessions, setRenderSessions] = useState(false);
-  // const [sessionsData, setSessionsData] = useState("");
+  const onClickHandler = function (event) {
+    const clickedExerciseId = +event.target.id;
+    setClickedExercise(clickedExerciseId);
 
-  // useEffect(() => {
-  //   sessionDataHandler();
-  //   console.log("hi");
-  // }, [renderSessions]);
+    const nodeName = event.target.nodeName;
 
-  // const renderSessionsHandler = function () {
-  //   setRenderSessions(!renderSessions);
-  // };
-
-  // const toggleSessionFormHandler = function (event) {
-  //   const exerciseId = +event.target.id;
-
-  //   if (exerciseId === showSessionForm) {
-  //     setShowSessionForm(0);
-  //   } else {
-  //     setShowSessionForm(exerciseId);
-  //   }
-  // };
+    if (nodeName === "H2" || nodeName === "LI") {
+      setShowSessionForm(!showSessionForm);
+    }
+  };
 
   return (
     <ul>
@@ -37,15 +22,12 @@ const ExerciseList = function (props) {
         return (
           <div key={exercise.id}>
             <ExerciseItem
-              // handler={toggleSessionFormHandler}
               exerciseData={exercise}
+              exerciseId={exercise.id}
+              selectedExerciseId={clickedExercise}
+              handler={onClickHandler}
+              showForm={showSessionForm}
             ></ExerciseItem>
-            <SessionList sessionData={[]}></SessionList>
-            {/* {showSessionForm === exercise.id ? (
-              <SessionForm exerciseId={exercise.id}></SessionForm>
-            ) : (
-              ""
-            )} */}
           </div>
         );
       })}
