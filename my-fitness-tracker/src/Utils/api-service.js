@@ -102,6 +102,7 @@ const getAllSessions = async function (exerciseId) {
 
     const sessionsData = await response.json();
     console.log(sessionsData, "sessions data");
+
     return sessionsData;
   } catch (error) {
     console.error(error);

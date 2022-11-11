@@ -1,3 +1,5 @@
+const Date = require("../../Utils/date");
+
 const SessionList = function (props) {
   return (
     <ul>
@@ -8,7 +10,7 @@ const SessionList = function (props) {
             <h3>{session.maxweight}</h3>
             <h3>{session.sets}</h3>
             <h3>{session.reps}</h3>
-            <h3>DATE GOES HERE</h3>
+            <h3>{Date.formatDate(session.createdAt)}</h3>
           </li>
         );
       })}

@@ -13,12 +13,14 @@ const ExerciseItem = function (props) {
     }
   }, [addSession]);
 
+  useEffect(() => {
+    sessionDataHandler();
+  }, []);
+
   const sessionDataHandler = async function () {
     try {
       const sessions = await apiService.getAllSessions(props.exerciseId);
-      console.log(sessions, "123");
       setSessionsData(sessions);
-      console.log(sessionsData);
       return "Sessions were retrieved";
     } catch (error) {
       console.log(`Error in retrieiving the sessions: ${error}`);
@@ -40,9 +42,11 @@ const ExerciseItem = function (props) {
         ) : (
           ""
         )}
-        <SessionList
-          sessionData={sessionsData ? sessionsData : []}
-        ></SessionList>
+        {sessionsData.length > 0 ? (
+          <SessionList sessionData={sessionsData}></SessionList>
+        ) : (
+          ""
+        )}
       </li>
     </>
   );

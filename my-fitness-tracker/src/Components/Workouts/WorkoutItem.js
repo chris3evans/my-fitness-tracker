@@ -15,6 +15,8 @@ const WorkoutItem = function (props) {
     // Render the exercises view
     data.toggleView();
     data.getCurExercises(workoutId);
+
+    // Render the sessions for each exercise
   };
 
   return (

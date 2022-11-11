@@ -14,7 +14,7 @@ const ExercisesView = function () {
 
   useEffect(() => {
     exerciseDataHandler();
-    // sessionDataHandler();
+    //sessionDataHandler();
   }, []);
 
   const enterAddExerciseHandler = function () {
