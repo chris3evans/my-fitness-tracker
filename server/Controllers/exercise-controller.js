@@ -1,6 +1,6 @@
 const db = require("../Models/index");
 
-const addNewWorkout = async function (req, res) {
+const addNewExercise = async function (req, res) {
   try {
     const exerciseData = req.body;
     const exercise = await db.Exercise.create({
@@ -30,4 +30,4 @@ const getAllExercises = async function (req, res) {
   }
 };
 
-module.exports = { addNewWorkout, getAllExercises };
+module.exports = { addNewExercise, getAllExercises };

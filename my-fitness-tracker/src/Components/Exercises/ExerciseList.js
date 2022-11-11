@@ -1,19 +1,35 @@
 import ExerciseItem from "./ExerciseItem";
 import SessionForm from "../Sessions/SessionForm";
-import { useState } from "react";
+import SessionList from "../Sessions/SessionList";
+import { useState, useContext, useEffect } from "react";
+const Context = require("../../Utils/context");
+const apiService = require("../../Utils/api-service");
 
 const ExerciseList = function (props) {
-  const [showSessionForm, setShowSessionForm] = useState(0);
+  const data = useContext(Context);
 
-  const toggleSessionFormHandler = function (event) {
-    const exerciseId = +event.target.id;
+  // const [showSessionForm, setShowSessionForm] = useState(0);
+  // const [renderSessions, setRenderSessions] = useState(false);
+  // const [sessionsData, setSessionsData] = useState("");
 
-    if (exerciseId === showSessionForm) {
-      setShowSessionForm(0);
-    } else {
-      setShowSessionForm(exerciseId);
-    }
-  };
+  // useEffect(() => {
+  //   sessionDataHandler();
+  //   console.log("hi");
+  // }, [renderSessions]);
+
+  // const renderSessionsHandler = function () {
+  //   setRenderSessions(!renderSessions);
+  // };
+
+  // const toggleSessionFormHandler = function (event) {
+  //   const exerciseId = +event.target.id;
+
+  //   if (exerciseId === showSessionForm) {
+  //     setShowSessionForm(0);
+  //   } else {
+  //     setShowSessionForm(exerciseId);
+  //   }
+  // };
 
   return (
     <ul>
@@ -21,14 +37,15 @@ const ExerciseList = function (props) {
         return (
           <div key={exercise.id}>
             <ExerciseItem
-              handler={toggleSessionFormHandler}
+              // handler={toggleSessionFormHandler}
               exerciseData={exercise}
             ></ExerciseItem>
-            {showSessionForm === exercise.id ? (
+            <SessionList sessionData={[]}></SessionList>
+            {/* {showSessionForm === exercise.id ? (
               <SessionForm exerciseId={exercise.id}></SessionForm>
             ) : (
               ""
-            )}
+            )} */}
           </div>
         );
       })}

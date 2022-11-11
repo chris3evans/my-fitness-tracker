@@ -1,5 +1,5 @@
 import Context from "../../Utils/context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const WorkoutItem = function (props) {
   const data = useContext(Context);

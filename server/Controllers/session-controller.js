@@ -3,10 +3,9 @@ const db = require("../Models/index");
 const addNewSession = async function (req, res) {
   try {
     const sessionData = req.body;
-    console.log(sessionData, "session data");
     const session = await db.Session.create({
       ...sessionData,
-      ExerciseId: 1,
+      ExerciseId: sessionData.exerciseId,
     });
 
     res.send(session);
@@ -17,4 +16,20 @@ const addNewSession = async function (req, res) {
   }
 };
 
-module.exports = { addNewSession };
+const getAllSessions = async function (req, res) {
+  try {
+    const exerciseId = req.url.split("/").pop();
+
+    const allSessions = await db.Session.findAll({
+      where: { ExerciseId: exerciseId },
+    });
+    console.log(allSessions);
+    res.send(allSessions);
+    res.status(200);
+  } catch (error) {
+    res.status(500);
+    res.json(`Error in retrieving the sessions from database: ${error}`);
+  }
+};
+
+module.exports = { addNewSession, getAllSessions };

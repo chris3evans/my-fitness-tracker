@@ -10,18 +10,25 @@ function App() {
 
   const [curWorkout, setCurWorkout] = useState("");
   const [curExercises, setCurExercises] = useState("");
-
+  const [curExercise, setCurExercise] = useState("");
   const toggleView = function () {
     setViewWorkouts(!viewWorkouts);
     setViewExercises(!viewExercises);
   };
 
+  // Returns name of current workout
   const getCurWorkout = function (workoutName) {
     setCurWorkout(workoutName);
   };
 
+  // Returns id of current workout
   const getCurExercises = function (workoutId) {
     setCurExercises(workoutId);
+  };
+
+  // Returns id of current exercise
+  const getCurExercise = function (exerciseId) {
+    setCurExercise(exerciseId);
   };
 
   const state = {
@@ -30,6 +37,8 @@ function App() {
     curExercises: curExercises,
     getCurWorkout: getCurWorkout,
     curWorkout: curWorkout,
+    getCurExercise: getCurExercise,
+    curExercise: curExercise,
   };
 
   return (

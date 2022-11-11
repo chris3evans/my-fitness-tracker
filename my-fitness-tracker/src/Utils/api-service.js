@@ -90,10 +90,30 @@ const postNewSession = async function (sessionData) {
   }
 };
 
+const getAllSessions = async function (exerciseId) {
+  try {
+    const response = await fetch(`${baseUrl}/sessions/${exerciseId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const sessionsData = await response.json();
+    console.log(sessionsData, "sessions data");
+    return sessionsData;
+  } catch (error) {
+    console.error(error);
+    console.log("Error in retrieving sessions");
+    return "Error in retrieving sessions";
+  }
+};
+
 module.exports = {
   postNewWorkout,
   getAllWorkouts,
   postNewExercise,
   getAllExercises,
   postNewSession,
+  getAllSessions,
 };

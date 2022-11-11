@@ -10,9 +10,11 @@ const ExercisesView = function () {
 
   const [exerciseData, setExerciseData] = useState("");
   const [enteringExercise, setEnteringExercise] = useState(false);
+  const [sessionsData, setSessionsData] = useState("");
 
   useEffect(() => {
     exerciseDataHandler();
+    sessionDataHandler();
   }, []);
 
   const enterAddExerciseHandler = function () {
@@ -30,6 +32,20 @@ const ExercisesView = function () {
     } catch (error) {
       console.log(error, "error getting all the exercises");
       return "failed to retrieve all exercises";
+    }
+  };
+
+  const sessionDataHandler = async function () {
+    try {
+      const sessions = await apiService.getAllSessions(data.curExercises);
+      console.log(data.curExercises);
+      console.log(sessions, "123");
+      setSessionsData(sessions);
+      console.log(sessionsData, "sessiond");
+      return "Sessions were retrieved";
+    } catch (error) {
+      console.log(`Error in retrieiving the sessions: ${error}`);
+      return "Error in retrieving the sessions";
     }
   };
 
