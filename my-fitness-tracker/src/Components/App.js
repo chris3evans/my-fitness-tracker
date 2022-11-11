@@ -1,7 +1,7 @@
-import "./App.css";
-import WorkoutsView from "./Components/Workouts/WorkoutsView";
-import ExercisesView from "./Components/Exercises/ExercisesView";
-import Context from "./Utils/context";
+import "../Styles/App.css";
+import WorkoutsView from "./Workouts/WorkoutsView";
+import ExercisesView from "./Exercises/ExercisesView";
+import Context from "../Utils/context";
 import { useState } from "react";
 
 function App() {

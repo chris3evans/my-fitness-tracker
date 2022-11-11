@@ -1,9 +1,10 @@
+import SessionHeaders from "./SessionHeaders";
 const Date = require("../../Utils/date");
 
 const SessionList = function (props) {
   return (
     <ul>
-      <li>Session list</li>
+      <SessionHeaders></SessionHeaders>
       {props.sessionData.map((session) => {
         return (
           <li key={session.id}>

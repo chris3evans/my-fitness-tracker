@@ -10,11 +10,9 @@ const ExercisesView = function () {
 
   const [exerciseData, setExerciseData] = useState("");
   const [enteringExercise, setEnteringExercise] = useState(false);
-  const [sessionsData, setSessionsData] = useState("");
 
   useEffect(() => {
     exerciseDataHandler();
-    //sessionDataHandler();
   }, []);
 
   const enterAddExerciseHandler = function () {
@@ -37,7 +35,7 @@ const ExercisesView = function () {
 
   return (
     <>
-      <h1>{data.curWorkout}</h1>
+      <h1 className="primary-heading">{data.curWorkout}</h1>
       {!enteringExercise ? <div onClick={data.toggleView}>BACK BTN</div> : ""}
       {!enteringExercise ? (
         <Button

@@ -31,7 +31,9 @@ const WorkoutsView = function () {
 
   return (
     <>
-      <h1>{enteringWorkout ? "Enter Workout" : "Your Workouts"}</h1>
+      <h1 className="primary-heading">
+        {enteringWorkout ? "Enter Workout" : "Your Workouts"}
+      </h1>
       {enteringWorkout ? (
         ""
       ) : (

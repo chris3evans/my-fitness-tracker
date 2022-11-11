@@ -15,14 +15,16 @@ const WorkoutItem = function (props) {
     // Render the exercises view
     data.toggleView();
     data.getCurExercises(workoutId);
-
-    // Render the sessions for each exercise
   };
 
   return (
-    <li onClick={workoutClickHandler}>
-      <h2 id={props.workoutData.id}>{props.workoutData.workoutname}</h2>
-    </li>
+    <div className="workout-card">
+      <li onClick={workoutClickHandler}>
+        <h2 className="card-text" id={props.workoutData.id}>
+          {props.workoutData.workoutname}
+        </h2>
+      </li>
+    </div>
   );
 };
 

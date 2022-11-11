@@ -29,26 +29,28 @@ const ExerciseItem = function (props) {
   };
 
   return (
-    <>
-      <li>
-        <h2 onClick={props.handler} id={props.exerciseData.id}>
-          {props.exerciseData.exercisename}
-        </h2>
-        {props.selectedExerciseId === props.exerciseId && props.showForm ? (
-          <SessionForm
-            submitSession={setAddSession}
-            exerciseId={props.exerciseData.id}
-          ></SessionForm>
-        ) : (
-          ""
-        )}
-        {sessionsData.length > 0 ? (
-          <SessionList sessionData={sessionsData}></SessionList>
-        ) : (
-          ""
-        )}
-      </li>
-    </>
+    <li>
+      <h2
+        className="exercise-card card-text"
+        onClick={props.handler}
+        id={props.exerciseData.id}
+      >
+        {props.exerciseData.exercisename}
+      </h2>
+      {props.selectedExerciseId === props.exerciseId && props.showForm ? (
+        <SessionForm
+          submitSession={setAddSession}
+          exerciseId={props.exerciseData.id}
+        ></SessionForm>
+      ) : (
+        ""
+      )}
+      {sessionsData.length > 0 ? (
+        <SessionList sessionData={sessionsData}></SessionList>
+      ) : (
+        ""
+      )}
+    </li>
   );
 };
 

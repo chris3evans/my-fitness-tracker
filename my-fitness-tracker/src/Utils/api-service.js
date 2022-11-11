@@ -91,7 +91,6 @@ const postNewSession = async function (sessionData) {
 };
 
 const getAllSessions = async function (exerciseId) {
-  console.log(exerciseId, "exerciseId");
   try {
     const response = await fetch(`${baseUrl}/sessions/${exerciseId}`, {
       method: "GET",
@@ -101,7 +100,6 @@ const getAllSessions = async function (exerciseId) {
     });
 
     const sessionsData = await response.json();
-    console.log(sessionsData, "sessions data");
 
     return sessionsData;
   } catch (error) {
