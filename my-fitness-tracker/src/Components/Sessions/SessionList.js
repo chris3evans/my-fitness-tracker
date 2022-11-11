@@ -3,19 +3,29 @@ const Date = require("../../Utils/date");
 
 const SessionList = function (props) {
   return (
-    <ul>
-      <SessionHeaders></SessionHeaders>
-      {props.sessionData.map((session) => {
-        return (
-          <li key={session.id}>
-            <h3>{session.maxweight}</h3>
-            <h3>{session.sets}</h3>
-            <h3>{session.reps}</h3>
-            <h3>{Date.formatDate(session.createdAt)}</h3>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="session-container">
+      <ul>
+        <SessionHeaders></SessionHeaders>
+        {props.sessionData.map((session) => {
+          return (
+            <li className="session-card" key={session.id}>
+              <div className="session-text-container">
+                <h3 className="text">{session.maxweight}</h3>
+              </div>
+              <div className="session-text-container">
+                <h3 className="text">{session.sets}</h3>
+              </div>
+              <div className="session-text-container">
+                <h3 className="text">{session.reps}</h3>
+              </div>
+              <div className="session-text-container">
+                <h3 className="text">{Date.formatDate(session.createdAt)}</h3>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 

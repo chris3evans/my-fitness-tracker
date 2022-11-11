@@ -34,14 +34,26 @@ const ExercisesView = function () {
   };
 
   return (
-    <>
+    <div className="px-40 py-20">
       <h1 className="primary-heading">{data.curWorkout}</h1>
-      {!enteringExercise ? <div onClick={data.toggleView}>BACK BTN</div> : ""}
+      {!enteringExercise ? (
+        <Button
+          styles="card-text cursor-pointer"
+          content="BACK BTN"
+          btnType="button"
+          handler={data.toggleView}
+        >
+          BACK BTN
+        </Button>
+      ) : (
+        ""
+      )}
       {!enteringExercise ? (
         <Button
           btnType="button"
           content="Add Exercise"
           handler={enterAddExerciseHandler}
+          styles="button"
         ></Button>
       ) : (
         ""
@@ -59,7 +71,7 @@ const ExercisesView = function () {
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 };
 

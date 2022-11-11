@@ -8,7 +8,7 @@
 
 @layer components {
   .primary-heading {
-    @apply text-8xl font-mono font-bold p-8;
+    @apply text-8xl font-mono font-bold p-8 text-emerald-900;
   }
   .secondary-heading {
     @apply text-4xl font-mono;
@@ -16,9 +16,32 @@
   .card-text {
     @apply text-4xl text-white;
   }
+  .text {
+    @apply text-2xl font-mono text-left;
+  }
+
+  .form {
+    @apply bg-teal-500 p-16 grid grid-rows-4 gap-y-6 rounded-xl shadow-2xl;
+  }
+  .form-sessions {
+    /* @apply bg-teal-500 p-16 flex flex-col flex-1 content-start; */
+    @apply bg-teal-500 p-16 grid grid-rows-4 gap-5;
+  }
+  .form-field {
+    @apply grid grid-rows-2 gap-5;
+  }
+  .form-label {
+    @apply text-white text-6xl self-center;
+  }
+  .form-input {
+    @apply rounded-lg text-4xl pl-6 text-black;
+  }
+  .form-input::placeholder {
+    @apply text-4xl self-center;
+  }
 
   .button {
-    @apply text-4xl bg-blue-900 p-8 text-white rounded-lg translate-y-0 cursor-pointer transition duration-300;
+    @apply text-4xl bg-emerald-900 p-8 text-white rounded-lg translate-y-0 cursor-pointer transition duration-300;
   }
 
   .button:hover {
@@ -28,7 +51,6 @@
   .workout-container {
     @apply bg-slate-300 p-8;
   }
-
   .workout-card {
     @apply bg-gray-600 p-8 cursor-pointer transition duration-500;
   }
@@ -49,8 +71,16 @@
     @apply mb-8;
   }
 
+  .session-container {
+  }
+  .session-card {
+    @apply grid grid-cols-4 py-3 border-b-2 border-blue-600;
+  }
+  .session-text-container {
+    @apply w-10 justify-self-center;
+  }
   .session-headers {
-    @apply flex justify-evenly py-1 border-b-2 border-blue-900;
+    @apply grid grid-cols-4 grid-flow-dense justify-evenly py-1 border-b-4 border-blue-900;
   }
 }
 

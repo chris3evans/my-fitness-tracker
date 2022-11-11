@@ -29,17 +29,47 @@ const SessionForm = function (props) {
   };
 
   return (
-    <form onSubmit={sessionSubmitHandler}>
-      <label htmlFor="max-weight">Maximum Working Weight Reached:</label>
-      <input type="number" required id="max-weight" name="maxweight"></input>
+    <form className="form-sessions" onSubmit={sessionSubmitHandler}>
+      <div className="form-field">
+        <label className="form-label" htmlFor="max-weight">
+          Maximum Working Weight Reached:
+        </label>
+        <input
+          className="form-input"
+          type="number"
+          required
+          id="max-weight"
+          name="maxweight"
+        ></input>
+      </div>
 
-      <label htmlFor="sets">Sets:</label>
-      <input type="number" required id="sets" name="sets"></input>
+      <div className="form-field">
+        <label className="form-label" htmlFor="sets">
+          Sets:
+        </label>
+        <input
+          className="form-input"
+          type="number"
+          required
+          id="sets"
+          name="sets"
+        ></input>
+      </div>
 
-      <label htmlFor="reps">Repetitions:</label>
-      <input type="number" required id="reps" name="reps"></input>
+      <div className="form-field">
+        <label className="form-label" htmlFor="reps">
+          Repetitions:
+        </label>
+        <input
+          className="form-input"
+          type="number"
+          required
+          id="reps"
+          name="reps"
+        ></input>
+      </div>
 
-      <Button btnType="submit" content="Add Session"></Button>
+      <Button btnType="submit" content="Add Session" styles="button"></Button>
     </form>
   );
 };

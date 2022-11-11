@@ -41,10 +41,18 @@ const ExerciseForm = function (props) {
   };
 
   return (
-    <form onSubmit={exerciseSubmitHandler}>
-      <div onClick={exitFormHandler}>BACK BTN2</div>
-      <label htmlFor="exercise-name">Exercise Name:</label>
+    <form className="form" onSubmit={exerciseSubmitHandler}>
+      <Button
+        content="BACK BTN2"
+        styles="card-text cursor-pointer"
+        handler={exitFormHandler}
+        btnType="button"
+      ></Button>
+      <label className="form-label" htmlFor="exercise-name">
+        Exercise Name:
+      </label>
       <input
+        className="form-input"
         id="exercise-name"
         name="exercisename"
         placeholder="What is this exercise called?"
@@ -55,6 +63,7 @@ const ExerciseForm = function (props) {
         btnType="submit"
         content="Save Exercise To Workout"
         handler={finishExerciseHandler}
+        styles="button"
       ></Button>
     </form>
   );

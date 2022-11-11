@@ -17,7 +17,7 @@ const ExerciseList = function (props) {
   };
 
   return (
-    <ul>
+    <ul className="px-40 py-20">
       {props.exercises.map((exercise) => {
         return (
           <div key={exercise.id}>

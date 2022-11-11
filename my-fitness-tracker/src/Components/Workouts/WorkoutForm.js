@@ -33,27 +33,30 @@ const WorkoutForm = function (props) {
   };
 
   return (
-    <form onSubmit={workoutSubmitHandler}>
+    <form className="form" onSubmit={workoutSubmitHandler}>
       {/* use aria label if using icon for back button */}
-      <div onClick={props.navigate}>BACK BTN</div>
-      <label htmlFor="workout-name">Workout Name:</label>
+      <Button
+        content="BACK BTN"
+        styles="card-text cursor-pointer"
+        handler={props.navigate}
+        btnType="button"
+      ></Button>
+      <label className="form-label" htmlFor="workout-name">
+        Workout Name:
+      </label>
       <input
+        className="form-input"
         type="text"
         name="workoutname"
         id="workout-name"
         placeholder="What is this workout called?"
         required
       ></input>
-
-      {/* <Button
-        btnType="submit"
-        content="Add Exercise"
-        handler={enterExerciseHandler}
-      ></Button> */}
       <Button
         btnType="submit"
         content="Create Workout"
         handler={finishWorkoutHandler}
+        styles="button"
       ></Button>
     </form>
   );

@@ -29,7 +29,7 @@ const ExerciseItem = function (props) {
   };
 
   return (
-    <li>
+    <li className="mb-20">
       <h2
         className="exercise-card card-text"
         onClick={props.handler}

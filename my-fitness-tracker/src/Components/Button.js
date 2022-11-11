@@ -1,6 +1,10 @@
 const Button = function (props) {
   return (
-    <button className="button" onClick={props.handler} type={props.btnType}>
+    <button
+      className={props.styles}
+      onClick={props.handler}
+      type={props.btnType}
+    >
       {props.content}
     </button>
   );
