@@ -2,7 +2,7 @@ import WorkoutItem from "../Workouts/WorkoutItem";
 
 const WorkoutList = function (props) {
   return (
-    <div className="workout-container">
+    <div className="workout-container my-10 shadow-2xl">
       <ul>
         {props.workouts.map((workout) => {
           return (

@@ -2,6 +2,7 @@ import SessionHeaders from "./SessionHeaders";
 import Button from "../Button";
 import { useState } from "react";
 const Date = require("../../Utils/date");
+const Progress = require("../../Utils/progress");
 
 const SessionList = function (props) {
   const [viewSessionForm, setViewSessionForm] = useState(false);
@@ -11,20 +12,42 @@ const SessionList = function (props) {
     props.showSessionForm(!props.showFormVal);
   };
 
+  const progressColorCodeData = Progress.checkProgress([...props.sessionData]);
+
+  let formattedSessionData = [];
+
+  for (let i = 0; i < [...props.sessionData].length; i++) {
+    for (let j = 0; j < progressColorCodeData.length; j++) {
+      if (i === j) {
+        const dataObject = {
+          ...[...props.sessionData][i],
+          colorCodes: progressColorCodeData[j],
+        };
+        formattedSessionData.push(dataObject);
+      }
+    }
+  }
+
   return (
     <div className="session-container">
       <SessionHeaders></SessionHeaders>
       <ul className={props.revealSessionList ? "" : "session-list h-126"}>
-        {[...props.sessionData].reverse().map((session) => {
+        {formattedSessionData.reverse().map((session) => {
           return (
             <li className="session-card" key={session.id}>
-              <div className="session-text-container">
+              <div
+                className={`session-text-container ${session.colorCodes[0]}`}
+              >
                 <h3 className="text">{session.maxweight}</h3>
               </div>
-              <div className="session-text-container">
+              <div
+                className={`session-text-container ${session.colorCodes[1]}`}
+              >
                 <h3 className="text">{session.sets}</h3>
               </div>
-              <div className="session-text-container">
+              <div
+                className={`session-text-container ${session.colorCodes[2]}`}
+              >
                 <h3 className="text">{session.reps}</h3>
               </div>
               <div className="session-text-container">

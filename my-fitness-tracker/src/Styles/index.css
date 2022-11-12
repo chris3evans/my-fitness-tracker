@@ -52,7 +52,7 @@
   }
 
   .workout-container {
-    @apply bg-slate-300 p-10;
+    @apply p-16 bg-emerald-100;
   }
   .workout-card {
     @apply bg-teal-300 p-8 cursor-pointer transition duration-500;
@@ -75,10 +75,19 @@
     @apply border border-black;
   }
   .session-list {
-    @apply overflow-y-auto flex flex-col-reverse;
+    @apply overflow-y-auto flex flex-col-reverse overflow-x-hidden;
   }
   .session-card {
-    @apply grid grid-cols-4 py-4 border-b-2 border-blue-600;
+    @apply grid grid-cols-4 py-4 border-b-2 border-blue-600 bg-white;
+  }
+  .worse {
+    @apply bg-red-600;
+  }
+  .same {
+    @apply bg-yellow-400;
+  }
+  .improve {
+    @apply bg-green-500;
   }
   .session-text-container {
     @apply w-10 justify-self-center;

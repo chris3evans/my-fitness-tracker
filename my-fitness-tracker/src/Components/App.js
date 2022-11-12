@@ -35,7 +35,7 @@ function App() {
 
   return (
     <Context.Provider value={state}>
-      <div className="App bg-emerald-100">
+      <div className="App bg-emerald-100 h-full">
         {viewWorkouts ? <WorkoutsView></WorkoutsView> : ""}
         {viewExercises ? <ExercisesView></ExercisesView> : ""}
       </div>
