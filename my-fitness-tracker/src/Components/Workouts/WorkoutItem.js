@@ -20,7 +20,7 @@ const WorkoutItem = function (props) {
   return (
     <div className="workout-card">
       <li onClick={workoutClickHandler}>
-        <h2 className="card-text" id={props.workoutData.id}>
+        <h2 className="card-text-dark" id={props.workoutData.id}>
           {props.workoutData.workoutname}
         </h2>
       </li>

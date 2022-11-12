@@ -16,6 +16,9 @@
   .card-text {
     @apply text-4xl text-white;
   }
+  .card-text-dark {
+    @apply text-4xl text-emerald-900;
+  }
   .text {
     @apply text-2xl font-mono text-left;
   }
@@ -49,16 +52,16 @@
   }
 
   .workout-container {
-    @apply bg-slate-300 p-8;
+    @apply bg-slate-300 p-10;
   }
   .workout-card {
-    @apply bg-gray-600 p-8 cursor-pointer transition duration-500;
+    @apply bg-teal-300 p-8 cursor-pointer transition duration-500;
   }
   .workout-card:hover {
-    @apply bg-gray-500;
+    @apply bg-teal-200;
   }
   .workout-card:not(:last-of-type) {
-    @apply mb-8;
+    @apply mb-10;
   }
 
   .exercise-card {
