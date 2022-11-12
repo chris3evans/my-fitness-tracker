@@ -20,14 +20,13 @@
     @apply text-4xl text-emerald-900;
   }
   .text {
-    @apply text-2xl font-mono text-left;
+    @apply text-2xl font-mono text-left text-emerald-900;
   }
 
   .form {
     @apply bg-teal-500 p-16 grid grid-rows-4 gap-y-6 rounded-xl shadow-2xl;
   }
   .form-sessions {
-    /* @apply bg-teal-500 p-16 flex flex-col flex-1 content-start; */
     @apply bg-teal-500 p-16 grid grid-rows-4 gap-5;
   }
   .form-field {
@@ -78,7 +77,10 @@
     @apply overflow-y-auto flex flex-col-reverse overflow-x-hidden;
   }
   .session-card {
-    @apply grid grid-cols-4 py-4 border-b-2 border-blue-600 bg-white;
+    @apply grid grid-cols-4;
+  }
+  .session-card-container {
+    @apply flex justify-center py-4;
   }
   .worse {
     @apply bg-red-600;
@@ -88,6 +90,9 @@
   }
   .improve {
     @apply bg-green-500;
+  }
+  .date {
+    @apply bg-white;
   }
   .session-text-container {
     @apply w-10 justify-self-center;
@@ -112,8 +117,8 @@ html {
   color: rgb(76, 76, 175);
 }
 
-.h-126 {
-  height: 12.64rem;
+.session-container-height {
+  height: 12rem;
 }
 
 body {

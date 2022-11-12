@@ -31,27 +31,39 @@ const SessionList = function (props) {
   return (
     <div className="session-container">
       <SessionHeaders></SessionHeaders>
-      <ul className={props.revealSessionList ? "" : "session-list h-126"}>
+      <ul
+        className={
+          props.revealSessionList ? "" : "session-list session-container-height"
+        }
+      >
         {formattedSessionData.reverse().map((session) => {
           return (
             <li className="session-card" key={session.id}>
               <div
-                className={`session-text-container ${session.colorCodes[0]}`}
+                className={`session-card-container ${session.colorCodes[0]}`}
               >
-                <h3 className="text">{session.maxweight}</h3>
+                <div className="session-text-container">
+                  <h3 className="text">{session.maxweight}</h3>
+                </div>
               </div>
               <div
-                className={`session-text-container ${session.colorCodes[1]}`}
+                className={`session-card-container ${session.colorCodes[1]}`}
               >
-                <h3 className="text">{session.sets}</h3>
+                <div className="session-text-container">
+                  <h3 className="text">{session.sets}</h3>
+                </div>
               </div>
               <div
-                className={`session-text-container ${session.colorCodes[2]}`}
+                className={`session-card-container ${session.colorCodes[2]}`}
               >
-                <h3 className="text">{session.reps}</h3>
+                <div className="session-text-container">
+                  <h3 className="text">{session.reps}</h3>
+                </div>
               </div>
-              <div className="session-text-container">
-                <h3 className="text">{Date.formatDate(session.createdAt)}</h3>
+              <div className="session-card-container date">
+                <div className="session-text-container">
+                  <h3 className="text">{Date.formatDate(session.createdAt)}</h3>
+                </div>
               </div>
             </li>
           );
