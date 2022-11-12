@@ -1,17 +1,14 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import SessionForm from "../Sessions/SessionForm";
 import SessionList from "../Sessions/SessionList";
 import Button from "../Button";
 const apiService = require("../../Utils/api-service");
-const Context = require("../../Utils/context");
 
 const ExerciseItem = function (props) {
-  const data = useContext(Context);
-  console.log(data);
-
   const [sessionsData, setSessionsData] = useState("");
   const [addSession, setAddSession] = useState(false);
   const [revealSessionList, setRevealSessionList] = useState(false);
+
   const [revealSessionForm, setRevealSessionForm] = useState(false);
 
   useEffect(() => {
@@ -23,6 +20,10 @@ const ExerciseItem = function (props) {
   useEffect(() => {
     sessionDataHandler();
   }, []);
+
+  useEffect(() => {
+    setRevealSessionForm(revealSessionForm);
+  }, [revealSessionForm]);
 
   const sessionDataHandler = async function () {
     try {
@@ -58,16 +59,17 @@ const ExerciseItem = function (props) {
         <SessionList
           revealSessionList={revealSessionList}
           sessionData={sessionsData}
-          // showSessionForm={data.toggleSessionForm}
+          showSessionForm={toggleSessionFormHandler}
+          showFormVal={revealSessionForm}
         ></SessionList>
       ) : (
         ""
       )}
-      {props.selectedExerciseId === props.exerciseId || data.showSessionForm ? (
+      {props.selectedExerciseId === props.exerciseId || revealSessionForm ? (
         <SessionForm
           submitSession={setAddSession}
           exerciseId={props.exerciseData.id}
-          // showSessionForm={data.toggleSessionForm}
+          showSessionForm={toggleSessionFormHandler}
         ></SessionForm>
       ) : (
         ""

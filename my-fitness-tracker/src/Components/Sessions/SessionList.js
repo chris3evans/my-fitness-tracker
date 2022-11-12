@@ -1,21 +1,14 @@
 import SessionHeaders from "./SessionHeaders";
 import Button from "../Button";
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 const Date = require("../../Utils/date");
-const Context = require("../../Utils/context");
 
 const SessionList = function (props) {
-  const data = useContext(Context);
-  const [viewSessionForm, setViewSessionForm] = useState(true);
-
-  useEffect(() => {
-    // props.showSessionForm(!viewSessionForm);
-    data.toggleSessionForm(data.showSessionForm);
-  }, [data.showSessionForm]);
+  const [viewSessionForm, setViewSessionForm] = useState(false);
 
   const onAddSessionClickHandler = function () {
-    data.toggleSessionForm(!data.showSessionForm);
-    // props.showSessionForm(viewSessionForm);
+    setViewSessionForm(!viewSessionForm);
+    props.showSessionForm(!props.showFormVal);
   };
 
   return (
