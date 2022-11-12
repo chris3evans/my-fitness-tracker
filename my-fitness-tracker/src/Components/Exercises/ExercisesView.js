@@ -34,7 +34,7 @@ const ExercisesView = function () {
   };
 
   return (
-    <div className="px-40 py-20">
+    <div className="px-10 py-20">
       <h1 className="primary-heading">{data.curWorkout}</h1>
       {!enteringExercise ? (
         <Button

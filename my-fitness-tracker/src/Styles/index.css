@@ -6,6 +6,8 @@
    blue: rgb(76, 76, 175)
 */
 
+/* https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/ */
+
 @layer components {
   .primary-heading {
     @apply text-8xl font-mono font-bold p-8 text-emerald-900;
@@ -51,7 +53,7 @@
   }
 
   .workout-container {
-    @apply p-16 bg-emerald-100;
+    @apply p-10 bg-emerald-100;
   }
   .workout-card {
     @apply bg-teal-300 p-8 cursor-pointer transition duration-500;
@@ -74,7 +76,7 @@
     @apply border border-black;
   }
   .session-list {
-    @apply overflow-y-auto flex flex-col-reverse overflow-x-hidden;
+    @apply overflow-y-auto flex flex-col-reverse overflow-x-hidden transition h-full;
   }
   .session-card {
     @apply grid grid-cols-4;
@@ -117,8 +119,27 @@ html {
   color: rgb(76, 76, 175);
 }
 
-.session-container-height {
+.session-list-short {
   height: 12rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 body {

@@ -18,7 +18,7 @@ const WorkoutItem = function (props) {
   };
 
   return (
-    <div className="workout-card">
+    <div className="workout-card fade-in">
       <li onClick={workoutClickHandler}>
         <h2 className="card-text-dark" id={props.workoutData.id}>
           {props.workoutData.workoutname}

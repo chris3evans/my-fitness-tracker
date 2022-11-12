@@ -33,7 +33,7 @@ const SessionList = function (props) {
       <SessionHeaders></SessionHeaders>
       <ul
         className={
-          props.revealSessionList ? "" : "session-list session-container-height"
+          props.revealSessionList ? "session-list" : "session-list-short"
         }
       >
         {formattedSessionData.reverse().map((session) => {

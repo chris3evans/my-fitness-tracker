@@ -30,7 +30,7 @@ const WorkoutsView = function () {
   };
 
   return (
-    <div className="px-40 py-20">
+    <div className="px-10 py-20">
       <h1 className="primary-heading">
         {enteringWorkout ? "Enter Workout" : "Your Workouts"}
       </h1>

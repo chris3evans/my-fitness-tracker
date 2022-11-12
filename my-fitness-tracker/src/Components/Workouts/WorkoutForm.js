@@ -33,7 +33,7 @@ const WorkoutForm = function (props) {
   };
 
   return (
-    <form className="form" onSubmit={workoutSubmitHandler}>
+    <form className="form fade-in" onSubmit={workoutSubmitHandler}>
       {/* use aria label if using icon for back button */}
       <Button
         content="BACK BTN"

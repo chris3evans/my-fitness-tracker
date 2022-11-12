@@ -51,7 +51,7 @@ const ExerciseItem = function (props) {
   };
 
   return (
-    <li className="mb-20">
+    <li className="mb-20 fade-in">
       <h2 className="exercise-card card-text" id={props.exerciseData.id}>
         {props.exerciseData.exercisename}
       </h2>
