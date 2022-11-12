@@ -7,6 +7,7 @@ import { useState } from "react";
 function App() {
   const [viewWorkouts, setViewWorkouts] = useState(true);
   const [viewExercises, setViewExercises] = useState(false);
+  const [revealSessionForm, setRevealSessionForm] = useState(false);
 
   const [curWorkout, setCurWorkout] = useState("");
   const [curExercises, setCurExercises] = useState("");
@@ -25,13 +26,20 @@ function App() {
     setCurExercises(workoutId);
   };
 
+  const toggleSessionFormHandler = function (toggle) {
+    setRevealSessionForm(toggle);
+  };
+
   const state = {
     toggleView: toggleView,
     getCurExercises: getCurExercises,
     curExercises: curExercises,
     getCurWorkout: getCurWorkout,
     curWorkout: curWorkout,
+    toggleSessionForm: toggleSessionFormHandler,
+    showSessionForm: revealSessionForm,
   };
+  console.log(state);
 
   return (
     <Context.Provider value={state}>

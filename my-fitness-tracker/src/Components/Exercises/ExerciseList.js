@@ -3,17 +3,11 @@ import { useState } from "react";
 
 const ExerciseList = function (props) {
   const [clickedExercise, setClickedExercise] = useState("");
-  const [showSessionForm, setShowSessionForm] = useState(false);
+  // const [showSessionForm, setShowSessionForm] = useState(false);
 
   const onClickHandler = function (event) {
     const clickedExerciseId = +event.target.id;
     setClickedExercise(clickedExerciseId);
-
-    const nodeName = event.target.nodeName;
-
-    if (nodeName === "H2" || nodeName === "LI") {
-      setShowSessionForm(!showSessionForm);
-    }
   };
 
   return (
@@ -26,7 +20,7 @@ const ExerciseList = function (props) {
               exerciseId={exercise.id}
               selectedExerciseId={clickedExercise}
               handler={onClickHandler}
-              showForm={showSessionForm}
+              // showForm={showSessionForm}
             ></ExerciseItem>
           </div>
         );

@@ -62,10 +62,7 @@
   }
 
   .exercise-card {
-    @apply bg-teal-500 p-8 cursor-pointer transition duration-500;
-  }
-  .exercise-card:hover {
-    @apply bg-teal-300;
+    @apply bg-teal-500 p-8;
   }
   .exercise-card:not(:last-of-type) {
     @apply mb-8;
@@ -91,7 +88,10 @@
     @apply text-4xl;
   }
   .add-session-button {
-    @apply py-4 text-2xl font-mono bg-teal-300;
+    @apply py-4 text-2xl font-mono bg-teal-300 w-2/4 my-2 rounded-lg transition duration-300 text-emerald-900;
+  }
+  .add-session-button:hover {
+    @apply bg-teal-200;
   }
 }
 

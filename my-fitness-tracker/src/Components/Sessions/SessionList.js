@@ -1,8 +1,23 @@
 import SessionHeaders from "./SessionHeaders";
 import Button from "../Button";
+import { useState, useEffect, useContext } from "react";
 const Date = require("../../Utils/date");
+const Context = require("../../Utils/context");
 
 const SessionList = function (props) {
+  const data = useContext(Context);
+  const [viewSessionForm, setViewSessionForm] = useState(true);
+
+  useEffect(() => {
+    // props.showSessionForm(!viewSessionForm);
+    data.toggleSessionForm(data.showSessionForm);
+  }, [data.showSessionForm]);
+
+  const onAddSessionClickHandler = function () {
+    data.toggleSessionForm(!data.showSessionForm);
+    // props.showSessionForm(viewSessionForm);
+  };
+
   return (
     <div className="session-container">
       <SessionHeaders></SessionHeaders>
@@ -30,6 +45,7 @@ const SessionList = function (props) {
         btnType="button"
         content="Add New Session"
         styles="add-session-button"
+        handler={onAddSessionClickHandler}
       ></Button>
     </div>
   );

@@ -1,7 +1,17 @@
 import Button from "../Button";
+import { useState, useEffect, useContext } from "react";
 const apiService = require("../../Utils/api-service");
+const Context = require("../../Utils/context");
 
 const SessionForm = function (props) {
+  const data = useContext(Context);
+  const [revealSessionForm, setRevealSessionForm] = useState(false);
+
+  useEffect(() => {
+    // props.showSessionForm(!revealSessionForm);
+    data.toggleSessionForm(data.showSessionForm);
+  }, [data.showSessionForm]);
+
   const sessionSubmitHandler = async function (event) {
     event.preventDefault();
 
@@ -11,13 +21,14 @@ const SessionForm = function (props) {
       reps: +event.target.reps.value,
       exerciseId: +props.exerciseId,
     };
-    console.log(formData, "session form data");
 
     event.target.reset();
 
     try {
       await apiService.postNewSession(formData);
       props.submitSession(Math.random());
+      data.toggleSessionForm(!data.showSessionForm);
+      // props.showSessionForm(revealSessionForm);
       return "Session data was saved successfully";
     } catch (error) {
       console.error(
