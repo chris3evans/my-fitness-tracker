@@ -62,19 +62,23 @@
   }
 
   .exercise-card {
-    @apply bg-blue-300 p-8 cursor-pointer transition duration-500;
+    @apply bg-teal-500 p-8 cursor-pointer transition duration-500;
   }
   .exercise-card:hover {
-    @apply bg-blue-200;
+    @apply bg-teal-300;
   }
   .exercise-card:not(:last-of-type) {
     @apply mb-8;
   }
 
   .session-container {
+    @apply border border-black;
+  }
+  .session-list {
+    @apply overflow-y-auto flex flex-col-reverse;
   }
   .session-card {
-    @apply grid grid-cols-4 py-3 border-b-2 border-blue-600;
+    @apply grid grid-cols-4 py-4 border-b-2 border-blue-600;
   }
   .session-text-container {
     @apply w-10 justify-self-center;
@@ -82,11 +86,22 @@
   .session-headers {
     @apply grid grid-cols-4 grid-flow-dense justify-evenly py-1 border-b-4 border-blue-900;
   }
+
+  .toggle-list-button {
+    @apply text-4xl;
+  }
+  .add-session-button {
+    @apply py-4 text-2xl font-mono bg-teal-300;
+  }
 }
 
 html {
   font-size: 62.5%;
   color: rgb(76, 76, 175);
+}
+
+.h-126 {
+  height: 12.64rem;
 }
 
 body {

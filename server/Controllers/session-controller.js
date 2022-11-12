@@ -23,7 +23,6 @@ const getAllSessions = async function (req, res) {
     const allSessions = await db.Session.findAll({
       where: { ExerciseId: exerciseId },
     });
-    console.log(allSessions);
     res.send(allSessions);
     res.status(200);
   } catch (error) {

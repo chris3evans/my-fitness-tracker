@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import SessionForm from "../Sessions/SessionForm";
 import SessionList from "../Sessions/SessionList";
+import Button from "../Button";
 const apiService = require("../../Utils/api-service");
 
 const ExerciseItem = function (props) {
   const [sessionsData, setSessionsData] = useState("");
   const [addSession, setAddSession] = useState(false);
+  const [revealSessionList, setRevealSessionList] = useState(false);
 
   useEffect(() => {
     if (addSession) {
@@ -28,6 +30,15 @@ const ExerciseItem = function (props) {
     }
   };
 
+  const toggleSessionListHandler = function () {
+    setRevealSessionList(!revealSessionList);
+  };
+
+  const renderToggleNavigation = function () {
+    if (revealSessionList && sessionsData.length > 3) return "🔼";
+    if (!revealSessionList && sessionsData.length > 3) return "🔽";
+  };
+
   return (
     <li className="mb-20">
       <h2
@@ -37,6 +48,14 @@ const ExerciseItem = function (props) {
       >
         {props.exerciseData.exercisename}
       </h2>
+      {sessionsData.length > 0 ? (
+        <SessionList
+          revealSessionList={revealSessionList}
+          sessionData={sessionsData}
+        ></SessionList>
+      ) : (
+        ""
+      )}
       {props.selectedExerciseId === props.exerciseId && props.showForm ? (
         <SessionForm
           submitSession={setAddSession}
@@ -45,11 +64,12 @@ const ExerciseItem = function (props) {
       ) : (
         ""
       )}
-      {sessionsData.length > 0 ? (
-        <SessionList sessionData={sessionsData}></SessionList>
-      ) : (
-        ""
-      )}
+      <Button
+        content={sessionsData.length <= 3 ? "" : renderToggleNavigation()}
+        btnType="button"
+        styles="toggle-list-button"
+        handler={toggleSessionListHandler}
+      ></Button>
     </li>
   );
 };
