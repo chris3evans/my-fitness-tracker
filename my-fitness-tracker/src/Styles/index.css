@@ -76,7 +76,7 @@
     @apply border border-black;
   }
   .session-list {
-    @apply overflow-y-auto flex flex-col-reverse overflow-x-hidden transition h-full;
+    @apply overflow-y-auto flex flex-col-reverse overflow-x-hidden transition-all duration-700;
   }
   .session-card {
     @apply grid grid-cols-4;
@@ -106,6 +106,7 @@
   .toggle-list-button {
     @apply text-4xl;
   }
+
   .add-session-button {
     @apply py-4 text-2xl font-mono bg-teal-300 w-2/4 my-2 rounded-lg transition duration-300 text-emerald-900;
   }
@@ -117,14 +118,6 @@
 html {
   font-size: 62.5%;
   color: rgb(76, 76, 175);
-}
-
-.session-list-short {
-  height: 12rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column-reverse;
 }
 
 .fade-in {

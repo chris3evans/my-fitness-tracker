@@ -1,11 +1,24 @@
 import SessionHeaders from "./SessionHeaders";
 import Button from "../Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const Date = require("../../Utils/date");
 const Progress = require("../../Utils/progress");
 
 const SessionList = function (props) {
   const [viewSessionForm, setViewSessionForm] = useState(false);
+  const [longSessionList, setLongSessionList] = useState(false);
+
+  useEffect(() => {
+    extendSessionList();
+    console.log(longSessionList, "SESSION LIST CHANGE");
+  }, [props.showSessionList]);
+
+  const extendSessionList = function () {
+    setLongSessionList(props.showSessionList);
+  };
+
+  const sessionListLength = props.sessionData.length;
+  console.log(sessionListLength);
 
   const onAddSessionClickHandler = function () {
     setViewSessionForm(!viewSessionForm);
@@ -32,9 +45,12 @@ const SessionList = function (props) {
     <div className="session-container">
       <SessionHeaders></SessionHeaders>
       <ul
-        className={
-          props.revealSessionList ? "session-list" : "session-list-short"
-        }
+        style={{
+          maxHeight: longSessionList
+            ? `${3 * sessionListLength}rem`
+            : 12 + "rem",
+        }}
+        className="session-list"
       >
         {formattedSessionData.reverse().map((session) => {
           return (

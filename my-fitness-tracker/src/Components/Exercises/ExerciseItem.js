@@ -37,7 +37,6 @@ const ExerciseItem = function (props) {
   };
 
   const toggleSessionFormHandler = function (toggle) {
-    console.log(toggle, "togglehandler");
     setRevealSessionForm(toggle);
   };
 
@@ -57,7 +56,7 @@ const ExerciseItem = function (props) {
       </h2>
       {sessionsData.length > 0 ? (
         <SessionList
-          revealSessionList={revealSessionList}
+          showSessionList={revealSessionList}
           sessionData={sessionsData}
           showSessionForm={toggleSessionFormHandler}
           showFormVal={revealSessionForm}
