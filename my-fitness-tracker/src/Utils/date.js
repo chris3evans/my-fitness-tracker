@@ -10,4 +10,10 @@ const formatDate = function (dateIsoString) {
   return date;
 };
 
-module.exports = { formatDate };
+const formatSecondsToMinutes = function (timeInSeconds) {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = (timeInSeconds % 60).toFixed(0);
+  return `${minutes > 0 ? minutes : ""}${minutes > 0 ? "min" : ""} ${seconds}s`;
+};
+
+module.exports = { formatDate, formatSecondsToMinutes };

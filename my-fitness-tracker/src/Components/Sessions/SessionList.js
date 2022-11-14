@@ -1,5 +1,4 @@
 import SessionHeaders from "./SessionHeaders";
-import Button from "../Button";
 import { useState, useEffect, useContext } from "react";
 import Context from "../../Utils/context";
 const SiUnit = require("../../Utils/change-si");
@@ -82,12 +81,24 @@ const SessionList = function (props) {
               <div
                 className={`session-card-container ${session.colorCodes[2]}`}
               >
-                <div className="session-text-container">
+                <div
+                  className={
+                    data.curWorkoutType === "resistance"
+                      ? "session-text-container"
+                      : "session-time-text-container"
+                  }
+                >
                   <h3 className="text">{`${
                     data.curWorkoutType === "resistance"
                       ? session.reps
-                      : session.time
-                  }${data.curWorkoutType === "resistance" ? "" : "s"}`}</h3>
+                      : data.timeUnit
+                      ? session.time
+                      : Date.formatSecondsToMinutes(session.time)
+                  }${
+                    data.curWorkoutType === "resistance"
+                      ? ""
+                      : `${data.timeUnit ? "s" : ""}`
+                  }`}</h3>
                 </div>
               </div>
               <div className="session-card-container date">

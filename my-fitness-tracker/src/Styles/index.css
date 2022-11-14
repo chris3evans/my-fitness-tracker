@@ -22,7 +22,7 @@
     @apply text-4xl text-emerald-900;
   }
   .text {
-    @apply text-2xl font-mono text-left text-emerald-900;
+    @apply text-2xl font-mono justify-self-center text-emerald-900 w-fit;
   }
 
   .form {
@@ -121,6 +121,9 @@
   }
   .session-text-container {
     @apply w-10 justify-self-center;
+  }
+  .session-time-text-container {
+    @apply w-40 justify-center flex text-center;
   }
   .session-headers {
     @apply grid grid-cols-4 grid-flow-dense justify-evenly py-1 border-b-4 border-blue-900;

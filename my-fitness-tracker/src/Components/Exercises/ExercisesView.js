@@ -2,6 +2,7 @@ import Button from "../Button";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ExerciseList";
 import MeasurementUnits from "./MeasurementUnits";
+import CardioTimeUnit from "./CardioTimeUnit";
 import Context from "../../Utils/context";
 import { useContext, useState, useEffect } from "react";
 const apiService = require("../../Utils/api-service");
@@ -12,6 +13,7 @@ const ExercisesView = function () {
   const [exerciseData, setExerciseData] = useState("");
   const [enteringExercise, setEnteringExercise] = useState(false);
   const [useKg, setUseKg] = useState(true);
+  const [useSeconds, setUseSeconds] = useState(true);
 
   useEffect(() => {
     exerciseDataHandler();
@@ -67,6 +69,14 @@ const ExercisesView = function () {
             changeSi={setUseKg}
             useKg={useKg}
           ></MeasurementUnits>
+        ) : (
+          ""
+        )}
+        {!enteringExercise && data.curWorkoutType === "cardio" ? (
+          <CardioTimeUnit
+            changeTime={setUseSeconds}
+            useSecs={useSeconds}
+          ></CardioTimeUnit>
         ) : (
           ""
         )}

@@ -40,6 +40,7 @@ function App() {
     getCurWorkout: getCurWorkout,
     curWorkout: curWorkout,
     siUnit: true,
+    timeUnit: true,
     setCurWorkoutType: getCurWorkoutType,
     curWorkoutType: curWorkoutType,
   };
