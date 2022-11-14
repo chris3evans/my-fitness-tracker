@@ -16,6 +16,7 @@ const addNewWorkout = async function (req, res) {
 const getAllWorkouts = async function (req, res) {
   try {
     const allWorkouts = await db.Workout.findAll();
+    console.log(allWorkouts, "all workouts, db controller");
     res.send(allWorkouts);
     res.status(200);
   } catch (error) {

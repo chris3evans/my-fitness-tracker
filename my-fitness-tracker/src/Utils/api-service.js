@@ -26,8 +26,8 @@ const getAllWorkouts = async function () {
         "Content-Type": "application/json",
       },
     });
-
     const workoutsData = await response.json();
+    console.log(workoutsData, "Workout data - apiService");
     return workoutsData;
   } catch (error) {
     console.error(error);
@@ -109,6 +109,24 @@ const getAllSessions = async function (exerciseId) {
   }
 };
 
+const postNewCardioSession = async function (cardioSessionData) {
+  try {
+    const response = await fetch(`${baseUrl}/add-cardio-session`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cardioSessionData),
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    console.log("Error in saving cardio session (client-side / api-service");
+    return "Error in saving cardio session";
+  }
+};
+
 module.exports = {
   postNewWorkout,
   getAllWorkouts,
@@ -116,4 +134,5 @@ module.exports = {
   getAllExercises,
   postNewSession,
   getAllSessions,
+  postNewCardioSession,
 };

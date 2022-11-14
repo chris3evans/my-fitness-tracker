@@ -35,6 +35,9 @@ db.Exercise.belongsTo(db.Workout);
 db.Exercise.hasMany(db.Session);
 db.Session.belongsTo(db.Exercise);
 
+db.Exercise.hasMany(db.CardioSession);
+db.CardioSession.belongsTo(db.Exercise);
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

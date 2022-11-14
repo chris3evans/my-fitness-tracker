@@ -3,6 +3,7 @@ const router = express.Router();
 const WorkoutControllers = require("./Controllers/workout-controller");
 const ExerciseControllers = require("./Controllers/exercise-controller");
 const SessionControllers = require("./Controllers/session-controller");
+const CardioSessionControllers = require("./Controllers/cardioSession-controller");
 
 router.post("/add-workout", WorkoutControllers.addNewWorkout);
 router.get("/workouts", WorkoutControllers.getAllWorkouts);
@@ -12,5 +13,10 @@ router.get("/exercises/:workoutId", ExerciseControllers.getAllExercises);
 
 router.post("/add-session", SessionControllers.addNewSession);
 router.get("/sessions/:exerciseId", SessionControllers.getAllSessions);
+
+router.post(
+  "/add-cardio-session",
+  CardioSessionControllers.addNewCardioSession
+);
 
 module.exports = router;

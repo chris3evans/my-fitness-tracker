@@ -18,6 +18,7 @@ const WorkoutForm = function (props) {
 
     const formData = {
       workoutname: event.target.workoutname.value,
+      workouttype: event.target.workouttype.value,
     };
 
     event.target.reset();
@@ -53,6 +54,26 @@ const WorkoutForm = function (props) {
         required
         autoComplete="off"
       ></input>
+      <div className="workout-type">
+        <input
+          name="workouttype"
+          id="resistance"
+          type="radio"
+          value="resistance"
+          defaultChecked
+          required
+        ></input>
+        <label htmlFor="resistance">Resitance</label>
+
+        <input
+          name="workouttype"
+          id="cardio"
+          type="radio"
+          value="cardio"
+          required
+        ></input>
+        <label htmlFor="cardio">Cardio</label>
+      </div>
       <Button
         btnType="submit"
         content="Create Workout"
