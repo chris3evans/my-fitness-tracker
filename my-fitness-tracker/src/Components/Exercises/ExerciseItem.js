@@ -1,16 +1,26 @@
-import { useState, useEffect } from "react";
-import SessionForm from "../Sessions/SessionForm";
+import { useState, useEffect, useContext } from "react";
+import ResistanceSessionForm from "../Sessions/ResistanceSessionForm";
 import SessionList from "../Sessions/SessionList";
 import Button from "../Button";
+import CardioSessionForm from "../../Components/Sessions/CardioSessionForm";
+import Context from "../../Utils/context";
 const apiService = require("../../Utils/api-service");
 
 const ExerciseItem = function (props) {
+  const data = useContext(Context);
+  console.log(data);
+
   const [sessionsData, setSessionsData] = useState("");
   const [addSession, setAddSession] = useState(false);
   const [revealSessionList, setRevealSessionList] = useState(false);
-  const [viewSessionForm, setViewSessionForm] = useState(false);
 
-  const [revealSessionForm, setRevealSessionForm] = useState(false);
+  const [viewResistanceSessionForm, setViewResistanceSessionForm] =
+    useState(false);
+  const [revealResistanceSessionForm, setRevealResistanceSessionForm] =
+    useState(false);
+
+  const [viewCardioSessionForm, setViewCardioSessionForm] = useState(false);
+  const [revealCardioSessionForm, setRevealCardioSessionForm] = useState(false);
 
   useEffect(() => {
     if (addSession) {
@@ -23,12 +33,17 @@ const ExerciseItem = function (props) {
   }, []);
 
   useEffect(() => {
-    setRevealSessionForm(revealSessionForm);
-  }, [revealSessionForm]);
+    setRevealResistanceSessionForm(revealResistanceSessionForm);
+  }, [revealResistanceSessionForm]);
 
-  const onAddSessionClickHandler = function () {
-    setViewSessionForm(!viewSessionForm);
-    toggleSessionFormHandler(!revealSessionForm);
+  const onAddWeightSessionClickHandler = function () {
+    setViewResistanceSessionForm(!viewResistanceSessionForm);
+    toggleResistanceSessionFormHandler(!revealResistanceSessionForm);
+  };
+
+  const onAddCardioSessionClickHandler = function () {
+    setViewCardioSessionForm(!viewCardioSessionForm);
+    toggleCardioSessionFormHandler(!revealCardioSessionForm);
   };
 
   const sessionDataHandler = async function () {
@@ -42,8 +57,11 @@ const ExerciseItem = function (props) {
     }
   };
 
-  const toggleSessionFormHandler = function (toggle) {
-    setRevealSessionForm(toggle);
+  const toggleResistanceSessionFormHandler = function (toggle) {
+    setRevealResistanceSessionForm(toggle);
+  };
+  const toggleCardioSessionFormHandler = function (toggle) {
+    setRevealCardioSessionForm(toggle);
   };
 
   const toggleSessionListHandler = function () {
@@ -64,27 +82,43 @@ const ExerciseItem = function (props) {
         <SessionList
           showSessionList={revealSessionList}
           sessionData={sessionsData}
-          showSessionForm={toggleSessionFormHandler}
-          showFormVal={revealSessionForm}
+          showSessionForm={toggleResistanceSessionFormHandler}
+          showFormVal={revealResistanceSessionForm}
         ></SessionList>
       ) : (
         ""
       )}
-      {props.selectedExerciseId === props.exerciseId || revealSessionForm ? (
-        <SessionForm
+      {props.selectedExerciseId === props.exerciseId ||
+      revealResistanceSessionForm ? (
+        <ResistanceSessionForm
           submitSession={setAddSession}
           exerciseId={props.exerciseData.id}
-          showSessionForm={toggleSessionFormHandler}
-        ></SessionForm>
+          showSessionForm={toggleResistanceSessionFormHandler}
+        ></ResistanceSessionForm>
       ) : (
         ""
       )}
-      <Button
-        btnType="button"
-        content="Add New Session"
-        styles="add-session-button"
-        handler={onAddSessionClickHandler}
-      ></Button>
+      {props.selectedExerciseId === props.exerciseId ||
+      revealCardioSessionForm ? (
+        <CardioSessionForm></CardioSessionForm>
+      ) : (
+        ""
+      )}
+      {data.curWorkoutType === "resistance" ? (
+        <Button
+          btnType="button"
+          content="Add New Weights Session"
+          styles="add-session-button"
+          handler={onAddWeightSessionClickHandler}
+        ></Button>
+      ) : (
+        <Button
+          btnType="button"
+          content="Add New Cardio Session"
+          styles="add-session-button"
+          handler={onAddCardioSessionClickHandler}
+        ></Button>
+      )}
       <Button
         content={sessionsData.length <= 3 ? "" : renderToggleNavigation()}
         btnType="button"

@@ -10,6 +10,9 @@ function App() {
 
   const [curWorkout, setCurWorkout] = useState("");
   const [curExercises, setCurExercises] = useState("");
+
+  const [curWorkoutType, setCurWorkoutType] = useState("");
+
   const toggleView = function () {
     setViewWorkouts(!viewWorkouts);
     setViewExercises(!viewExercises);
@@ -25,6 +28,11 @@ function App() {
     setCurExercises(workoutId);
   };
 
+  // Returns string of either "resistnace" or "cardio"
+  const getCurWorkoutType = function (workoutType) {
+    setCurWorkoutType(workoutType);
+  };
+
   const state = {
     toggleView: toggleView,
     getCurExercises: getCurExercises,
@@ -32,6 +40,8 @@ function App() {
     getCurWorkout: getCurWorkout,
     curWorkout: curWorkout,
     siUnit: true,
+    setCurWorkoutType: getCurWorkoutType,
+    curWorkoutType: curWorkoutType,
   };
 
   return (

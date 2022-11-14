@@ -25,7 +25,7 @@ const CardioSessionForm = function (props) {
   };
 
   return (
-    <form onSubmit={cardioSessionSubmitHandler}>
+    <form className="form-sessions" onSubmit={cardioSessionSubmitHandler}>
       <div className="form-field">
         <label htmlFor="max-speed" className="form-label">
           Maximum Speed Reached:

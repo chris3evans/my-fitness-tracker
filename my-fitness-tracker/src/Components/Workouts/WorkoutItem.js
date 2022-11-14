@@ -8,6 +8,10 @@ const WorkoutItem = function (props) {
     // Know which workout has been clicked
     const workoutId = +event.target.id;
 
+    // Know the type of workout which has been clicked
+    const workoutType = event.target.dataset.type;
+    data.setCurWorkoutType(workoutType);
+
     // Obtain the name of this workout
     data.getCurWorkout(props.workoutData.workoutname);
 
@@ -20,7 +24,11 @@ const WorkoutItem = function (props) {
   return (
     <div className="workout-card fade-in">
       <li onClick={workoutClickHandler}>
-        <h2 className="card-text-dark" id={props.workoutData.id}>
+        <h2
+          className="card-text-dark"
+          data-type={props.workoutData.workouttype}
+          id={props.workoutData.id}
+        >
           {props.workoutData.workoutname}
         </h2>
       </li>
