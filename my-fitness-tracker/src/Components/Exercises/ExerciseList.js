@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const ExerciseList = function (props) {
   const [clickedExercise, setClickedExercise] = useState("");
-  // const [showSessionForm, setShowSessionForm] = useState(false);
 
   const onClickHandler = function (event) {
     const clickedExerciseId = +event.target.id;
@@ -20,7 +19,6 @@ const ExerciseList = function (props) {
               exerciseId={exercise.id}
               selectedExerciseId={clickedExercise}
               handler={onClickHandler}
-              // showForm={showSessionForm}
             ></ExerciseItem>
           </div>
         );

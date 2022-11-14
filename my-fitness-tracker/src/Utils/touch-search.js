@@ -38,8 +38,6 @@ const exerciseNames = [
 
 const touchSearch = function (standardExercises, curSearch) {
   const matchingResults = standardExercises.filter((exercise) => {
-    console.log(exercise, "current exercise");
-    console.log(curSearch, "current search");
     if (
       exercise.includes(curSearch) ||
       exercise.toLowerCase().includes(curSearch) ||

@@ -31,6 +31,7 @@ function App() {
     curExercises: curExercises,
     getCurWorkout: getCurWorkout,
     curWorkout: curWorkout,
+    siUnit: true,
   };
 
   return (

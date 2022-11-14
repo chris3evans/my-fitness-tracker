@@ -51,6 +51,7 @@ const WorkoutForm = function (props) {
         id="workout-name"
         placeholder="What is this workout called?"
         required
+        autoComplete="off"
       ></input>
       <Button
         btnType="submit"

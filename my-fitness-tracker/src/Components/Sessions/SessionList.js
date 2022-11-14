@@ -1,10 +1,13 @@
 import SessionHeaders from "./SessionHeaders";
 import Button from "../Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import Context from "../../Utils/context";
+const SiUnit = require("../../Utils/change-si");
 const Date = require("../../Utils/date");
 const Progress = require("../../Utils/progress");
 
 const SessionList = function (props) {
+  const data = useContext(Context);
   const [viewSessionForm, setViewSessionForm] = useState(false);
   const [longSessionList, setLongSessionList] = useState(false);
 
@@ -57,7 +60,11 @@ const SessionList = function (props) {
                 className={`session-card-container ${session.colorCodes[0]}`}
               >
                 <div className="session-text-container">
-                  <h3 className="text">{session.maxweight}</h3>
+                  <h3 className="text">
+                    {data.siUnit
+                      ? `${session.maxweight}kg`
+                      : `${SiUnit.convertToLbs(session.maxweight)}lb`}
+                  </h3>
                 </div>
               </div>
               <div

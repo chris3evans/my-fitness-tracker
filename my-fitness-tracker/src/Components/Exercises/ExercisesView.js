@@ -1,6 +1,7 @@
 import Button from "../Button";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ExerciseList";
+import WeightUnit from "./WeightUnit";
 import Context from "../../Utils/context";
 import { useContext, useState, useEffect } from "react";
 const apiService = require("../../Utils/api-service");
@@ -10,6 +11,7 @@ const ExercisesView = function () {
 
   const [exerciseData, setExerciseData] = useState("");
   const [enteringExercise, setEnteringExercise] = useState(false);
+  const [useKg, setUseKg] = useState(true);
 
   useEffect(() => {
     exerciseDataHandler();
@@ -36,28 +38,35 @@ const ExercisesView = function () {
   return (
     <div className="px-10 py-20">
       <h1 className="primary-heading">{data.curWorkout}</h1>
-      {!enteringExercise ? (
-        <Button
-          styles="card-text cursor-pointer"
-          content="BACK BTN"
-          btnType="button"
-          handler={data.toggleView}
-        >
-          BACK BTN
-        </Button>
-      ) : (
-        ""
-      )}
-      {!enteringExercise ? (
-        <Button
-          btnType="button"
-          content="Add Exercise"
-          handler={enterAddExerciseHandler}
-          styles="button"
-        ></Button>
-      ) : (
-        ""
-      )}
+      <div className="exercise-buttons">
+        {!enteringExercise ? (
+          <Button
+            styles="card-text cursor-pointer"
+            content="BACK BTN"
+            btnType="button"
+            handler={data.toggleView}
+          >
+            BACK BTN
+          </Button>
+        ) : (
+          ""
+        )}
+        {!enteringExercise ? (
+          <Button
+            btnType="button"
+            content="Add Exercise"
+            handler={enterAddExerciseHandler}
+            styles="button"
+          ></Button>
+        ) : (
+          ""
+        )}
+        {!enteringExercise ? (
+          <WeightUnit changeSi={setUseKg} useKg={useKg}></WeightUnit>
+        ) : (
+          ""
+        )}
+      </div>
       {enteringExercise ? (
         <ExerciseForm
           render={exerciseDataHandler}

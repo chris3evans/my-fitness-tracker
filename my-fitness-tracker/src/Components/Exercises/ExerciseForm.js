@@ -86,6 +86,7 @@ const ExerciseForm = function (props) {
           required
           value={exerciseNameField}
           onChange={exerciseNameChangeHandler}
+          autoComplete="off"
         ></input>
         {exerciseNameField.length > 0 &&
         exerciseSearchResults.length > 0 &&
