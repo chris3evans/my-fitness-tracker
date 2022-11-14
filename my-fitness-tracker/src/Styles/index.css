@@ -28,6 +28,9 @@
   .form {
     @apply bg-teal-500 p-16 grid grid-rows-4 gap-y-6 rounded-xl shadow-2xl;
   }
+  .form-exercises {
+    @apply bg-teal-500 py-16 px-32 gap-y-6 rounded-xl shadow-2xl;
+  }
   .form-sessions {
     @apply bg-teal-500 p-16 grid grid-rows-4 gap-5;
   }
@@ -43,7 +46,9 @@
   .form-input::placeholder {
     @apply text-4xl self-center;
   }
-
+  .exercise-form-input {
+    @apply rounded-tl-lg rounded-tr-lg text-4xl py-4 text-black w-full box-border pl-6;
+  }
   .button {
     @apply text-4xl bg-emerald-900 p-8 text-white rounded-lg translate-y-0 cursor-pointer transition duration-300;
   }
@@ -70,6 +75,26 @@
   }
   .exercise-card:not(:last-of-type) {
     @apply mb-8;
+  }
+  /* .search-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+  .search-input {
+    @apply flex flex-col items-center;
+  }
+  .search-list {
+    @apply w-full;
+  }
+  .search-list-item {
+    @apply py-5 bg-white;
+  }
+  .search-list-item:hover {
+    @apply bg-gray-50 cursor-pointer;
+  }
+  .search-list-text {
+    @apply text-2xl text-left pl-6 text-black;
   }
 
   .session-container {
@@ -118,6 +143,11 @@
 html {
   font-size: 62.5%;
   color: rgb(76, 76, 175);
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-rows: repeat(4, min-content);
 }
 
 .fade-in {

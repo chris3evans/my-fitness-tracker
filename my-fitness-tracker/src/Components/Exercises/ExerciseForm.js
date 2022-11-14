@@ -1,12 +1,17 @@
 import { useState, useContext, useEffect } from "react";
 import Button from "../Button";
+import ExerciseSearchList from "./ExerciseSearchList";
 import Context from "../../Utils/context";
 const apiService = require("../../Utils/api-service");
+const touchSearch = require("../../Utils/touch-search");
 
 const ExerciseForm = function (props) {
   const data = useContext(Context);
   const [exitForm, setExitForm] = useState(false);
   const [addExercise, setAddExercise] = useState("");
+  const [exerciseNameField, setExerciseNameField] = useState("");
+  const [exerciseSearchResults, setExerciseSearchResults] = useState([]);
+  const [hideSearchResults, setHideSearchResults] = useState(false);
 
   useEffect(() => {
     props.render();
@@ -15,6 +20,23 @@ const ExerciseForm = function (props) {
   const exitFormHandler = function () {
     setExitForm(true);
     props.navigate(exitForm);
+  };
+
+  const exerciseNameChangeHandler = function (event) {
+    setExerciseNameField(event.target.value);
+    autoSearchHandler(event.target.value);
+  };
+
+  const selectedExerciseHandler = function (result) {
+    setExerciseNameField(result);
+  };
+
+  const autoSearchHandler = function (searchValue) {
+    const matchingSearchResults = touchSearch.touchSearch(
+      touchSearch.exerciseNames,
+      searchValue
+    );
+    setExerciseSearchResults(matchingSearchResults);
   };
 
   const finishExerciseHandler = function () {
@@ -41,7 +63,10 @@ const ExerciseForm = function (props) {
   };
 
   return (
-    <form className="form" onSubmit={exerciseSubmitHandler}>
+    <form
+      className="form-exercises exercise-grid"
+      onSubmit={exerciseSubmitHandler}
+    >
       <Button
         content="BACK BTN2"
         styles="card-text cursor-pointer"
@@ -51,14 +76,29 @@ const ExerciseForm = function (props) {
       <label className="form-label" htmlFor="exercise-name">
         Exercise Name:
       </label>
-      <input
-        className="form-input"
-        id="exercise-name"
-        name="exercisename"
-        placeholder="What is this exercise called?"
-        type="text"
-        required
-      ></input>
+      <div className="search-input">
+        <input
+          className="exercise-form-input"
+          id="exercise-name"
+          name="exercisename"
+          placeholder="What is this exercise called?"
+          type="text"
+          required
+          value={exerciseNameField}
+          onChange={exerciseNameChangeHandler}
+        ></input>
+        {exerciseNameField.length > 0 &&
+        exerciseSearchResults.length > 0 &&
+        !hideSearchResults ? (
+          <ExerciseSearchList
+            searchResults={exerciseSearchResults}
+            clickedSearchResult={selectedExerciseHandler}
+            showSearchResults={setHideSearchResults}
+          ></ExerciseSearchList>
+        ) : (
+          ""
+        )}
+      </div>
       <Button
         btnType="submit"
         content="Save Exercise To Workout"

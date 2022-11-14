@@ -6,6 +6,8 @@ const checkProgress = function (sessions) {
     let setsColor = "";
     let repsColor = "";
 
+    // Change to object form
+
     const colorCodeArray = [weightColor, setsColor, repsColor];
 
     // If it is the very first session mark all as no change

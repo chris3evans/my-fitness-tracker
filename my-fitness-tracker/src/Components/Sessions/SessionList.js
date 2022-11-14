@@ -10,7 +10,6 @@ const SessionList = function (props) {
 
   useEffect(() => {
     extendSessionList();
-    console.log(longSessionList, "SESSION LIST CHANGE");
   }, [props.showSessionList]);
 
   const extendSessionList = function () {
@@ -18,7 +17,6 @@ const SessionList = function (props) {
   };
 
   const sessionListLength = props.sessionData.length;
-  console.log(sessionListLength);
 
   const onAddSessionClickHandler = function () {
     setViewSessionForm(!viewSessionForm);
@@ -47,7 +45,7 @@ const SessionList = function (props) {
       <ul
         style={{
           maxHeight: longSessionList
-            ? `${3 * sessionListLength}rem`
+            ? `${4 * sessionListLength}rem`
             : 12 + "rem",
         }}
         className="session-list"
