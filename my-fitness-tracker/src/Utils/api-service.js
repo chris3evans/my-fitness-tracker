@@ -27,7 +27,6 @@ const getAllWorkouts = async function () {
       },
     });
     const workoutsData = await response.json();
-    console.log(workoutsData, "Workout data - apiService");
     return workoutsData;
   } catch (error) {
     console.error(error);
@@ -90,17 +89,21 @@ const postNewSession = async function (sessionData) {
   }
 };
 
-const getAllSessions = async function (exerciseId) {
+const getAllSessions = async function (exerciseId, workoutType) {
   try {
-    const response = await fetch(`${baseUrl}/sessions/${exerciseId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${baseUrl}/${
+        workoutType === "cardio" ? "cardio-" : ""
+      }sessions/${exerciseId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const sessionsData = await response.json();
-
     return sessionsData;
   } catch (error) {
     console.error(error);

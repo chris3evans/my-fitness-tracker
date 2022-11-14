@@ -2,9 +2,8 @@ const convertToLbs = function (weightInKg) {
   return (weightInKg * 2.20462).toFixed(2);
 };
 
-const convertToKilos = function (weightInLb) {
-  const lbWeight = (weightInLb * 0.453592).toFixed(2);
-  return lbWeight;
+const convertToKmh = function (speedInMiles) {
+  return (speedInMiles * 1.60934).toFixed(2);
 };
 
-module.exports = { convertToLbs, convertToKilos };
+module.exports = { convertToLbs, convertToKmh };

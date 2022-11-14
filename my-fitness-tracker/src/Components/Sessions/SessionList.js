@@ -20,16 +20,19 @@ const SessionList = function (props) {
 
   const sessionListLength = props.sessionData.length;
 
-  const progressColorCodeData = Progress.checkProgress([...props.sessionData]);
+  const colorCodeData =
+    data.curWorkoutType === "resistance"
+      ? Progress.checkResistanceProgress([...props.sessionData])
+      : Progress.checkResistanceProgress([...props.sessionData]);
 
   let formattedSessionData = [];
 
   for (let i = 0; i < [...props.sessionData].length; i++) {
-    for (let j = 0; j < progressColorCodeData.length; j++) {
+    for (let j = 0; j < colorCodeData.length; j++) {
       if (i === j) {
         const dataObject = {
           ...[...props.sessionData][i],
-          colorCodes: progressColorCodeData[j],
+          colorCodes: colorCodeData[j],
         };
         formattedSessionData.push(dataObject);
       }
@@ -56,8 +59,16 @@ const SessionList = function (props) {
                 <div className="session-text-container">
                   <h3 className="text">
                     {data.siUnit
-                      ? `${session.maxweight}kg`
-                      : `${SiUnit.convertToLbs(session.maxweight)}lb`}
+                      ? `${
+                          data.curWorkoutType === "resistance"
+                            ? session.maxweight
+                            : session.maxspeed
+                        }${data.curWorkoutType === "resistance" ? "kg" : "mph"}`
+                      : `${
+                          data.curWorkoutType === "resistance"
+                            ? `${SiUnit.convertToLbs(session.maxweight)}lb`
+                            : `${SiUnit.convertToKmh(session.maxspeed)}kph`
+                        }`}
                   </h3>
                 </div>
               </div>
@@ -72,7 +83,11 @@ const SessionList = function (props) {
                 className={`session-card-container ${session.colorCodes[2]}`}
               >
                 <div className="session-text-container">
-                  <h3 className="text">{session.reps}</h3>
+                  <h3 className="text">{`${
+                    data.curWorkoutType === "resistance"
+                      ? session.reps
+                      : session.time
+                  }${data.curWorkoutType === "resistance" ? "" : "s"}`}</h3>
                 </div>
               </div>
               <div className="session-card-container date">

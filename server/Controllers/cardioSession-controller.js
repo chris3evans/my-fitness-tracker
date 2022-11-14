@@ -16,4 +16,21 @@ const addNewCardioSession = async function (req, res) {
   }
 };
 
-module.exports = { addNewCardioSession };
+const getAllCardioSessions = async function (req, res) {
+  try {
+    const exerciseId = req.url.split("/").pop();
+
+    const allCardioSessions = await db.CardioSession.findAll({
+      where: { ExerciseId: exerciseId },
+    });
+    res.send(allCardioSessions);
+    res.status(200);
+  } catch (error) {
+    res.status(500);
+    res.json(
+      `Error in retrieving all of the cardio sessions from database: ${error}`
+    );
+  }
+};
+
+module.exports = { addNewCardioSession, getAllCardioSessions };

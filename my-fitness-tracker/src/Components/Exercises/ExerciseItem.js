@@ -8,7 +8,6 @@ const apiService = require("../../Utils/api-service");
 
 const ExerciseItem = function (props) {
   const data = useContext(Context);
-  console.log(data);
 
   const [sessionsData, setSessionsData] = useState("");
   const [addSession, setAddSession] = useState(false);
@@ -23,13 +22,21 @@ const ExerciseItem = function (props) {
   const [revealCardioSessionForm, setRevealCardioSessionForm] = useState(false);
 
   useEffect(() => {
-    if (addSession) {
-      sessionDataHandler();
+    if (addSession && data.curWorkoutType === "resistance") {
+      resistanceSessionDataHandler();
+    }
+    if (addSession && data.curWorkoutType === "cardio") {
+      cardioSessionDataHandler();
     }
   }, [addSession]);
 
   useEffect(() => {
-    sessionDataHandler();
+    if (data.curWorkoutType === "resistance") {
+      resistanceSessionDataHandler();
+    }
+    if (data.curWorkoutType === "cardio") {
+      cardioSessionDataHandler();
+    }
   }, []);
 
   useEffect(() => {
@@ -46,14 +53,31 @@ const ExerciseItem = function (props) {
     toggleCardioSessionFormHandler(!revealCardioSessionForm);
   };
 
-  const sessionDataHandler = async function () {
+  const resistanceSessionDataHandler = async function () {
     try {
-      const sessions = await apiService.getAllSessions(props.exerciseId);
+      const sessions = await apiService.getAllSessions(
+        props.exerciseId,
+        data.curWorkoutType
+      );
       setSessionsData(sessions);
+
       return "Sessions were retrieved";
     } catch (error) {
       console.log(`Error in retrieiving the sessions: ${error}`);
       return "Error in retrieving the sessions";
+    }
+  };
+  const cardioSessionDataHandler = async function () {
+    try {
+      const cardioSessions = await apiService.getAllSessions(
+        props.exerciseId,
+        data.curWorkoutType
+      );
+      setSessionsData(cardioSessions);
+      return "Cardio sessions were retrieved";
+    } catch (error) {
+      console.log(`Error in retrieving the cardio sessions: ${error}`);
+      return "Error in retrieving the cardio sessions";
     }
   };
 
@@ -102,6 +126,8 @@ const ExerciseItem = function (props) {
       revealCardioSessionForm ? (
         <CardioSessionForm
           exerciseId={props.exerciseData.id}
+          submitSession={setAddSession}
+          showSessionForm={toggleCardioSessionFormHandler}
         ></CardioSessionForm>
       ) : (
         ""

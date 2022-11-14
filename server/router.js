@@ -18,5 +18,9 @@ router.post(
   "/add-cardio-session",
   CardioSessionControllers.addNewCardioSession
 );
+router.get(
+  "/cardio-sessions/:exerciseId",
+  CardioSessionControllers.getAllCardioSessions
+);
 
 module.exports = router;

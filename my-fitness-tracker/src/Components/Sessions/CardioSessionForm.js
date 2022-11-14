@@ -16,6 +16,8 @@ const CardioSessionForm = function (props) {
 
     try {
       await apiService.postNewCardioSession(formData);
+      props.submitSession(Math.random());
+      props.showSessionForm(false);
       return "Cardio session data was saved successfully";
     } catch (error) {
       console.error(
