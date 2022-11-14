@@ -9,6 +9,7 @@ const CardioSessionForm = function (props) {
       maxspeed: +event.target.maxspeed.value,
       sets: +event.target.sets.value,
       time: +event.target.time.value,
+      exerciseId: +props.exerciseId,
     };
 
     event.target.reset();
@@ -54,7 +55,7 @@ const CardioSessionForm = function (props) {
 
       <div className="form-field">
         <label htmlFor="time" className="form-label">
-          Speed:
+          Time:
         </label>
         <input
           className="form-input"

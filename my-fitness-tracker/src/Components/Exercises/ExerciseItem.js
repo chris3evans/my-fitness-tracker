@@ -100,7 +100,9 @@ const ExerciseItem = function (props) {
       )}
       {props.selectedExerciseId === props.exerciseId ||
       revealCardioSessionForm ? (
-        <CardioSessionForm></CardioSessionForm>
+        <CardioSessionForm
+          exerciseId={props.exerciseData.id}
+        ></CardioSessionForm>
       ) : (
         ""
       )}

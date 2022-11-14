@@ -1,7 +1,7 @@
 import Button from "../Button";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ExerciseList";
-import WeightUnit from "./WeightUnit";
+import MeasurementUnits from "./MeasurementUnits";
 import Context from "../../Utils/context";
 import { useContext, useState, useEffect } from "react";
 const apiService = require("../../Utils/api-service");
@@ -63,7 +63,10 @@ const ExercisesView = function () {
           ""
         )}
         {!enteringExercise ? (
-          <WeightUnit changeSi={setUseKg} useKg={useKg}></WeightUnit>
+          <MeasurementUnits
+            changeSi={setUseKg}
+            useKg={useKg}
+          ></MeasurementUnits>
         ) : (
           ""
         )}
