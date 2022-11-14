@@ -1,9 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Button from "../Button";
+import Context from "../../Utils/context";
 const apiService = require("../../Utils/api-service");
 
 const WorkoutForm = function (props) {
+  const data = useContext(Context);
   const [addWorkout, setAddWorkout] = useState("");
+
+  const workoutTypeChangeHandler = function (event) {
+    data.setCurSelectedWorkoutType(event.target.value);
+  };
 
   useEffect(() => {
     props.render();
@@ -62,6 +68,7 @@ const WorkoutForm = function (props) {
           value="resistance"
           defaultChecked
           required
+          onChange={workoutTypeChangeHandler}
         ></input>
         <label htmlFor="resistance">Resitance</label>
 
@@ -71,6 +78,7 @@ const WorkoutForm = function (props) {
           type="radio"
           value="cardio"
           required
+          onChange={workoutTypeChangeHandler}
         ></input>
         <label htmlFor="cardio">Cardio</label>
       </div>

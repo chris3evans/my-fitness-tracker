@@ -52,7 +52,7 @@ const WeightUnit = function (props) {
             styles={`si-button ${
               !props.useKg ? "si-button-selected strong-shadow" : ""
             }`}
-            content="Kmh"
+            content="Kph"
             handler={onSelectImperialHandler}
           ></Button>
         </div>

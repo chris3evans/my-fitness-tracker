@@ -32,11 +32,19 @@ const ExerciseForm = function (props) {
   };
 
   const autoSearchHandler = function (searchValue) {
-    const matchingSearchResults = touchSearch.touchSearch(
-      touchSearch.exerciseNames,
-      searchValue
-    );
-    setExerciseSearchResults(matchingSearchResults);
+    if (data.curWorkoutType === "resistance") {
+      const matchingResistanceSearchResults = touchSearch.touchSearch(
+        touchSearch.resistanceExerciseNames,
+        searchValue
+      );
+      setExerciseSearchResults(matchingResistanceSearchResults);
+    } else {
+      const matchingCardioSearchResults = touchSearch.touchSearch(
+        touchSearch.cardioExerciseNames,
+        searchValue
+      );
+      setExerciseSearchResults(matchingCardioSearchResults);
+    }
   };
 
   const finishExerciseHandler = function () {

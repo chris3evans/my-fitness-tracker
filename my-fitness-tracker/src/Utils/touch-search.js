@@ -1,4 +1,4 @@
-const exerciseNames = [
+const resistanceExerciseNames = [
   "Bench Press",
   "Dumbell Press",
   "Incline Bench Press",
@@ -36,6 +36,14 @@ const exerciseNames = [
   "Sumo Deadlift",
 ];
 
+const cardioExerciseNames = [
+  "Treadmill",
+  "Bike Machine",
+  "Rowing Machine",
+  "Stepper Machine",
+  "Jumping Jacks",
+];
+
 const touchSearch = function (standardExercises, curSearch) {
   const matchingResults = standardExercises.filter((exercise) => {
     if (
@@ -52,4 +60,4 @@ const touchSearch = function (standardExercises, curSearch) {
   return matchingResults;
 };
 
-module.exports = { touchSearch, exerciseNames };
+module.exports = { touchSearch, resistanceExerciseNames, cardioExerciseNames };
