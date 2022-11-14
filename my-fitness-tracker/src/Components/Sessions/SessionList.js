@@ -8,7 +8,6 @@ const Progress = require("../../Utils/progress");
 
 const SessionList = function (props) {
   const data = useContext(Context);
-  const [viewSessionForm, setViewSessionForm] = useState(false);
   const [longSessionList, setLongSessionList] = useState(false);
 
   useEffect(() => {
@@ -20,11 +19,6 @@ const SessionList = function (props) {
   };
 
   const sessionListLength = props.sessionData.length;
-
-  const onAddSessionClickHandler = function () {
-    setViewSessionForm(!viewSessionForm);
-    props.showSessionForm(!props.showFormVal);
-  };
 
   const progressColorCodeData = Progress.checkProgress([...props.sessionData]);
 
@@ -90,12 +84,6 @@ const SessionList = function (props) {
           );
         })}
       </ul>
-      <Button
-        btnType="button"
-        content="Add New Session"
-        styles="add-session-button"
-        handler={onAddSessionClickHandler}
-      ></Button>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const ExerciseList = function (props) {
 
   return (
     <ul className="px-20 py-20">
-      {props.exercises.map((exercise) => {
+      {[...props.exercises].reverse().map((exercise) => {
         return (
           <div key={exercise.id}>
             <ExerciseItem

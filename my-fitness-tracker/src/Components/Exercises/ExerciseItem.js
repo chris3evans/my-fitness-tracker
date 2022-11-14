@@ -8,6 +8,7 @@ const ExerciseItem = function (props) {
   const [sessionsData, setSessionsData] = useState("");
   const [addSession, setAddSession] = useState(false);
   const [revealSessionList, setRevealSessionList] = useState(false);
+  const [viewSessionForm, setViewSessionForm] = useState(false);
 
   const [revealSessionForm, setRevealSessionForm] = useState(false);
 
@@ -24,6 +25,11 @@ const ExerciseItem = function (props) {
   useEffect(() => {
     setRevealSessionForm(revealSessionForm);
   }, [revealSessionForm]);
+
+  const onAddSessionClickHandler = function () {
+    setViewSessionForm(!viewSessionForm);
+    toggleSessionFormHandler(!revealSessionForm);
+  };
 
   const sessionDataHandler = async function () {
     try {
@@ -73,6 +79,12 @@ const ExerciseItem = function (props) {
       ) : (
         ""
       )}
+      <Button
+        btnType="button"
+        content="Add New Session"
+        styles="add-session-button"
+        handler={onAddSessionClickHandler}
+      ></Button>
       <Button
         content={sessionsData.length <= 3 ? "" : renderToggleNavigation()}
         btnType="button"

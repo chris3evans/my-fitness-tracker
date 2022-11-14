@@ -22,6 +22,7 @@ const ExercisesView = function () {
   };
   const leaveAddExerciseHandler = function (leave) {
     setEnteringExercise(leave);
+    exerciseDataHandler();
   };
 
   const exerciseDataHandler = async function () {

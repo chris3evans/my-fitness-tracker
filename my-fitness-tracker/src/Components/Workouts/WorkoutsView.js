@@ -17,6 +17,7 @@ const WorkoutsView = function () {
   };
   const exitWorkoutHandler = function () {
     setEnteringWorkout(false);
+    workoutDataHandler();
   };
   const workoutDataHandler = async function () {
     try {
