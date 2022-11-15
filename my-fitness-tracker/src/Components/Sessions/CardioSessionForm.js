@@ -28,10 +28,13 @@ const CardioSessionForm = function (props) {
   };
 
   return (
-    <form className="form-sessions" onSubmit={cardioSessionSubmitHandler}>
-      <div className="form-field">
-        <label htmlFor="max-speed" className="form-label">
-          Maximum Speed Reached:
+    <form
+      className="form-sessions session-form-grid"
+      onSubmit={cardioSessionSubmitHandler}
+    >
+      <div className="session-form-field session-form-field-grid">
+        <label htmlFor="max-speed" className="form-label-session">
+          Maximum Speed (mph):
         </label>
         <input
           className="form-input"
@@ -42,8 +45,8 @@ const CardioSessionForm = function (props) {
         ></input>
       </div>
 
-      <div className="form-field">
-        <label htmlFor="sets" className="form-label">
+      <div className="session-form-field session-form-field-grid">
+        <label htmlFor="sets" className="form-label-session">
           Sets:
         </label>
         <input
@@ -55,8 +58,8 @@ const CardioSessionForm = function (props) {
         ></input>
       </div>
 
-      <div className="form-field">
-        <label htmlFor="time" className="form-label">
+      <div className="session-form-field session-form-field-grid">
+        <label htmlFor="time" className="form-label-session">
           Time:
         </label>
         <input
@@ -71,7 +74,7 @@ const CardioSessionForm = function (props) {
       <Button
         btnType="submit"
         content="Add Session (cardio)"
-        styles="button"
+        styles="button very-dark-green-gradient"
       ></Button>
     </form>
   );

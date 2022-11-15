@@ -10,7 +10,7 @@ const ExerciseList = function (props) {
   };
 
   return (
-    <ul className="px-20 py-20">
+    <ul className="exercise-container px-20 py-20">
       {[...props.exercises].reverse().map((exercise) => {
         return (
           <div key={exercise.id}>

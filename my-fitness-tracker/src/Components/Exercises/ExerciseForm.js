@@ -72,11 +72,11 @@ const ExerciseForm = function (props) {
 
   return (
     <form
-      className="form-exercises exercise-grid"
+      className="form-exercises form exercise-grid fade-in"
       onSubmit={exerciseSubmitHandler}
     >
       <Button
-        content="BACK BTN2"
+        content="return"
         styles="card-text cursor-pointer"
         handler={exitFormHandler}
         btnType="button"
@@ -86,7 +86,7 @@ const ExerciseForm = function (props) {
       </label>
       <div className="search-input">
         <input
-          className="exercise-form-input"
+          className="form-input py-4"
           id="exercise-name"
           name="exercisename"
           placeholder="What is this exercise called?"
@@ -112,7 +112,7 @@ const ExerciseForm = function (props) {
         btnType="submit"
         content="Save Exercise To Workout"
         handler={finishExerciseHandler}
-        styles="button"
+        styles="button very-dark-green-gradient"
       ></Button>
     </form>
   );

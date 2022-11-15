@@ -22,16 +22,20 @@ const CardioTimeUnit = function (props) {
     <div>
       <Button
         btnType="button"
-        styles={`si-button ${
-          props.useSecs ? "si-button-selected strong-shadow" : ""
+        styles={`si-button light-green-gradient ${
+          props.useSecs
+            ? "si-button-selected strong-shadow"
+            : "very-dark-green-gradient"
         }`}
         content="Seconds (s)"
         handler={onSelectSecondsHandler}
       ></Button>
       <Button
         btnType="button"
-        styles={`si-button ${
-          !props.useSecs ? "si-button-selected strong-shadow" : ""
+        styles={`si-button light-green-gradient ${
+          !props.useSecs
+            ? "si-button-selected strong-shadow"
+            : "very-dark-green-gradient"
         }`}
         content="Minutes (min)"
         handler={onSelectMinutesHandler}

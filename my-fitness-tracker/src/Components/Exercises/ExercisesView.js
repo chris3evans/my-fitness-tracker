@@ -39,13 +39,13 @@ const ExercisesView = function () {
   };
 
   return (
-    <div className="px-10 py-20">
+    <>
       <h1 className="primary-heading">{data.curWorkout}</h1>
       <div className="exercise-buttons">
         {!enteringExercise ? (
           <Button
-            styles="card-text cursor-pointer"
-            content="BACK BTN"
+            styles="card-text text-dark cursor-pointer"
+            content="return"
             btnType="button"
             handler={data.toggleView}
           >
@@ -59,7 +59,7 @@ const ExercisesView = function () {
             btnType="button"
             content="Add Exercise"
             handler={enterAddExerciseHandler}
-            styles="button"
+            styles="button very-dark-green-gradient"
           ></Button>
         ) : (
           ""
@@ -81,20 +81,22 @@ const ExercisesView = function () {
           ""
         )}
       </div>
-      {enteringExercise ? (
-        <ExerciseForm
-          render={exerciseDataHandler}
-          navigate={leaveAddExerciseHandler}
-        ></ExerciseForm>
-      ) : (
-        ""
-      )}
-      {exerciseData.length > 0 && !enteringExercise ? (
-        <ExerciseList exercises={exerciseData}></ExerciseList>
-      ) : (
-        ""
-      )}
-    </div>
+      <div className="exercises-view px-10 py-10">
+        {enteringExercise ? (
+          <ExerciseForm
+            render={exerciseDataHandler}
+            navigate={leaveAddExerciseHandler}
+          ></ExerciseForm>
+        ) : (
+          ""
+        )}
+        {exerciseData.length > 0 && !enteringExercise ? (
+          <ExerciseList exercises={exerciseData}></ExerciseList>
+        ) : (
+          ""
+        )}
+      </div>
+    </>
   );
 };
 

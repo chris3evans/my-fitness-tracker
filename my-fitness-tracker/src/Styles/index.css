@@ -9,11 +9,15 @@
 /* https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/ */
 
 @layer components {
+  /* TYPEOGRAPHY */
   .primary-heading {
     @apply text-8xl font-mono font-bold p-8 text-emerald-900;
   }
   .secondary-heading {
     @apply text-4xl font-mono;
+  }
+  .secondary-heading:not(:last-of-type) {
+    @apply border-r-2 border-emerald-900;
   }
   .card-text {
     @apply text-4xl text-white;
@@ -24,16 +28,43 @@
   .text {
     @apply text-2xl font-mono justify-self-center text-emerald-900 w-fit;
   }
+  .text-dark {
+    @apply text-emerald-900;
+  }
+
+  /* BACKGROUND COLORS / GRADIENTS */
+  .light-green-gradient {
+    @apply bg-gradient-to-tr from-teal-200 to-teal-300;
+  }
+  .green-gradient {
+    @apply bg-gradient-to-tr from-teal-300 to-teal-500;
+  }
+  .dark-green-gradient {
+    @apply bg-gradient-to-tr from-teal-500 to-teal-700;
+  }
+  .very-dark-green-gradient {
+    @apply bg-gradient-to-tr from-emerald-700 to-emerald-900;
+  }
+
+  /* FORMS */
 
   .form {
-    @apply bg-teal-500 p-16 grid grid-rows-4 gap-y-6 rounded-xl shadow-2xl;
+    @apply bg-teal-500 p-16 gap-y-10 rounded-xl shadow-2xl w-1/2 mt-10;
   }
   .form-exercises {
-    @apply bg-teal-500 py-16 px-32 gap-y-6 rounded-xl shadow-2xl;
+    @apply bg-teal-500 py-16 px-32 gap-y-6 rounded-xl shadow-2xl w-4/12;
   }
+
   .form-sessions {
-    @apply bg-teal-500 p-16 grid grid-rows-4 gap-5;
+    @apply bg-teal-500 p-16 gap-10 rounded-b-lg;
   }
+  .session-form-field {
+    @apply gap-10;
+  }
+  .form-label-session {
+    @apply text-white text-6xl text-left;
+  }
+
   .form-field {
     @apply grid grid-rows-2 gap-5;
   }
@@ -41,44 +72,93 @@
     @apply text-white text-6xl self-center;
   }
   .form-input {
-    @apply rounded-lg text-4xl pl-6 text-black;
+    @apply rounded-lg text-4xl text-black w-full pl-6 box-border;
   }
   .form-input::placeholder {
     @apply text-4xl self-center;
   }
+  .form-workout-type {
+    @apply min-h-min grid grid-cols-2 grid-rows-1 gap-4;
+  }
+  .form-radio-input {
+    @apply h-8 w-8 cursor-pointer;
+  }
+  .form-radio-field {
+    @apply flex justify-center items-center;
+  }
+  .form-radio-container {
+    @apply flex justify-end;
+  }
+  .form-radio-label {
+    @apply text-left text-3xl ml-4 text-white;
+  }
+
   .exercise-form-input {
     @apply rounded-tl-lg rounded-tr-lg text-4xl py-4 text-black w-full box-border pl-6;
   }
+
+  /* BUTTONS */
+
   .button {
     @apply text-4xl bg-emerald-900 p-8 text-white rounded-lg translate-y-0 cursor-pointer transition duration-300;
   }
-
   .button:hover {
     @apply shadow-2xl -translate-y-1;
   }
+  .exercise-buttons {
+    @apply flex items-center justify-evenly;
+  }
+  .toggle-list-button {
+    @apply text-2xl ml-6;
+  }
+  .add-session-button {
+    @apply py-4 text-2xl font-mono bg-teal-300 w-2/4 my-2 rounded-lg transition duration-300 text-emerald-900;
+  }
+  .add-session-button:hover {
+    @apply bg-teal-200;
+  }
+  .si-button {
+    @apply bg-emerald-900 text-white transition-all duration-300 p-6 text-3xl rounded-sm box-border;
+  }
+  .si-button-selected {
+    @apply bg-teal-200 text-emerald-900 transition-all duration-300 transform scale-105 text-4xl box-border;
+  }
 
+  /* WORKOUTS */
+
+  .workouts-view {
+    @apply flex flex-col items-center;
+  }
   .workout-container {
-    @apply p-10 bg-emerald-100;
+    @apply w-9/12 p-10;
   }
   .workout-card {
-    @apply bg-teal-300 p-8 cursor-pointer transition duration-500;
+    @apply p-8 cursor-pointer transition duration-500;
   }
   .workout-card:hover {
     @apply bg-teal-200;
   }
   .workout-card:not(:last-of-type) {
-    @apply mb-10;
+    @apply mb-16;
   }
 
-  .exercise-buttons {
-    @apply flex items-center justify-evenly;
+  /* EXERCISE */
+
+  .exercises-view {
+    @apply flex flex-col items-center;
+  }
+  .exercise-container {
+    @apply w-9/12 p-10;
   }
   .exercise-card {
-    @apply bg-teal-500 p-8;
+    @apply p-8;
   }
   .exercise-card:not(:last-of-type) {
-    @apply mb-8;
+    @apply mb-16;
   }
+
+  /* AUTO TYPE SEARCH */
+
   .search-input {
     @apply flex flex-col items-center;
   }
@@ -95,11 +175,10 @@
     @apply text-2xl text-left pl-6 text-black;
   }
 
-  .session-container {
-    @apply border border-black;
-  }
+  /* SESSIONS */
+
   .session-list {
-    @apply overflow-y-auto flex flex-col-reverse overflow-x-hidden transition-all duration-700;
+    @apply overflow-y-hidden flex flex-col-reverse overflow-x-hidden transition-all duration-700;
   }
   .session-card {
     @apply grid grid-cols-4;
@@ -108,13 +187,13 @@
     @apply flex justify-center py-4;
   }
   .worse {
-    @apply bg-red-600;
+    @apply bg-gradient-to-r from-red-500 to-red-600;
   }
   .same {
-    @apply bg-yellow-400;
+    @apply bg-gradient-to-r from-yellow-300 to-yellow-500;
   }
   .improve {
-    @apply bg-green-500;
+    @apply bg-gradient-to-r from-green-400 to-green-500;
   }
   .date {
     @apply bg-white;
@@ -125,39 +204,36 @@
   .session-time-text-container {
     @apply w-40 justify-center flex text-center;
   }
+
+  /* SESSION HEADERS */
+
   .session-headers {
-    @apply grid grid-cols-4 grid-flow-dense justify-evenly py-1 border-b-4 border-blue-900;
-  }
-
-  .toggle-list-button {
-    @apply text-4xl;
-  }
-
-  .add-session-button {
-    @apply py-4 text-2xl font-mono bg-teal-300 w-2/4 my-2 rounded-lg transition duration-300 text-emerald-900;
-  }
-  .add-session-button:hover {
-    @apply bg-teal-200;
-  }
-
-  .si-button {
-    @apply bg-emerald-900 text-white transition-all duration-300 p-6 text-3xl rounded-sm box-border;
-    /* @apply bg-teal-300 p-5 text-emerald-900 text-2xl; */
-  }
-  .si-button-selected {
-    @apply bg-teal-200 text-emerald-900 transition-all duration-300 transform scale-105 text-4xl box-border;
-    /* @apply bg-emerald-900 text-white; */
+    @apply grid grid-cols-4 grid-flow-dense justify-evenly py-2 border-b-2 border-b-black;
   }
 }
 
 html {
   font-size: 62.5%;
-  color: rgb(76, 76, 175);
+  color: black;
+  background-color: rgb(209, 250, 229);
+  padding: 5rem;
 }
 
+.workout-form-grid {
+  display: grid;
+  grid-template-rows: repeat(4, min-content);
+}
 .exercise-grid {
   display: grid;
   grid-template-rows: repeat(4, min-content);
+}
+.session-form-grid {
+  display: grid;
+  grid-template-rows: repeat(4, min-content);
+}
+.session-form-field-grid {
+  display: grid;
+  grid-template-columns: 35% 50%;
 }
 
 .strong-shadow {

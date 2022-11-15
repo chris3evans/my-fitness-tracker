@@ -31,7 +31,7 @@ const WorkoutsView = function () {
   };
 
   return (
-    <div className="px-10 py-20">
+    <div className="workouts-view px-10 py-20">
       <h1 className="primary-heading">
         {enteringWorkout ? "Enter Workout" : "Your Workouts"}
       </h1>
@@ -42,7 +42,7 @@ const WorkoutsView = function () {
           btnType="button"
           content="Add Workout"
           handler={enterWorkoutHandler}
-          styles="button"
+          styles="button very-dark-green-gradient"
         ></Button>
       )}
       {workoutData.length > 0 && !enteringWorkout ? (

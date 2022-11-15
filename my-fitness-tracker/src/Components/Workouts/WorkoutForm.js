@@ -1,15 +1,15 @@
 import { useState, useEffect, useContext } from "react";
 import Button from "../Button";
-import Context from "../../Utils/context";
+// import Context from "../../Utils/context";
 const apiService = require("../../Utils/api-service");
 
 const WorkoutForm = function (props) {
-  const data = useContext(Context);
+  // const data = useContext(Context);
   const [addWorkout, setAddWorkout] = useState("");
 
-  const workoutTypeChangeHandler = function (event) {
-    data.setCurSelectedWorkoutType(event.target.value);
-  };
+  // const workoutTypeChangeHandler = function (event) {
+  //   data.setCurSelectedWorkoutType(event.target.value);
+  // };
 
   useEffect(() => {
     props.render();
@@ -40,47 +40,66 @@ const WorkoutForm = function (props) {
   };
 
   return (
-    <form className="form fade-in" onSubmit={workoutSubmitHandler}>
+    <form
+      className="workout-form-grid form fade-in w-4/12"
+      onSubmit={workoutSubmitHandler}
+    >
       {/* use aria label if using icon for back button */}
       <Button
-        content="BACK BTN"
+        content="return"
         styles="card-text cursor-pointer"
         handler={props.navigate}
         btnType="button"
       ></Button>
-      <label className="form-label" htmlFor="workout-name">
-        Workout Name:
-      </label>
-      <input
-        className="form-input"
-        type="text"
-        name="workoutname"
-        id="workout-name"
-        placeholder="What is this workout called?"
-        required
-        autoComplete="off"
-      ></input>
-      <div className="workout-type">
+      <div className="form-field">
+        <label className="form-label" htmlFor="workout-name">
+          Workout Name:
+        </label>
         <input
-          name="workouttype"
-          id="resistance"
-          type="radio"
-          value="resistance"
-          defaultChecked
+          className="form-input"
+          type="text"
+          name="workoutname"
+          id="workout-name"
+          placeholder="What is this workout called?"
           required
-          onChange={workoutTypeChangeHandler}
+          autoComplete="off"
         ></input>
-        <label htmlFor="resistance">Resitance</label>
+      </div>
+      <div className="form-workout-type">
+        <div className="form-radio-field">
+          <div className="form-radio-container">
+            <input
+              className="form-radio-input"
+              name="workouttype"
+              id="resistance"
+              type="radio"
+              value="resistance"
+              defaultChecked
+              required
+              // onChange={workoutTypeChangeHandler}
+            ></input>
+          </div>
+          <label className="form-radio-label" htmlFor="resistance">
+            Resitance
+          </label>
+        </div>
 
-        <input
-          name="workouttype"
-          id="cardio"
-          type="radio"
-          value="cardio"
-          required
-          onChange={workoutTypeChangeHandler}
-        ></input>
-        <label htmlFor="cardio">Cardio</label>
+        <div className="form-radio-field">
+          <div className="form-radio-container">
+            <input
+              className="form-radio-input"
+              name="workouttype"
+              id="cardio"
+              type="radio"
+              value="cardio"
+              required
+              // onChange={workoutTypeChangeHandler}
+            ></input>
+          </div>
+          <label className="form-radio-label" htmlFor="cardio">
+            Cardio
+          </label>
+        </div>
       </div>
       <Button
         btnType="submit"

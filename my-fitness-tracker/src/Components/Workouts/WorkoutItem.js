@@ -22,7 +22,7 @@ const WorkoutItem = function (props) {
   };
 
   return (
-    <div className="workout-card fade-in">
+    <div className="workout-card fade-in green-gradient">
       <li onClick={workoutClickHandler}>
         <h2
           className="card-text-dark"

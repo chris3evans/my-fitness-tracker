@@ -93,13 +93,16 @@ const ExerciseItem = function (props) {
   };
 
   const renderToggleNavigation = function () {
-    if (revealSessionList && sessionsData.length > 3) return "🔼";
-    if (!revealSessionList && sessionsData.length > 3) return "🔽";
+    if (revealSessionList && sessionsData.length > 3) return "show less";
+    if (!revealSessionList && sessionsData.length > 3) return "show more";
   };
 
   return (
     <li className="mb-20 fade-in">
-      <h2 className="exercise-card card-text" id={props.exerciseData.id}>
+      <h2
+        className="exercise-card card-text dark-green-gradient"
+        id={props.exerciseData.id}
+      >
         {props.exerciseData.exercisename}
       </h2>
       {sessionsData.length > 0 ? (
@@ -135,14 +138,14 @@ const ExerciseItem = function (props) {
       {data.curWorkoutType === "resistance" ? (
         <Button
           btnType="button"
-          content="Add New Weights Session"
+          content="Enter New Session"
           styles="add-session-button"
           handler={onAddWeightSessionClickHandler}
         ></Button>
       ) : (
         <Button
           btnType="button"
-          content="Add New Cardio Session"
+          content="Enter New Session"
           styles="add-session-button"
           handler={onAddCardioSessionClickHandler}
         ></Button>
