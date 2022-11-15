@@ -47,7 +47,7 @@ const CardioSessionForm = function (props) {
 
       <div className="session-form-field session-form-field-grid">
         <label htmlFor="sets" className="form-label-session">
-          Sets:
+          Intervals:
         </label>
         <input
           type="number"

@@ -17,10 +17,34 @@ const checkResistanceProgress = function (resistanceSessions) {
       colorCodeArray[2] = "same";
       colorCodesArray.push(colorCodeArray);
     } else {
+      if (resistanceSessions[i].reps > resistanceSessions[i - 1].reps) {
+        colorCodeArray[2] = "improve";
+      }
+      if (resistanceSessions[i].reps === resistanceSessions[i - 1].reps) {
+        colorCodeArray[2] = "same";
+      }
+      if (resistanceSessions[i].reps < resistanceSessions[i - 1].reps) {
+        colorCodeArray[2] = "worse";
+      }
+
+      if (resistanceSessions[i].sets > resistanceSessions[i - 1].sets) {
+        colorCodeArray[1] = "improve";
+        colorCodeArray[2] = "improve";
+      }
+      if (resistanceSessions[i].sets === resistanceSessions[i - 1].sets) {
+        colorCodeArray[1] = "same";
+      }
+      if (resistanceSessions[i].sets < resistanceSessions[i - 1].sets) {
+        colorCodeArray[1] = "worse";
+        colorCodeArray[2] = "worse";
+      }
+
       if (
         resistanceSessions[i].maxweight > resistanceSessions[i - 1].maxweight
       ) {
         colorCodeArray[0] = "improve";
+        colorCodeArray[1] = "improve";
+        colorCodeArray[2] = "improve";
       }
       if (
         resistanceSessions[i].maxweight === resistanceSessions[i - 1].maxweight
@@ -31,27 +55,10 @@ const checkResistanceProgress = function (resistanceSessions) {
         resistanceSessions[i].maxweight < resistanceSessions[i - 1].maxweight
       ) {
         colorCodeArray[0] = "worse";
-      }
-
-      if (resistanceSessions[i].sets > resistanceSessions[i - 1].sets) {
-        colorCodeArray[1] = "improve";
-      }
-      if (resistanceSessions[i].sets === resistanceSessions[i - 1].sets) {
-        colorCodeArray[1] = "same";
-      }
-      if (resistanceSessions[i].sets < resistanceSessions[i - 1].sets) {
         colorCodeArray[1] = "worse";
-      }
-
-      if (resistanceSessions[i].reps > resistanceSessions[i - 1].reps) {
-        colorCodeArray[2] = "improve";
-      }
-      if (resistanceSessions[i].reps === resistanceSessions[i - 1].reps) {
-        colorCodeArray[2] = "same";
-      }
-      if (resistanceSessions[i].reps < resistanceSessions[i - 1].reps) {
         colorCodeArray[2] = "worse";
       }
+
       colorCodesArray.push(colorCodeArray);
     }
   }

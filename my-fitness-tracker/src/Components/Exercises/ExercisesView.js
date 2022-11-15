@@ -41,7 +41,8 @@ const ExercisesView = function () {
   return (
     <>
       <h1 className="primary-heading">{data.curWorkout}</h1>
-      <div className="exercise-buttons sticky">
+      {/* sticky top-2 */}
+      <div className="exercise-buttons">
         {!enteringExercise ? (
           <Button
             styles="card-text text-dark cursor-pointer"

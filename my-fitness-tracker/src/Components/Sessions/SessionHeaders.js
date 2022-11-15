@@ -15,7 +15,7 @@ const SessionHeaders = function () {
       ) : (
         <>
           <h3 className="secondary-heading">Maximum Speed:</h3>
-          <h3 className="secondary-heading">Sets:</h3>
+          <h3 className="secondary-heading">Intervals:</h3>
           <h3 className="secondary-heading">Time:</h3>
           <h3 className="secondary-heading">Date:</h3>
         </>
