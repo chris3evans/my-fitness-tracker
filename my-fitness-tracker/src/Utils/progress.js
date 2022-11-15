@@ -84,26 +84,6 @@ const checkCardioProgress = function (cardioSessions) {
       colorCodeArray[2] = "same";
       colorCodesArray.push(colorCodeArray);
     } else {
-      if (cardioSessions[i].maxspeed > cardioSessions[i - 1].maxspeed) {
-        colorCodeArray[0] = "improve";
-      }
-      if (cardioSessions[i].maxspeed === cardioSessions[i - 1].maxspeed) {
-        colorCodeArray[0] = "same";
-      }
-      if (cardioSessions[i].maxspeed < cardioSessions[i - 1].maxspeed) {
-        colorCodeArray[0] = "worse";
-      }
-
-      if (cardioSessions[i].sets > cardioSessions[i - 1].sets) {
-        colorCodeArray[1] = "improve";
-      }
-      if (cardioSessions[i].sets === cardioSessions[i - 1].sets) {
-        colorCodeArray[1] = "same";
-      }
-      if (cardioSessions[i].sets < cardioSessions[i - 1].sets) {
-        colorCodeArray[1] = "worse";
-      }
-
       if (cardioSessions[i].time > cardioSessions[i - 1].time) {
         colorCodeArray[2] = "improve";
       }
@@ -113,6 +93,33 @@ const checkCardioProgress = function (cardioSessions) {
       if (cardioSessions[i].time < cardioSessions[i - 1].time) {
         colorCodeArray[2] = "worse";
       }
+
+      if (cardioSessions[i].sets > cardioSessions[i - 1].sets) {
+        colorCodeArray[1] = "improve";
+        colorCodeArray[2] = "improve";
+      }
+      if (cardioSessions[i].sets === cardioSessions[i - 1].sets) {
+        colorCodeArray[1] = "same";
+      }
+      if (cardioSessions[i].sets < cardioSessions[i - 1].sets) {
+        colorCodeArray[1] = "worse";
+        colorCodeArray[2] = "worse";
+      }
+
+      if (cardioSessions[i].maxspeed > cardioSessions[i - 1].maxspeed) {
+        colorCodeArray[0] = "improve";
+        colorCodeArray[1] = "improve";
+        colorCodeArray[2] = "improve";
+      }
+      if (cardioSessions[i].maxspeed === cardioSessions[i - 1].maxspeed) {
+        colorCodeArray[0] = "same";
+      }
+      if (cardioSessions[i].maxspeed < cardioSessions[i - 1].maxspeed) {
+        colorCodeArray[0] = "worse";
+        colorCodeArray[1] = "worse";
+        colorCodeArray[2] = "worse";
+      }
+
       colorCodesArray.push(colorCodeArray);
     }
   }

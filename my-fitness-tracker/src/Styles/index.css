@@ -94,7 +94,7 @@
     @apply flex justify-end;
   }
   .form-radio-label {
-    @apply text-left text-3xl ml-4 text-white;
+    @apply text-left text-3xl ml-4;
   }
 
   .exercise-form-input {
@@ -196,7 +196,7 @@
     @apply flex justify-center py-4;
   }
   .worse {
-    @apply bg-gradient-to-r from-red-500 to-red-600;
+    @apply bg-gradient-to-r from-red-500 to-red-600 text-white;
   }
   .same {
     @apply bg-gradient-to-r from-yellow-300 to-yellow-500;

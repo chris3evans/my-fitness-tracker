@@ -47,7 +47,7 @@ const WorkoutsView = function () {
         ></Button>
       )}
       {workoutData.length === 0 ? (
-        <StartingMessage message="This workout does not have any exercises. Click 'Add Exercise' to add one!"></StartingMessage>
+        <StartingMessage message="You do not have any workouts yet. Click 'Add Workout' to get started!"></StartingMessage>
       ) : (
         ""
       )}

@@ -22,7 +22,7 @@ const SessionList = function (props) {
   const colorCodeData =
     data.curWorkoutType === "resistance"
       ? Progress.checkResistanceProgress([...props.sessionData])
-      : Progress.checkResistanceProgress([...props.sessionData]);
+      : Progress.checkCardioProgress([...props.sessionData]);
 
   let formattedSessionData = [];
 
