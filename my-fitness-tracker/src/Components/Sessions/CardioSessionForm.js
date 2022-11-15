@@ -73,7 +73,7 @@ const CardioSessionForm = function (props) {
 
       <Button
         btnType="submit"
-        content="Add Session (cardio)"
+        content="Add Session"
         styles="button very-dark-green-gradient"
       ></Button>
     </form>

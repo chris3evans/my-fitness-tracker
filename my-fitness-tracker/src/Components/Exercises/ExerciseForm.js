@@ -72,7 +72,7 @@ const ExerciseForm = function (props) {
 
   return (
     <form
-      className="form-exercises form exercise-grid fade-in"
+      className="form-exercises form exercise-grid fade-in sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-1/2"
       onSubmit={exerciseSubmitHandler}
     >
       <Button

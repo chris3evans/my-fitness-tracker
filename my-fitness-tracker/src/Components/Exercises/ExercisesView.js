@@ -41,7 +41,7 @@ const ExercisesView = function () {
   return (
     <>
       <h1 className="primary-heading">{data.curWorkout}</h1>
-      <div className="exercise-buttons">
+      <div className="exercise-buttons sticky">
         {!enteringExercise ? (
           <Button
             styles="card-text text-dark cursor-pointer"
@@ -64,19 +64,19 @@ const ExercisesView = function () {
         ) : (
           ""
         )}
-        {!enteringExercise ? (
-          <MeasurementUnits
-            changeSi={setUseKg}
-            useKg={useKg}
-          ></MeasurementUnits>
-        ) : (
-          ""
-        )}
         {!enteringExercise && data.curWorkoutType === "cardio" ? (
           <CardioTimeUnit
             changeTime={setUseSeconds}
             useSecs={useSeconds}
           ></CardioTimeUnit>
+        ) : (
+          ""
+        )}
+        {!enteringExercise ? (
+          <MeasurementUnits
+            changeSi={setUseKg}
+            useKg={useKg}
+          ></MeasurementUnits>
         ) : (
           ""
         )}

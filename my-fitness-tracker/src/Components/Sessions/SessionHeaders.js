@@ -9,7 +9,7 @@ const SessionHeaders = function () {
         <>
           <h3 className="secondary-heading">Maximum Working Weight:</h3>
           <h3 className="secondary-heading">Sets:</h3>
-          <h3 className="secondary-heading">Repetitions:</h3>
+          <h3 className="secondary-heading">Reps:</h3>
           <h3 className="secondary-heading">Date:</h3>
         </>
       ) : (

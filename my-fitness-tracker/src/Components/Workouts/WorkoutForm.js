@@ -41,7 +41,7 @@ const WorkoutForm = function (props) {
 
   return (
     <form
-      className="workout-form-grid form fade-in w-4/12"
+      className="workout-form-grid form fade-in w-4/12 sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-1/2"
       onSubmit={workoutSubmitHandler}
     >
       {/* use aria label if using icon for back button */}

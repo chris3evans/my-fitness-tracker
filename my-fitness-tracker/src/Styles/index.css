@@ -11,10 +11,10 @@
 @layer components {
   /* TYPEOGRAPHY */
   .primary-heading {
-    @apply text-8xl font-mono font-bold p-8 text-emerald-900;
+    @apply text-8xl font-mono font-bold p-8 text-emerald-900 sm:text-6xl sm:p-4;
   }
   .secondary-heading {
-    @apply text-4xl font-mono;
+    @apply text-3xl font-mono xsm:text-xl sm:text-2xl md:text-2xl;
   }
   .secondary-heading:not(:last-of-type) {
     @apply border-r-2 border-emerald-900;
@@ -52,30 +52,30 @@
     @apply bg-teal-500 p-16 gap-y-10 rounded-xl shadow-2xl w-1/2 mt-10;
   }
   .form-exercises {
-    @apply bg-teal-500 py-16 px-32 gap-y-6 rounded-xl shadow-2xl w-4/12;
+    @apply bg-teal-500 py-16 px-32 gap-y-6 rounded-xl shadow-2xl w-4/12 sm:px-16 sm:py-12;
   }
 
   .form-sessions {
     @apply bg-teal-500 p-16 gap-10 rounded-b-lg;
   }
   .session-form-field {
-    @apply gap-10;
+    @apply gap-10 sm:gap-5;
   }
   .form-label-session {
-    @apply text-white text-6xl text-left;
+    @apply text-white text-6xl text-left sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl;
   }
 
   .form-field {
     @apply grid grid-rows-2 gap-5;
   }
   .form-label {
-    @apply text-white text-6xl self-center;
+    @apply text-white text-6xl self-center sm:text-5xl md:text-5xl;
   }
   .form-input {
     @apply rounded-lg text-4xl text-black w-full pl-6 box-border;
   }
   .form-input::placeholder {
-    @apply text-4xl self-center;
+    @apply text-4xl self-center sm:text-3xl md:text-3xl;
   }
   .form-workout-type {
     @apply min-h-min grid grid-cols-2 grid-rows-1 gap-4;
@@ -100,13 +100,13 @@
   /* BUTTONS */
 
   .button {
-    @apply text-4xl bg-emerald-900 p-8 text-white rounded-lg translate-y-0 cursor-pointer transition duration-300;
+    @apply text-4xl bg-emerald-900 p-8 text-white rounded-lg translate-y-0 cursor-pointer transition duration-300 sm:text-3xl md:text-3xl lg:text-3xl xsm:w-full;
   }
   .button:hover {
     @apply shadow-2xl -translate-y-1;
   }
   .exercise-buttons {
-    @apply flex items-center justify-evenly;
+    @apply flex items-center justify-evenly sm:grid md:grid  sm:grid-rows-4 md:grid-rows-4 sm:gap-4 md:gap-4;
   }
   .toggle-list-button {
     @apply text-2xl ml-6;
@@ -118,10 +118,10 @@
     @apply bg-teal-200;
   }
   .si-button {
-    @apply bg-emerald-900 text-white transition-all duration-300 p-6 text-3xl rounded-sm box-border;
+    @apply bg-emerald-900 text-white transition-all duration-300 p-6 text-3xl rounded-sm box-border sm:text-2xl md:text-2xl;
   }
   .si-button-selected {
-    @apply bg-teal-200 text-emerald-900 transition-all duration-300 transform scale-105 text-4xl box-border;
+    @apply bg-teal-200 text-emerald-900 transition-all duration-300 transform scale-105 text-4xl box-border sm:text-3xl md:text-3xl;
   }
 
   /* WORKOUTS */
@@ -199,7 +199,7 @@
     @apply bg-white;
   }
   .session-text-container {
-    @apply w-10 justify-self-center;
+    @apply w-10 justify-center flex text-center;
   }
   .session-time-text-container {
     @apply w-40 justify-center flex text-center;
@@ -217,6 +217,16 @@ html {
   color: black;
   background-color: rgb(209, 250, 229);
   padding: 5rem;
+}
+@media screen and (max-width: 640px) {
+  html {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  html {
+    padding: 1rem;
+  }
 }
 
 .workout-form-grid {
