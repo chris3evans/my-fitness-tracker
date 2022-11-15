@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import Button from "../Button";
 import ExerciseSearchList from "./ExerciseSearchList";
+import Icon from "../Icon";
 import Context from "../../Utils/context";
 const apiService = require("../../Utils/api-service");
 const touchSearch = require("../../Utils/touch-search");
@@ -75,12 +76,14 @@ const ExerciseForm = function (props) {
       className="form-exercises form exercise-grid fade-in sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-1/2"
       onSubmit={exerciseSubmitHandler}
     >
-      <Button
-        content="return"
-        styles="card-text cursor-pointer"
-        handler={exitFormHandler}
-        btnType="button"
-      ></Button>
+      <Icon
+      description="left facing bold arrow"
+        className="card-text text-dark cursor-pointer"
+        onClick={exitFormHandler}
+        icon="arrow-bold-left"
+        size={30}
+        color="black"
+      ></Icon>
       <label className="form-label" htmlFor="exercise-name">
         Exercise Name:
       </label>

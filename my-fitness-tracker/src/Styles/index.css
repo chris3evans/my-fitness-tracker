@@ -32,6 +32,10 @@
     @apply text-emerald-900;
   }
 
+  .starting-message-container {
+    @apply pt-20;
+  }
+
   /* BACKGROUND COLORS / GRADIENTS */
   .light-green-gradient {
     @apply bg-gradient-to-tr from-teal-200 to-teal-300;
@@ -95,6 +99,11 @@
 
   .exercise-form-input {
     @apply rounded-tl-lg rounded-tr-lg text-4xl py-4 text-black w-full box-border pl-6;
+  }
+
+  /* ICONS */
+  .back-icon {
+    @apply h-12 w-12 fill-black cursor-pointer;
   }
 
   /* BUTTONS */

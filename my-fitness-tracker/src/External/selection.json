@@ -1,0 +1,111 @@
+{
+  "IcoMoonType": "selection",
+  "icons": [
+    {
+      "icon": {
+        "paths": [
+          "M512 128v179.2h358.4v409.6h-358.4v179.2l-384-384 384-384z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "arrow-bold-left"
+        ],
+        "grid": 20
+      },
+      "attrs": [],
+      "properties": {
+        "id": 17,
+        "order": 538,
+        "prevSize": 20,
+        "name": "arrow-bold-left"
+      },
+      "setIdx": 2,
+      "setId": 2,
+      "iconIdx": 16
+    },
+    {
+      "icon": {
+        "paths": [
+          "M687.002 402.381c13.875-13.722 36.301-13.722 50.074 0 13.824 13.722 13.926 35.891 0 49.613l-200.090 196.096c-13.824 13.722-36.198 13.722-50.125 0l-200.090-196.096c-13.824-13.67-13.824-35.891 0-49.613 13.875-13.722 36.301-13.722 50.074 0l175.155 160.819 175.002-160.819z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "chevron-small-down"
+        ],
+        "grid": 20
+      },
+      "attrs": [],
+      "properties": {
+        "id": 37,
+        "order": 536,
+        "prevSize": 20,
+        "name": "chevron-small-down"
+      },
+      "setIdx": 2,
+      "setId": 2,
+      "iconIdx": 36
+    },
+    {
+      "icon": {
+        "paths": [
+          "M336.998 621.619c-13.875 13.722-36.301 13.722-50.074 0s-13.926-35.891 0-49.613l200.090-196.096c13.824-13.722 36.198-13.722 50.125 0l200.090 196.096c13.824 13.67 13.824 35.891 0 49.613-13.875 13.722-36.301 13.722-50.125 0l-175.104-160.819-175.002 160.819z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "chevron-small-up"
+        ],
+        "grid": 20
+      },
+      "attrs": [],
+      "properties": {
+        "id": 40,
+        "order": 537,
+        "prevSize": 20,
+        "name": "chevron-small-up"
+      },
+      "setIdx": 2,
+      "setId": 2,
+      "iconIdx": 39
+    }
+  ],
+  "height": 1024,
+  "preferences": {
+    "showGlyphs": true,
+    "showQuickUse": true,
+    "showQuickUse2": true,
+    "showSVGs": true,
+    "fontPref": {
+      "prefix": "icon-",
+      "metadata": {
+        "fontFamily": "icomoon"
+      },
+      "metrics": {
+        "emSize": 1024,
+        "baseline": 6.25,
+        "whitespace": 50
+      },
+      "embed": false
+    },
+    "imagePref": {
+      "prefix": "icon-",
+      "png": false,
+      "useClassSelector": true,
+      "color": 0,
+      "bgColor": 16777215,
+      "classSelector": ".icon",
+      "name": "icomoon",
+      "height": 32,
+      "columns": 16,
+      "margin": 16
+    },
+    "historySize": 50,
+    "showCodes": true,
+    "gridSize": 16
+  }
+}

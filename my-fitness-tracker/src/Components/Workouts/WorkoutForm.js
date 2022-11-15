@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import Button from "../Button";
+import Icon from "../Icon";
 // import Context from "../../Utils/context";
 const apiService = require("../../Utils/api-service");
 
@@ -45,12 +46,14 @@ const WorkoutForm = function (props) {
       onSubmit={workoutSubmitHandler}
     >
       {/* use aria label if using icon for back button */}
-      <Button
-        content="return"
-        styles="card-text cursor-pointer"
-        handler={props.navigate}
-        btnType="button"
-      ></Button>
+      <Icon
+        description="left facing bold arrow"
+        className="card-text text-dark cursor-pointer"
+        onClick={props.navigate}
+        icon="arrow-bold-left"
+        size={30}
+        color="black"
+      ></Icon>
       <div className="form-field">
         <label className="form-label" htmlFor="workout-name">
           Workout Name:
@@ -80,7 +83,7 @@ const WorkoutForm = function (props) {
             ></input>
           </div>
           <label className="form-radio-label" htmlFor="resistance">
-            Resitance
+            Resistance
           </label>
         </div>
 

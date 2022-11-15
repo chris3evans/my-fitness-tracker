@@ -60,7 +60,7 @@ const CardioSessionForm = function (props) {
 
       <div className="session-form-field session-form-field-grid">
         <label htmlFor="time" className="form-label-session">
-          Time:
+          Time (s):
         </label>
         <input
           className="form-input"

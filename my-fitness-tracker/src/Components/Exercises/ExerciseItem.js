@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import ResistanceSessionForm from "../Sessions/ResistanceSessionForm";
 import SessionList from "../Sessions/SessionList";
 import Button from "../Button";
+import Icon from "../Icon";
 import CardioSessionForm from "../../Components/Sessions/CardioSessionForm";
 import Context from "../../Utils/context";
 const apiService = require("../../Utils/api-service");
@@ -93,8 +94,24 @@ const ExerciseItem = function (props) {
   };
 
   const renderToggleNavigation = function () {
-    if (revealSessionList && sessionsData.length > 3) return "show less";
-    if (!revealSessionList && sessionsData.length > 3) return "show more";
+    if (revealSessionList && sessionsData.length > 3)
+      return (
+        <Icon
+          description="upwards facing chevron (shorten list)"
+          icon="chevron-small-up"
+          size={30}
+          color="black"
+        ></Icon>
+      );
+    if (!revealSessionList && sessionsData.length > 3)
+      return (
+        <Icon
+          description="downwards facing chevron (extend list)"
+          icon="chevron-small-down"
+          size={30}
+          color="black"
+        ></Icon>
+      );
   };
 
   return (

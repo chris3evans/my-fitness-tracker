@@ -1,6 +1,7 @@
 import Button from "../Button";
 import WorkoutForm from "../Workouts/WorkoutForm";
 import WorkoutList from "../Workouts/WorkoutList";
+import StartingMessage from "../StartingMessage";
 import { useState, useEffect } from "react";
 const apiService = require("../../Utils/api-service");
 
@@ -44,6 +45,11 @@ const WorkoutsView = function () {
           handler={enterWorkoutHandler}
           styles="button very-dark-green-gradient"
         ></Button>
+      )}
+      {workoutData.length === 0 ? (
+        <StartingMessage message="This workout does not have any exercises. Click 'Add Exercise' to add one!"></StartingMessage>
+      ) : (
+        ""
       )}
       {workoutData.length > 0 && !enteringWorkout ? (
         <WorkoutList workouts={workoutData}></WorkoutList>
