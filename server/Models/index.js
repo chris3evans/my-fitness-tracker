@@ -1,4 +1,4 @@
-import environment from "../../my-fitness-tracker/src/Utils/environment";
+const environment = require("../../my-fitness-tracker/src/Utils/environment.js");
 
 const Sequelize = require("sequelize");
 const fs = require("fs");

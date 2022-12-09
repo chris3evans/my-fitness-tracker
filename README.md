@@ -12,8 +12,6 @@ The metrics are ordered in level of importance (in terms of for performance) fro
 I.e. an improvement in lifting weight will result in the entire session row turning green.
 
 ![Home Page View Screenshot](/Readme-screenshot-2.png?raw=true "Home Page View")
-![Workout View Screenshot](/Readme-screenshot-1.png?raw=true "Workout View")
-![Cardio Session Form View Screenshot](/Readme-screenshot-3.png?raw=true "Cardio Session Form View")
 
 ## Getting Started
 
@@ -29,7 +27,7 @@ The template environment file can be found with the following path from the root
 
 3.) To start the client side move into the "my-fitness-tracker" directory and run "npm run start"
 
-4.) To start the server side move into the "server" directory" and run "node index"
+4.) To start the server side run "npm run server"
 
 ## Tech Stack
 
