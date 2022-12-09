@@ -29,6 +29,8 @@ The template environment file can be found with the following path from the root
 
 4.) To start the server side run "npm run server"
 
+5.) If you wish to populate the app with data, run "npm run populate"
+
 ## Tech Stack
 
 ### Front End
