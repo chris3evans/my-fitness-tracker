@@ -1,30 +1,30 @@
+import environment from "../../my-fitness-tracker/src/Utils/environment";
+
 const Sequelize = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const db = {};
 
-const sequelize = new Sequelize("workouts", "postgres", "12345", {
-  host: "localhost",
-  port: 5432,
-  dialect: "postgres",
-  logging: false,
-});
+const sequelize = new Sequelize(
+  environment.DATABASE_NAME,
+  "postgres",
+  environment.PASSWORD,
+  {
+    host: environment.HOST,
+    port: environment.PORT,
+    dialect: "postgres",
+    logging: false,
+  }
+);
 
-// Get all files from Model folder
 const files = fs.readdirSync(__dirname);
 
-// Loop over each file
 for (let file of files) {
-  // ignore index.js
   if (file !== "index.js") {
-    // For each model file, require a function which creates the model and then call it with sequelize + Sequelize.DataTypes to get the resultant model
-    // Specify files
     const model = require(path.join(__dirname, file))(
       sequelize,
       Sequelize.DataTypes
     );
-    // Store each model on db object
-    // db["Workout"] = model created above
     db[model.name] = model;
   }
 }

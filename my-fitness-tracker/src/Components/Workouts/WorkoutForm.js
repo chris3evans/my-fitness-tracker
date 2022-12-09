@@ -1,16 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import Button from "../Button";
 import Icon from "../Icon";
-// import Context from "../../Utils/context";
+
 const apiService = require("../../Utils/api-service");
 
 const WorkoutForm = function (props) {
-  // const data = useContext(Context);
   const [addWorkout, setAddWorkout] = useState("");
-
-  // const workoutTypeChangeHandler = function (event) {
-  //   data.setCurSelectedWorkoutType(event.target.value);
-  // };
 
   useEffect(() => {
     props.render();
@@ -45,7 +40,6 @@ const WorkoutForm = function (props) {
       className="workout-form-grid form fade-in w-4/12 sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-1/2"
       onSubmit={workoutSubmitHandler}
     >
-      {/* use aria label if using icon for back button */}
       <Icon
         description="left facing bold arrow"
         className="card-text text-dark cursor-pointer"
@@ -79,7 +73,6 @@ const WorkoutForm = function (props) {
               value="resistance"
               defaultChecked
               required
-              // onChange={workoutTypeChangeHandler}
             ></input>
           </div>
           <label className="form-radio-label" htmlFor="resistance">
@@ -96,7 +89,6 @@ const WorkoutForm = function (props) {
               type="radio"
               value="cardio"
               required
-              // onChange={workoutTypeChangeHandler}
             ></input>
           </div>
           <label className="form-radio-label" htmlFor="cardio">

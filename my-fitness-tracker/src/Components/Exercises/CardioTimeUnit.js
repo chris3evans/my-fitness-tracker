@@ -8,13 +8,11 @@ const CardioTimeUnit = function (props) {
 
   const onSelectMinutesHandler = function () {
     props.changeTime(false);
-    // use seconds?
     data.timeUnit = false;
   };
 
   const onSelectSecondsHandler = function () {
     props.changeTime(true);
-    // use seconds?
     data.timeUnit = true;
   };
 

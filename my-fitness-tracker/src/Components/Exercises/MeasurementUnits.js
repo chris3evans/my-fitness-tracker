@@ -6,13 +6,11 @@ const WeightUnit = function (props) {
   const data = useContext(Context);
   const onSelectMetricHandler = function () {
     props.changeSi(true);
-    // use kg?
     data.siUnit = true;
   };
 
   const onSelectImperialHandler = function () {
     props.changeSi(false);
-    // use kg?
     data.siUnit = false;
   };
 

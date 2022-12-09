@@ -1,16 +1,13 @@
 const checkResistanceProgress = function (resistanceSessions) {
   const colorCodesArray = [];
-  // Loop over the sessions
+
   for (let i = 0; i < resistanceSessions.length; i++) {
     let weightColor = "";
     let setsColor = "";
     let repsColor = "";
 
-    // Change to object form
-
     const colorCodeArray = [weightColor, setsColor, repsColor];
 
-    // If it is the very first session mark all as no change
     if (i === 0) {
       colorCodeArray[0] = "same";
       colorCodeArray[1] = "same";
@@ -67,17 +64,14 @@ const checkResistanceProgress = function (resistanceSessions) {
 
 const checkCardioProgress = function (cardioSessions) {
   const colorCodesArray = [];
-  // Loop over the sessions
+
   for (let i = 0; i < cardioSessions.length; i++) {
     let weightColor = "";
     let setsColor = "";
     let repsColor = "";
 
-    // Change to object form
-
     const colorCodeArray = [weightColor, setsColor, repsColor];
 
-    // If it is the very first session mark all as no change
     if (i === 0) {
       colorCodeArray[0] = "same";
       colorCodeArray[1] = "same";

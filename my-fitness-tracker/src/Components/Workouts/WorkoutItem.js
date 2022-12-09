@@ -5,19 +5,17 @@ const WorkoutItem = function (props) {
   const data = useContext(Context);
 
   const workoutClickHandler = function (event) {
-    // Know which workout has been clicked
+
     const workoutId = +event.target.id;
 
-    // Know the type of workout which has been clicked
     const workoutType = event.target.dataset.type;
+
     data.setCurWorkoutType(workoutType);
 
-    // Obtain the name of this workout
     data.getCurWorkout(props.workoutData.workoutname);
 
-    // Stop rendering the workouts view
-    // Render the exercises view
     data.toggleView();
+
     data.getCurExercises(workoutId);
   };
 

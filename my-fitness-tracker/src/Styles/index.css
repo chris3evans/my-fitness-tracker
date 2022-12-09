@@ -2,16 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* darkblue:  rgb(16, 16, 94)
-   blue: rgb(76, 76, 175)
-*/
-
-/* https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/ */
-
 @layer components {
   /* TYPEOGRAPHY */
   .primary-heading {
-    @apply text-8xl font-mono font-bold p-8 text-emerald-900 sm:text-6xl sm:p-4;
+    @apply text-8xl font-mono font-bold p-8 text-emerald-900 sm:p-4;
   }
   .secondary-heading {
     @apply text-3xl font-mono xsm:text-xl sm:text-2xl md:text-2xl lg:text-2xl;
