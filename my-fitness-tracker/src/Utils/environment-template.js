@@ -1,6 +1,6 @@
 const environment = {
-  HOST: "",
-  PORT: 0000,
+  HOST: "localhost",
+  PORT: 5432,
   DATABASE_NAME: "",
   PASSWORD: "",
 };
