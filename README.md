@@ -1,6 +1,6 @@
 # My Fitness Tracker
 
-A full stack application that allows users to create new workouts, add exercises to these workouts and then keep session records for each exercie each time they complete a workout. Users can keep track of their progress and see their improvement over time.
+A full stack application that allows users to create new workouts, add exercises to these workouts and then keep session records for each exercise each time they complete a workout. Users can keep track of their progress and see their improvement over time.
 
 A dynamic color scheme has been used to show progress since the last session:
 
