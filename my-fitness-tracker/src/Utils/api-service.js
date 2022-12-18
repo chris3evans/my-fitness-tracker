@@ -1,4 +1,6 @@
-const url = `${process.env.API_URL}`;
+const API_URL_DEVELOPMENT = "http://localhost:3333";
+const API_URL_PRODUCTION = "https://my-fitness-tracker.herokuapp.com/";
+const url = process.env.NODE_ENV ? API_URL_PRODUCTION : API_URL_DEVELOPMENT;
 
 const postNewWorkout = async function (workoutData) {
   try {
