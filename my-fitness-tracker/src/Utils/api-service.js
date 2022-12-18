@@ -29,6 +29,7 @@ const getAllWorkouts = async function () {
     const workoutsData = await response.json();
     return workoutsData;
   } catch (error) {
+    console.log(url, "url");
     console.error(error);
     console.log("Error in getting all of the workouts (client side)");
     return "Error in retrieving all workouts";
