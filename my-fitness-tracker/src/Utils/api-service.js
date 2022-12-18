@@ -28,8 +28,7 @@ const getAllWorkouts = async function () {
         "Content-Type": "application/json",
       },
     });
-    const workoutsData = await response.json();
-    return workoutsData;
+    return await response.json();
   } catch (error) {
     console.log(url, "url");
     console.error(error);
