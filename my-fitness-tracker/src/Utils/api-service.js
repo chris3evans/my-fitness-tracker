@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:4000";
+const baseUrl = "http://localhost:3333";
 const deploymentUrl = "http://my-fitness-tracker.herokuapp.com";
 
 const postNewWorkout = async function (workoutData) {
