@@ -1,9 +1,8 @@
-const baseUrl = "http://localhost:3333";
-const deploymentUrl = "http://my-fitness-tracker.herokuapp.com";
+const environment = require("../Utils/environment");
 
 const postNewWorkout = async function (workoutData) {
   try {
-    const response = await fetch(`${baseUrl}/add-workout`, {
+    const response = await fetch(`${environment.API_URL}/add-workout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +20,7 @@ const postNewWorkout = async function (workoutData) {
 
 const getAllWorkouts = async function () {
   try {
-    const response = await fetch(`${baseUrl}/workouts`, {
+    const response = await fetch(`${environment.API_URL}/workouts`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +37,7 @@ const getAllWorkouts = async function () {
 
 const postNewExercise = async function (exerciseData) {
   try {
-    const response = await fetch(`${baseUrl}/add-exercise`, {
+    const response = await fetch(`${environment.API_URL}/add-exercise`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,12 +55,15 @@ const postNewExercise = async function (exerciseData) {
 
 const getAllExercises = async function (workoutId) {
   try {
-    const response = await fetch(`${baseUrl}/exercises/${workoutId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${environment.API_URL}/exercises/${workoutId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const exercisesData = await response.json();
     return exercisesData;
@@ -74,7 +76,7 @@ const getAllExercises = async function (workoutId) {
 
 const postNewSession = async function (sessionData) {
   try {
-    const response = await fetch(`${baseUrl}/add-session`, {
+    const response = await fetch(`${environment.API_URL}/add-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -93,7 +95,7 @@ const postNewSession = async function (sessionData) {
 const getAllSessions = async function (exerciseId, workoutType) {
   try {
     const response = await fetch(
-      `${baseUrl}/${
+      `${environment.API_URL}/${
         workoutType === "cardio" ? "cardio-" : ""
       }sessions/${exerciseId}`,
       {
@@ -115,7 +117,7 @@ const getAllSessions = async function (exerciseId, workoutType) {
 
 const postNewCardioSession = async function (cardioSessionData) {
   try {
-    const response = await fetch(`${baseUrl}/add-cardio-session`, {
+    const response = await fetch(`${environment.API_URL}/add-cardio-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
