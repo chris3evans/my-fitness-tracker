@@ -23,6 +23,7 @@ const WorkoutsView = function () {
   const workoutDataHandler = async function () {
     try {
       const workouts = await apiService.getAllWorkouts();
+      console.log(workouts, "workouts results");
       setWorkoutData(workouts);
       return "retrieved all workouts";
     } catch (error) {

@@ -5,7 +5,6 @@ const WorkoutItem = function (props) {
   const data = useContext(Context);
 
   const workoutClickHandler = function (event) {
-
     const workoutId = +event.target.id;
 
     const workoutType = event.target.dataset.type;
@@ -20,7 +19,7 @@ const WorkoutItem = function (props) {
   };
 
   return (
-    <div className="workout-card fade-in green-gradient">
+    <div key={props.key} className="workout-card fade-in green-gradient">
       <li onClick={workoutClickHandler}>
         <h2
           className="card-text-dark"
