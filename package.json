@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node server/index",
-    "populate": "node server/Seed/seed-script.js"
+    "populate": "node server/Seed/seed-script.js",
+    "start": "react-scripts start"
   },
   "author": "chris evans",
   "license": "ISC",
