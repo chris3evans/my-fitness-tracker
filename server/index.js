@@ -4,12 +4,20 @@ const router = require("./router");
 const cors = require("cors");
 const port = process.env.port || 3333;
 const db = require("./Models/index");
+const path = require("path");
 
 app.use(express.json());
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, "../my-fitness-tracker/public")));
+
 app.use(router);
 
-(async () => {
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname + "/../my-fitness-tracker/public/index.html")
+  );
+})(async () => {
   await db.sequelize.sync();
   console.log("🖥️🖥️🖥️ Postgres database is running with sequelize");
 
