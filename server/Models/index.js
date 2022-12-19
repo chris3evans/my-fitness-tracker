@@ -1,21 +1,29 @@
-require("dotenv").config();
-const environment = require("../../my-fitness-tracker/src/Utils/environment.js");
-const DATABASE_NAME = process.env.NODE_ENV
-  ? process.env.DB_NAME
-  : environment.DATABASE_NAME;
-const DATABASE_PASSWORD = process.env.NODE_ENV
-  ? process.env.DB_PASSWORD
-  : environment.PASSWORD;
-const HOST = process.env.NODE_ENV ? process.env.DB_HOST : environment.HOST;
-const PORT = process.env.NODE_ENV ? process.env.PORT : environment.PORT;
+require("dotenv").config({
+  path: "../../.env",
+});
+
+const DB_NAME =
+  process.env.NODE_ENV === "production"
+    ? process.env.DB_NAME_PROD
+    : process.env.DB_NAME_DEV;
+
+const DB_PASSWORD =
+  process.env.NODE_ENV === "production"
+    ? process.env.DB_PASSWORD_PROD
+    : process.env.DB_PASSWORD_DEV;
+
+const DB_HOST =
+  process.env.NODE_ENV === "production"
+    ? process.env.DB_HOST_PROD
+    : process.env.DB_HOST_DEV;
 
 const Sequelize = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const db = {};
 
-const sequelize = new Sequelize(DATABASE_NAME, "postgres", DATABASE_PASSWORD, {
-  host: HOST,
+const sequelize = new Sequelize(DB_NAME, "postgres", DB_PASSWORD, {
+  host: DB_HOST,
   port: PORT,
   dialect: "postgres",
   logging: false,
