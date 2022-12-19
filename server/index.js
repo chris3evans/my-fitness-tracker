@@ -13,15 +13,6 @@ app.use(express.static(path.join(__dirname, "../my-fitness-tracker/public")));
 
 app.use(router);
 
-app.get("/healthcheck", (req, res) => {
-  return res.send(process.env);
-  if (process.env.NODE_ENV === "production") {
-    res.end("production");
-  } else {
-    res.end("development");
-  }
-});
-
 app.get("*", (req, res) => {
   res.sendFile(
     path.join(__dirname + "/../my-fitness-tracker/public/index.html")
