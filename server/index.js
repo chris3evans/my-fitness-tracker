@@ -9,13 +9,13 @@ const path = require("path");
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "../my-fitness-tracker/public")));
+app.use(express.static(path.join(__dirname, "../my-fitness-tracker/build")));
 
 app.use(router);
 
 app.get("*", (req, res) => {
   res.sendFile(
-    path.join(__dirname + "/../my-fitness-tracker/public/index.html")
+    path.join(__dirname + "/../my-fitness-tracker/build/index.html")
   );
 })(async () => {
   await db.sequelize.sync();
