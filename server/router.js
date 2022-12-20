@@ -6,7 +6,7 @@ const SessionControllers = require("./Controllers/session-controller");
 const CardioSessionControllers = require("./Controllers/cardioSession-controller");
 
 router.post("/add-workout", WorkoutControllers.addNewWorkout);
-router.get("/workouts", WorkoutControllers.getAllWorkouts);
+router.get("/", WorkoutControllers.getAllWorkouts);
 
 router.post("/add-exercise", ExerciseControllers.addNewExercise);
 router.get("/exercises/:workoutId", ExerciseControllers.getAllExercises);
