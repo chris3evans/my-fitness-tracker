@@ -8,7 +8,7 @@ const path = require("path");
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "../my-fitness-tracker/build")));
+app.use(express.static("build"));
 
 app.use(router);
 
