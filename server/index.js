@@ -12,10 +12,8 @@ app.use(express.static(path.join(__dirname, "../my-fitness-tracker/build")));
 
 app.use(router);
 
-app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname + "/../my-fitness-tracker/build/index.html")
-  );
+app.use("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "../my-fitness-tracker/build/index.html"));
 })(async () => {
   await db.sequelize.sync();
   console.log("🖥️🖥️🖥️ Postgres database is running with sequelize");
