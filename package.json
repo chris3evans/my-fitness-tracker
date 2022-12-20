@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node server/index",
     "populate": "node server/Seed/seed-script.js",
-    "start": "cd ./my-fitness-tracker && npm install && npm run start"
+    "start": "cd server && npm install && node index.js",
+    "heroku-postbuild": "cd my-fitness-tracker && npm install && npm run build"
   },
   "author": "chris evans",
   "license": "ISC",
