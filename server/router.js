@@ -23,13 +23,13 @@ router.get(
   CardioSessionControllers.getAllCardioSessions
 );
 
-router.get("/healthcheck", (req, res) => {
-  return res.send(process.env);
-  if (process.env.NODE_ENV === "production") {
-    res.end("production");
-  } else {
-    res.end("development");
-  }
-});
+// router.get("/healthcheck", (req, res) => {
+//   return res.send(process.env);
+//   if (process.env.NODE_ENV === "production") {
+//     res.end("production");
+//   } else {
+//     res.end("development");
+//   }
+// });
 
 module.exports = router;
