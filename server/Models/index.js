@@ -4,35 +4,20 @@ require("dotenv").config({
 
 console.log("process env", JSON.stringify(process.env));
 
-// const DB_NAME =
-//   process.env.NODE_ENV === "production"
-//     ? process.env.DB_NAME_PROD
-//     : process.env.DB_NAME_DEV;
-
 const DB_NAME =
   process.env.NODE_ENV === "production"
-    ? process.env.DB_NAME_DEV
-    : process.env.DB_NAME_PROD;
-
-// const DB_PASSWORD =
-//   process.env.NODE_ENV === "production"
-//     ? process.env.DB_PASSWORD_PROD
-//     : process.env.DB_PASSWORD_DEV;
+    ? process.env.DB_NAME_PROD
+    : process.env.DB_NAME_DEV;
 
 const DB_PASSWORD =
   process.env.NODE_ENV === "production"
-    ? process.env.DB_PASSWORD_DEV
-    : process.env.DB_PASSWORD_PROD;
-
-// const DB_HOST =
-//   process.env.NODE_ENV === "production"
-//     ? process.env.DB_HOST_PROD
-//     : process.env.DB_HOST_DEV;
+    ? process.env.DB_PASSWORD_PROD
+    : process.env.DB_PASSWORD_DEV;
 
 const DB_HOST =
   process.env.NODE_ENV === "production"
-    ? process.env.DB_HOST_DEV
-    : process.env.DB_HOST_PROD;
+    ? process.env.DB_HOST_PROD
+    : process.env.DB_HOST_DEV;
 
 const Sequelize = require("sequelize");
 const fs = require("fs");

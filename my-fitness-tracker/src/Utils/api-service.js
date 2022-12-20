@@ -1,8 +1,8 @@
 // Does client have access to process.env or use React env variables?
 const url =
   process.env.NODE_ENV === "production"
-    ? "http://localhost:3333"
-    : "https://my-fitness-tracker.herokuapp.com";
+    ? "https://my-fitness-tracker.herokuapp.com"
+    : "http://localhost:3333";
 
 const postNewWorkout = async function (workoutData) {
   try {
