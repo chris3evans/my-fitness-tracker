@@ -24,7 +24,7 @@ const postNewWorkout = async function (workoutData) {
 
 const getAllWorkouts = async function () {
   try {
-    const response = await fetch(`${url}/`, {
+    const response = await fetch(`${url}/workouts`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
