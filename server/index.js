@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const router = require("./router");
 const cors = require("cors");
-const port = process.env.port || 3333;
+const port = process.env.PORT || 3333;
 const db = require("./Models/index");
 const path = require("path");
 
@@ -22,7 +22,9 @@ app.use(router);
   await db.sequelize.sync();
   console.log("🖥️🖥️🖥️ Postgres database is running with sequelize");
 
-  app.listen(port, () => {
-    console.log(`🍏🍏🍏 Server is running on port: ${port}`);
+  app.listen(process.env.PORT || 3333, () => {
+    console.log(
+      `🍏🍏🍏 Server is running on port: ${process.env.PORT || 3333}`
+    );
   });
 })();
