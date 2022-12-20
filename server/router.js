@@ -5,6 +5,10 @@ const ExerciseControllers = require("./Controllers/exercise-controller");
 const SessionControllers = require("./Controllers/session-controller");
 const CardioSessionControllers = require("./Controllers/cardioSession-controller");
 
+router.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "../my-fitness-tracker/build/index.html"));
+});
+
 router.post("/add-workout", WorkoutControllers.addNewWorkout);
 router.get("/workouts", WorkoutControllers.getAllWorkouts);
 
