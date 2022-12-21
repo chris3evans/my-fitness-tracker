@@ -4,4 +4,4 @@ const Exercise = (sequelize, DataTypes) => {
   });
 };
 
-module.exports = Exercise;
+export default Exercise;

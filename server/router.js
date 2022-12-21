@@ -1,4 +1,5 @@
-const express = require("express");
+// const express = require("express");
+import express from "express";
 const router = express.Router();
 const WorkoutControllers = require("./Controllers/workout-controller");
 const ExerciseControllers = require("./Controllers/exercise-controller");

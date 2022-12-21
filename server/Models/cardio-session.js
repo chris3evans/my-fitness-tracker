@@ -15,4 +15,4 @@ const CardioSession = (sequelize, DataTypes) => {
   });
 };
 
-module.exports = CardioSession;
+export default CardioSession;

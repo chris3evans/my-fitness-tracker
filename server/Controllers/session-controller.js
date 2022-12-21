@@ -1,4 +1,5 @@
-const db = require("../Models/index");
+// const db = require("../Models/index");
+import db from "../Models/index";
 
 const addNewSession = async function (req, res) {
   try {
@@ -31,4 +32,4 @@ const getAllSessions = async function (req, res) {
   }
 };
 
-module.exports = { addNewSession, getAllSessions };
+export { addNewSession, getAllSessions };
