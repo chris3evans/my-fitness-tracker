@@ -1,5 +1,4 @@
-// const db = require("../Models/index");
-import db from "../Models/index";
+const db = require("../Models/index");
 
 const addNewWorkout = async function (req, res) {
   try {
