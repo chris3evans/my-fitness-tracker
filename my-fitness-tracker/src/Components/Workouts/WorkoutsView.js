@@ -3,7 +3,8 @@ import WorkoutForm from "../Workouts/WorkoutForm";
 import WorkoutList from "../Workouts/WorkoutList";
 import StartingMessage from "../StartingMessage";
 import { useState, useEffect } from "react";
-const apiService = require("../../Utils/api-service");
+import apiService from "../../Utils/api-service";
+// const apiService = require("../../Utils/api-service");
 
 const WorkoutsView = function () {
   useEffect(() => {

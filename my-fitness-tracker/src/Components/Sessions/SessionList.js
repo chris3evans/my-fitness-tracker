@@ -1,9 +1,12 @@
 import SessionHeaders from "./SessionHeaders";
 import { useState, useEffect, useContext } from "react";
 import Context from "../../Utils/context";
-const SiUnit = require("../../Utils/change-si");
-const Date = require("../../Utils/date");
-const Progress = require("../../Utils/progress");
+import SiUnit from "../../Utils/change-si";
+import Date from "../../Utils/date";
+import Progress from "../../Utils/progress";
+// const SiUnit = require("../../Utils/change-si");
+// const Date = require("../../Utils/date");
+// const Progress = require("../../Utils/progress");
 
 const SessionList = function (props) {
   const data = useContext(Context);

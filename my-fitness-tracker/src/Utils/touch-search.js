@@ -60,4 +60,4 @@ const touchSearch = function (standardExercises, curSearch) {
   return matchingResults;
 };
 
-module.exports = { touchSearch, resistanceExerciseNames, cardioExerciseNames };
+export { touchSearch, resistanceExerciseNames, cardioExerciseNames };

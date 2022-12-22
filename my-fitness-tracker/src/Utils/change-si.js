@@ -6,4 +6,4 @@ const convertToKmh = function (speedInMiles) {
   return (speedInMiles * 1.60934).toFixed(2);
 };
 
-module.exports = { convertToLbs, convertToKmh };
+export { convertToLbs, convertToKmh };

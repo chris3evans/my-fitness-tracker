@@ -1,4 +1,3 @@
-// Does client have access to process.env or use React env variables?
 const url =
   process.env.NODE_ENV === "production"
     ? "https://my-fitness-tracker.herokuapp.com"
@@ -134,7 +133,7 @@ const postNewCardioSession = async function (cardioSessionData) {
   }
 };
 
-module.exports = {
+export {
   postNewWorkout,
   getAllWorkouts,
   postNewExercise,

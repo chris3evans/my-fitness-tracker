@@ -120,4 +120,4 @@ const checkCardioProgress = function (cardioSessions) {
   return colorCodesArray;
 };
 
-module.exports = { checkResistanceProgress, checkCardioProgress };
+export { checkResistanceProgress, checkCardioProgress };

@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import Button from "../Button";
 import Icon from "../Icon";
-
-const apiService = require("../../Utils/api-service");
+import apiService from '../../Utils/api-service';
+// const apiService = require("../../Utils/api-service");
 
 const WorkoutForm = function (props) {
   const [addWorkout, setAddWorkout] = useState("");

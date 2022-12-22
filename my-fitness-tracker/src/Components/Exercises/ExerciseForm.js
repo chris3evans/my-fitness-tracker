@@ -3,8 +3,10 @@ import Button from "../Button";
 import ExerciseSearchList from "./ExerciseSearchList";
 import Icon from "../Icon";
 import Context from "../../Utils/context";
-const apiService = require("../../Utils/api-service");
-const touchSearch = require("../../Utils/touch-search");
+import apiService from '../../Utils/api-service';
+import touchSearch from '../../Utils/touch-search';
+// const apiService = require("../../Utils/api-service");
+// const touchSearch = require("../../Utils/touch-search");
 
 const ExerciseForm = function (props) {
   const data = useContext(Context);

@@ -7,7 +7,8 @@ import StartingMessage from "../StartingMessage";
 import Icon from "../Icon";
 import Context from "../../Utils/context";
 import { useContext, useState, useEffect } from "react";
-const apiService = require("../../Utils/api-service");
+import apiService from '../../Utils/api-service';
+// const apiService = require("../../Utils/api-service");
 
 const ExercisesView = function () {
   const data = useContext(Context);

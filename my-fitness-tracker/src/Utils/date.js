@@ -16,4 +16,4 @@ const formatSecondsToMinutes = function (timeInSeconds) {
   return `${minutes > 0 ? minutes : ""}${minutes > 0 ? "min" : ""} ${seconds}s`;
 };
 
-module.exports = { formatDate, formatSecondsToMinutes };
+export { formatDate, formatSecondsToMinutes };
