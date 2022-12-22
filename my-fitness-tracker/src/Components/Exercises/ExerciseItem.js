@@ -5,7 +5,7 @@ import Button from "../Button";
 import Icon from "../Icon";
 import CardioSessionForm from "../../Components/Sessions/CardioSessionForm";
 import Context from "../../Utils/context";
-import apiService from '../../Utils/api-service';
+import { getAllSessions } from "../../Utils/api-service";
 // const apiService = require("../../Utils/api-service");
 
 const ExerciseItem = function (props) {
@@ -57,7 +57,7 @@ const ExerciseItem = function (props) {
 
   const resistanceSessionDataHandler = async function () {
     try {
-      const sessions = await apiService.getAllSessions(
+      const sessions = await getAllSessions(
         props.exerciseId,
         data.curWorkoutType
       );
@@ -71,7 +71,7 @@ const ExerciseItem = function (props) {
   };
   const cardioSessionDataHandler = async function () {
     try {
-      const cardioSessions = await apiService.getAllSessions(
+      const cardioSessions = await getAllSessions(
         props.exerciseId,
         data.curWorkoutType
       );

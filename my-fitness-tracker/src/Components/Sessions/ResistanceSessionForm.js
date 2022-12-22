@@ -1,5 +1,5 @@
 import Button from "../Button";
-import apiService from "../../Utils/api-service";
+import { postNewSession } from "../../Utils/api-service";
 // const apiService = require("../../Utils/api-service");
 
 const SessionForm = function (props) {
@@ -16,7 +16,7 @@ const SessionForm = function (props) {
     event.target.reset();
 
     try {
-      await apiService.postNewSession(formData);
+      await postNewSession(formData);
       props.submitSession(Math.random());
       props.showSessionForm(false);
       return "Session data was saved successfully";

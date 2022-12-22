@@ -1,5 +1,7 @@
 import Button from "../Button";
-import apiService from '../../Utils/api-service';
+import {
+  postNewCardioSession
+} from '../../Utils/api-service';
 // const apiService = require("../../Utils/api-service");
 
 const CardioSessionForm = function (props) {
@@ -16,7 +18,7 @@ const CardioSessionForm = function (props) {
     event.target.reset();
 
     try {
-      await apiService.postNewCardioSession(formData);
+      await postNewCardioSession(formData);
       props.submitSession(Math.random());
       props.showSessionForm(false);
       return "Cardio session data was saved successfully";

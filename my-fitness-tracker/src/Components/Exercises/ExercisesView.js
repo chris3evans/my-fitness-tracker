@@ -7,7 +7,9 @@ import StartingMessage from "../StartingMessage";
 import Icon from "../Icon";
 import Context from "../../Utils/context";
 import { useContext, useState, useEffect } from "react";
-import apiService from '../../Utils/api-service';
+import {
+  getAllExercises
+} from '../../Utils/api-service';
 // const apiService = require("../../Utils/api-service");
 
 const ExercisesView = function () {
@@ -32,7 +34,7 @@ const ExercisesView = function () {
 
   const exerciseDataHandler = async function () {
     try {
-      const exercises = await apiService.getAllExercises(data.curExercises);
+      const exercises = await getAllExercises(data.curExercises);
       setExerciseData(exercises);
       return "retrieved all exercises";
     } catch (error) {

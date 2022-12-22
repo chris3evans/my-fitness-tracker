@@ -3,7 +3,9 @@ import Button from "../Button";
 import ExerciseSearchList from "./ExerciseSearchList";
 import Icon from "../Icon";
 import Context from "../../Utils/context";
-import apiService from "../../Utils/api-service";
+import {
+  postNewExercise
+} from "../../Utils/api-service";
 import {
   touchSearch,
   resistanceExerciseNames,
@@ -68,7 +70,7 @@ const ExerciseForm = function (props) {
     event.target.reset();
 
     try {
-      await apiService.postNewExercise(formData);
+      await postNewExercise(formData);
       props.navigate();
       return "Exercise was not saved";
     } catch (error) {

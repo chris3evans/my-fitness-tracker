@@ -1,7 +1,9 @@
 import { useState, useEffect, useContext } from "react";
 import Button from "../Button";
 import Icon from "../Icon";
-import apiService from '../../Utils/api-service';
+import {
+  postNewWorkout
+} from '../../Utils/api-service';
 // const apiService = require("../../Utils/api-service");
 
 const WorkoutForm = function (props) {
@@ -26,7 +28,7 @@ const WorkoutForm = function (props) {
     event.target.reset();
 
     try {
-      await apiService.postNewWorkout(formData);
+      await postNewWorkout(formData);
       props.navigate();
       return "Workout was saved";
     } catch (error) {

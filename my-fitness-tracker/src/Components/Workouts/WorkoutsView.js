@@ -3,7 +3,7 @@ import WorkoutForm from "../Workouts/WorkoutForm";
 import WorkoutList from "../Workouts/WorkoutList";
 import StartingMessage from "../StartingMessage";
 import { useState, useEffect } from "react";
-import apiService from "../../Utils/api-service";
+import { getAllWorkouts } from "../../Utils/api-service";
 // const apiService = require("../../Utils/api-service");
 
 const WorkoutsView = function () {
@@ -23,7 +23,7 @@ const WorkoutsView = function () {
   };
   const workoutDataHandler = async function () {
     try {
-      const workouts = await apiService.getAllWorkouts();
+      const workouts = await getAllWorkouts();
       setWorkoutData(workouts);
       return "retrieved all workouts";
     } catch (error) {

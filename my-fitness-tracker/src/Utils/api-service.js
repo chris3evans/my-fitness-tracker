@@ -3,7 +3,7 @@ const url =
     ? "https://my-fitness-tracker.herokuapp.com"
     : "http://localhost:3333";
 
-const postNewWorkout = async function (workoutData) {
+export const postNewWorkout = async function (workoutData) {
   try {
     const response = await fetch(`${url}/add-workout`, {
       method: "POST",
@@ -21,7 +21,7 @@ const postNewWorkout = async function (workoutData) {
   }
 };
 
-const getAllWorkouts = async function () {
+export const getAllWorkouts = async function () {
   try {
     const response = await fetch(`${url}/workouts`, {
       method: "GET",
@@ -38,7 +38,7 @@ const getAllWorkouts = async function () {
   }
 };
 
-const postNewExercise = async function (exerciseData) {
+export const postNewExercise = async function (exerciseData) {
   try {
     const response = await fetch(`${url}/add-exercise`, {
       method: "POST",
@@ -56,7 +56,7 @@ const postNewExercise = async function (exerciseData) {
   }
 };
 
-const getAllExercises = async function (workoutId) {
+export const getAllExercises = async function (workoutId) {
   try {
     const response = await fetch(`${url}/exercises/${workoutId}`, {
       method: "GET",
@@ -74,7 +74,7 @@ const getAllExercises = async function (workoutId) {
   }
 };
 
-const postNewSession = async function (sessionData) {
+export const postNewSession = async function (sessionData) {
   try {
     const response = await fetch(`${url}/add-session`, {
       method: "POST",
@@ -92,7 +92,7 @@ const postNewSession = async function (sessionData) {
   }
 };
 
-const getAllSessions = async function (exerciseId, workoutType) {
+export const getAllSessions = async function (exerciseId, workoutType) {
   try {
     const response = await fetch(
       `${url}/${
@@ -115,7 +115,7 @@ const getAllSessions = async function (exerciseId, workoutType) {
   }
 };
 
-const postNewCardioSession = async function (cardioSessionData) {
+export const postNewCardioSession = async function (cardioSessionData) {
   try {
     const response = await fetch(`${url}/add-cardio-session`, {
       method: "POST",
@@ -133,12 +133,12 @@ const postNewCardioSession = async function (cardioSessionData) {
   }
 };
 
-export {
-  postNewWorkout,
-  getAllWorkouts,
-  postNewExercise,
-  getAllExercises,
-  postNewSession,
-  getAllSessions,
-  postNewCardioSession,
-};
+// export {
+//   postNewWorkout,
+//   getAllWorkouts,
+//   postNewExercise,
+//   getAllExercises,
+//   postNewSession,
+//   getAllSessions,
+//   postNewCardioSession,
+// };

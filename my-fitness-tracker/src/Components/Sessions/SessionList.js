@@ -1,9 +1,12 @@
 import SessionHeaders from "./SessionHeaders";
 import { useState, useEffect, useContext } from "react";
 import Context from "../../Utils/context";
-import SiUnit from "../../Utils/change-si";
-import Date from "../../Utils/date";
-import Progress from "../../Utils/progress";
+import { convertToLbs, convertToKmh } from "../../Utils/change-si";
+import { formatDate, formatSecondsToMinutes } from "../../Utils/date";
+import {
+  checkResistanceProgress,
+  checkCardioProgress,
+} from "../../Utils/progress";
 // const SiUnit = require("../../Utils/change-si");
 // const Date = require("../../Utils/date");
 // const Progress = require("../../Utils/progress");
@@ -24,8 +27,8 @@ const SessionList = function (props) {
 
   const colorCodeData =
     data.curWorkoutType === "resistance"
-      ? Progress.checkResistanceProgress([...props.sessionData])
-      : Progress.checkCardioProgress([...props.sessionData]);
+      ? checkResistanceProgress([...props.sessionData])
+      : checkCardioProgress([...props.sessionData]);
 
   let formattedSessionData = [];
 
@@ -68,8 +71,8 @@ const SessionList = function (props) {
                         }${data.curWorkoutType === "resistance" ? "kg" : "mph"}`
                       : `${
                           data.curWorkoutType === "resistance"
-                            ? `${SiUnit.convertToLbs(session.maxweight)}lb`
-                            : `${SiUnit.convertToKmh(session.maxspeed)}kph`
+                            ? `${convertToLbs(session.maxweight)}lb`
+                            : `${convertToKmh(session.maxspeed)}kph`
                         }`}
                   </h3>
                 </div>
@@ -96,7 +99,7 @@ const SessionList = function (props) {
                       ? session.reps
                       : data.timeUnit
                       ? session.time
-                      : Date.formatSecondsToMinutes(session.time)
+                      : formatSecondsToMinutes(session.time)
                   }${
                     data.curWorkoutType === "resistance"
                       ? ""
@@ -106,7 +109,7 @@ const SessionList = function (props) {
               </div>
               <div className="session-card-container date">
                 <div className="session-text-container">
-                  <h3 className="text">{Date.formatDate(session.createdAt)}</h3>
+                  <h3 className="text">{formatDate(session.createdAt)}</h3>
                 </div>
               </div>
             </li>

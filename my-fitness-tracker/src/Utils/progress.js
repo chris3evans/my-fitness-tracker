@@ -1,4 +1,4 @@
-const checkResistanceProgress = function (resistanceSessions) {
+export const checkResistanceProgress = function (resistanceSessions) {
   const colorCodesArray = [];
 
   for (let i = 0; i < resistanceSessions.length; i++) {
@@ -62,7 +62,7 @@ const checkResistanceProgress = function (resistanceSessions) {
   return colorCodesArray;
 };
 
-const checkCardioProgress = function (cardioSessions) {
+export const checkCardioProgress = function (cardioSessions) {
   const colorCodesArray = [];
 
   for (let i = 0; i < cardioSessions.length; i++) {
@@ -120,4 +120,4 @@ const checkCardioProgress = function (cardioSessions) {
   return colorCodesArray;
 };
 
-export { checkResistanceProgress, checkCardioProgress };
+// export { checkResistanceProgress, checkCardioProgress };
