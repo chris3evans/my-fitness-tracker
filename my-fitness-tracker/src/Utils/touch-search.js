@@ -1,4 +1,4 @@
-const resistanceExerciseNames = [
+export const resistanceExerciseNames = [
   "Bench Press",
   "Dumbell Press",
   "Incline Bench Press",
@@ -36,7 +36,7 @@ const resistanceExerciseNames = [
   "Sumo Deadlift",
 ];
 
-const cardioExerciseNames = [
+export const cardioExerciseNames = [
   "Treadmill",
   "Bike Machine",
   "Rowing Machine",
@@ -44,7 +44,7 @@ const cardioExerciseNames = [
   "Jumping Jacks",
 ];
 
-const touchSearch = function (standardExercises, curSearch) {
+export const touchSearch = function (standardExercises, curSearch) {
   const matchingResults = standardExercises.filter((exercise) => {
     if (
       exercise.includes(curSearch) ||
@@ -60,4 +60,4 @@ const touchSearch = function (standardExercises, curSearch) {
   return matchingResults;
 };
 
-export { touchSearch, resistanceExerciseNames, cardioExerciseNames };
+// export { touchSearch, resistanceExerciseNames, cardioExerciseNames };

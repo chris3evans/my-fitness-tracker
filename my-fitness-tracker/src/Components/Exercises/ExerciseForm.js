@@ -4,7 +4,11 @@ import ExerciseSearchList from "./ExerciseSearchList";
 import Icon from "../Icon";
 import Context from "../../Utils/context";
 import apiService from "../../Utils/api-service";
-import touchSearchService from "../../Utils/touch-search";
+import {
+  touchSearch,
+  resistanceExerciseNames,
+  cardioExerciseNames,
+} from "../../Utils/touch-search";
 // const apiService = require("../../Utils/api-service");
 // const touchSearch = require("../../Utils/touch-search");
 
@@ -36,14 +40,14 @@ const ExerciseForm = function (props) {
 
   const autoSearchHandler = function (searchValue) {
     if (data.curWorkoutType === "resistance") {
-      const matchingResistanceSearchResults = touchSearchService.touchSearch(
-        touchSearchService.resistanceExerciseNames,
+      const matchingResistanceSearchResults = touchSearch(
+        resistanceExerciseNames,
         searchValue
       );
       setExerciseSearchResults(matchingResistanceSearchResults);
     } else {
-      const matchingCardioSearchResults = touchSearchService.touchSearch(
-        touchSearchService.cardioExerciseNames,
+      const matchingCardioSearchResults = touchSearch(
+        cardioExerciseNames,
         searchValue
       );
       setExerciseSearchResults(matchingCardioSearchResults);
