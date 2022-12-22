@@ -132,13 +132,3 @@ export const postNewCardioSession = async function (cardioSessionData) {
     return "Error in saving cardio session";
   }
 };
-
-// export {
-//   postNewWorkout,
-//   getAllWorkouts,
-//   postNewExercise,
-//   getAllExercises,
-//   postNewSession,
-//   getAllSessions,
-//   postNewCardioSession,
-// };

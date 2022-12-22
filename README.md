@@ -19,11 +19,13 @@ Please follow the steps in this order to get started with this project on your o
 
 1.) Run "npm install"
 
-2.) Create a copy of the "environment-template.js" file and call it "environment.js". Fill it in with the name of your postgres database and your password for postgres (Do not worry, this file is included in the gitignore)
+2.) Create a .env file with your database credentials in the root folder. The .env file should have the following structure:
 
-The template environment file can be found with the following path from the root:
-
---> my-fitness-tracker --> src --> Utils --> environment-template.js
+DB_USER="postgres"
+DB_PASSWORD="your local password"
+DB_PORT=5432
+DB_HOST="localhost"
+DB_NAME="your local database"
 
 3.) To start the client side move into the "my-fitness-tracker" directory and run "npm run start"
 

@@ -7,9 +7,6 @@ import {
   checkResistanceProgress,
   checkCardioProgress,
 } from "../../Utils/progress";
-// const SiUnit = require("../../Utils/change-si");
-// const Date = require("../../Utils/date");
-// const Progress = require("../../Utils/progress");
 
 const SessionList = function (props) {
   const data = useContext(Context);

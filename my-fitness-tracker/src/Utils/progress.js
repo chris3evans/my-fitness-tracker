@@ -119,5 +119,3 @@ export const checkCardioProgress = function (cardioSessions) {
   }
   return colorCodesArray;
 };
-
-// export { checkResistanceProgress, checkCardioProgress };

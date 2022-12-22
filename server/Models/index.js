@@ -2,13 +2,6 @@ require("dotenv").config({
   path: "../../.env",
 });
 
-// import dotenv from "dotenv";
-// dotenv.config({
-//   path: "../../.env",
-// });
-
-console.log("process env", JSON.stringify(process.env));
-
 const Sequelize = require("sequelize");
 const fs = require("fs");
 const path = require("path");
@@ -50,5 +43,4 @@ db.CardioSession.belongsTo(db.Exercise);
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-// export default db;
 module.exports = db;

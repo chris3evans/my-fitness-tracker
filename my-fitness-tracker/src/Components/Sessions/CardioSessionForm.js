@@ -2,7 +2,6 @@ import Button from "../Button";
 import {
   postNewCardioSession
 } from '../../Utils/api-service';
-// const apiService = require("../../Utils/api-service");
 
 const CardioSessionForm = function (props) {
   const cardioSessionSubmitHandler = async function (event) {

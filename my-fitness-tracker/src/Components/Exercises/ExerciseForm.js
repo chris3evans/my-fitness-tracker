@@ -3,16 +3,12 @@ import Button from "../Button";
 import ExerciseSearchList from "./ExerciseSearchList";
 import Icon from "../Icon";
 import Context from "../../Utils/context";
-import {
-  postNewExercise
-} from "../../Utils/api-service";
+import { postNewExercise } from "../../Utils/api-service";
 import {
   touchSearch,
   resistanceExerciseNames,
   cardioExerciseNames,
 } from "../../Utils/touch-search";
-// const apiService = require("../../Utils/api-service");
-// const touchSearch = require("../../Utils/touch-search");
 
 const ExerciseForm = function (props) {
   const data = useContext(Context);

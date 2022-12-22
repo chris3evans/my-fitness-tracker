@@ -6,7 +6,6 @@ import Icon from "../Icon";
 import CardioSessionForm from "../../Components/Sessions/CardioSessionForm";
 import Context from "../../Utils/context";
 import { getAllSessions } from "../../Utils/api-service";
-// const apiService = require("../../Utils/api-service");
 
 const ExerciseItem = function (props) {
   const data = useContext(Context);

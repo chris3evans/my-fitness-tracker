@@ -59,5 +59,3 @@ export const touchSearch = function (standardExercises, curSearch) {
 
   return matchingResults;
 };
-
-// export { touchSearch, resistanceExerciseNames, cardioExerciseNames };

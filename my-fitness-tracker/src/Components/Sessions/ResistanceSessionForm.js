@@ -1,6 +1,5 @@
 import Button from "../Button";
 import { postNewSession } from "../../Utils/api-service";
-// const apiService = require("../../Utils/api-service");
 
 const SessionForm = function (props) {
   const sessionSubmitHandler = async function (event) {

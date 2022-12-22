@@ -10,7 +10,6 @@ import { useContext, useState, useEffect } from "react";
 import {
   getAllExercises
 } from '../../Utils/api-service';
-// const apiService = require("../../Utils/api-service");
 
 const ExercisesView = function () {
   const data = useContext(Context);

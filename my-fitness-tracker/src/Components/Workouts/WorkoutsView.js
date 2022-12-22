@@ -4,7 +4,6 @@ import WorkoutList from "../Workouts/WorkoutList";
 import StartingMessage from "../StartingMessage";
 import { useState, useEffect } from "react";
 import { getAllWorkouts } from "../../Utils/api-service";
-// const apiService = require("../../Utils/api-service");
 
 const WorkoutsView = function () {
   useEffect(() => {

@@ -4,7 +4,6 @@ import Icon from "../Icon";
 import {
   postNewWorkout
 } from '../../Utils/api-service';
-// const apiService = require("../../Utils/api-service");
 
 const WorkoutForm = function (props) {
   const [addWorkout, setAddWorkout] = useState("");
