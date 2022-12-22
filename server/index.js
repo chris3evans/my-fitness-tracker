@@ -1,10 +1,14 @@
-// const express = require("express");
-import express from "express";
+const express = require("express");
+// import express from "express";
 const app = express();
 const router = require("./router");
+// import router from "./router";
 const cors = require("cors");
+// import cors from "cors";
 const db = require("./Models/index");
+// import db from "./Models/index";
 const path = require("path");
+// import path from "path";
 
 app.use(express.json());
 app.use(cors());

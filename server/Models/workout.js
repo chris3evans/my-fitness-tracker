@@ -5,4 +5,4 @@ const Workout = (sequelize, DataTypes) => {
   });
 };
 
-export default Workout;
+module.exports = Workout;
