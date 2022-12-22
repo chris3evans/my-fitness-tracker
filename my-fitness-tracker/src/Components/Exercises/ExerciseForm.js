@@ -3,8 +3,8 @@ import Button from "../Button";
 import ExerciseSearchList from "./ExerciseSearchList";
 import Icon from "../Icon";
 import Context from "../../Utils/context";
-import apiService from '../../Utils/api-service';
-import touchSearch from '../../Utils/touch-search';
+import apiService from "../../Utils/api-service";
+import touchSearchService from "../../Utils/touch-search";
 // const apiService = require("../../Utils/api-service");
 // const touchSearch = require("../../Utils/touch-search");
 
@@ -36,14 +36,14 @@ const ExerciseForm = function (props) {
 
   const autoSearchHandler = function (searchValue) {
     if (data.curWorkoutType === "resistance") {
-      const matchingResistanceSearchResults = touchSearch.touchSearch(
-        touchSearch.resistanceExerciseNames,
+      const matchingResistanceSearchResults = touchSearchService.touchSearch(
+        touchSearchService.resistanceExerciseNames,
         searchValue
       );
       setExerciseSearchResults(matchingResistanceSearchResults);
     } else {
-      const matchingCardioSearchResults = touchSearch.touchSearch(
-        touchSearch.cardioExerciseNames,
+      const matchingCardioSearchResults = touchSearchService.touchSearch(
+        touchSearchService.cardioExerciseNames,
         searchValue
       );
       setExerciseSearchResults(matchingCardioSearchResults);
@@ -79,7 +79,7 @@ const ExerciseForm = function (props) {
       onSubmit={exerciseSubmitHandler}
     >
       <Icon
-      description="left facing bold arrow"
+        description="left facing bold arrow"
         className="card-text text-dark cursor-pointer"
         onClick={exitFormHandler}
         icon="arrow-bold-left"
