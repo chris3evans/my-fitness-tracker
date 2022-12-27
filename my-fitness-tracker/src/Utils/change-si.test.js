@@ -23,10 +23,10 @@ describe("convertToLbs()", () => {
     expect(result3).toBeNaN();
   });
 
-  it("should return 0 if 0 is passed as an argument", () => {
+  it("should return 0.00 if 0 is passed as an argument", () => {
     const input = 0;
     const result = convertToLbs(input);
-    expect(result).toBe(0.0);
+    expect(result).toBe("0.00");
   });
 });
 
@@ -49,5 +49,11 @@ describe("convertToKmh", () => {
     expect(result1).toBe(NaN);
     expect(result2).toBe(NaN);
     expect(result3).toBe(NaN);
+  });
+
+  it("should return 0.00 if 0 is passed as an argument", () => {
+    const input = 0;
+    const result = convertToKmh(input);
+    expect(result).toBe("0.00");
   });
 });
