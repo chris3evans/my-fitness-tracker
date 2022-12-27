@@ -1,5 +1,9 @@
 export const convertToLbs = function (weightInKg) {
-  return (weightInKg * 2.20462).toFixed(2);
+  if (typeof weightInKg === "number") {
+    return (weightInKg * 2.20462).toFixed(2);
+  } else {
+    return NaN;
+  }
 };
 
 export const convertToKmh = function (speedInMiles) {
