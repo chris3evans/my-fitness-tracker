@@ -185,4 +185,44 @@ describe("checkCardioProgress()", () => {
     const result = checkCardioProgress(input);
     expect(result[1]).toStrictEqual(["same", "same", "improve"]);
   });
+
+  it('should return 3 "worse" even if just maxspeed is less than previous session', () => {
+    const input = [mockData13, mockData14];
+    const result = checkCardioProgress(input);
+    expect(result[1]).toStrictEqual(["worse", "worse", "worse"]);
+  });
+
+  it('should return 2 "worse" for sets being less than previous session', () => {
+    const input = [mockData13, mockData15];
+    const result = checkCardioProgress(input);
+    expect(result[1]).toStrictEqual(["same", "worse", "worse"]);
+  });
+
+  it('should return 1 "worse" for just time being less than previous session', () => {
+    const input = [mockData13, mockData16];
+    const result = checkCardioProgress(input);
+    expect(result[1]).toStrictEqual(["same", "same", "worse"]);
+  });
+
+  it("should throw an error with correct error message if a non-array input is provided", () => {
+    const inputString = "invalid";
+    const inputObject = mockData1;
+    const inputBool = false;
+
+    const resultFn1 = checkResistanceProgress(inputString);
+    const resultFn2 = checkResistanceProgress(inputObject);
+
+    const resultFn3 = checkResistanceProgress(inputBool);
+
+    expect(resultFn1).toBe("Invalid input");
+    expect(resultFn2).toBe("Invalid input");
+    expect(resultFn3).toBe("Invalid input");
+  });
+
+  it("should throw an error with correct error message if an empty array is provided", () => {
+    const input = [];
+    const resultFn = checkResistanceProgress(input);
+
+    expect(resultFn).toBe("No session data provided");
+  });
 });

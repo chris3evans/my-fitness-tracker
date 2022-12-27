@@ -70,6 +70,10 @@ export const checkResistanceProgress = function (resistanceSessions) {
 export const checkCardioProgress = function (cardioSessions) {
   const colorCodesArray = [];
 
+  if (!Array.isArray(cardioSessions)) return "Invalid input";
+
+  if (cardioSessions.length === 0) return "No session data provided";
+
   if (cardioSessions.length === 1) return ["same", "same", "same"];
 
   for (let i = 0; i < cardioSessions.length; i++) {
