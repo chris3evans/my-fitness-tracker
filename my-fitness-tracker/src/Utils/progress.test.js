@@ -90,4 +90,32 @@ describe("checkResistanceProgress()", () => {
     const result = checkResistanceProgress(input);
     expect(result[1]).toStrictEqual(["same", "same", "worse"]);
   });
+
+  it("should throw an error with correct error message if a non-array input is provided", () => {
+    const inputString = "invalid";
+    const inputObject = mockData1;
+    const inputBool = false;
+
+    const resultFn1 = () => {
+      checkResistanceProgress(inputString);
+    };
+    const resultFn2 = () => {
+      checkResistanceProgress(inputObject);
+    };
+    const resultFn3 = () => {
+      checkResistanceProgress(inputBool);
+    };
+
+    expect(resultFn1).toThrow(/Non array value entered/);
+    expect(resultFn2).toThrow(/Non array value entered/);
+    expect(resultFn3).toThrow(/Non array value entered/);
+  });
+
+  it("should throw an error with correct error message if an empty array is provided", () => {
+    const input = [];
+    const resultFn = () => {
+      checkResistanceProgress(input);
+    };
+    expect(resultFn).toThrow(/No session data/);
+  });
 });
