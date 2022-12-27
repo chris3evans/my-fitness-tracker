@@ -7,5 +7,9 @@ export const convertToLbs = function (weightInKg) {
 };
 
 export const convertToKmh = function (speedInMiles) {
-  return (speedInMiles * 1.60934).toFixed(2);
+  if (typeof speedInMiles === "number") {
+    return (speedInMiles * 1.60934).toFixed(2);
+  } else {
+    return NaN;
+  }
 };
