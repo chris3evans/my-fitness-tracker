@@ -1,6 +1,8 @@
 export const checkResistanceProgress = function (resistanceSessions) {
   const colorCodesArray = [];
 
+  if (resistanceSessions.length === 1) return ["same", "same", "same"];
+
   for (let i = 0; i < resistanceSessions.length; i++) {
     let weightColor = "";
     let setsColor = "";
