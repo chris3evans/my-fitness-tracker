@@ -4,7 +4,7 @@ export const formatDate = function (dateIsoString) {
   const month = newDate.getMonth() + 1;
   const year = newDate.getFullYear();
 
-  const date = `${day < 9 ? "0" : ""}${day}/${
+  const date = `${day <= 9 ? "0" : ""}${day}/${
     month < 9 ? "0" : ""
   }${month}/${year}`;
   return date;
@@ -13,5 +13,5 @@ export const formatDate = function (dateIsoString) {
 export const formatSecondsToMinutes = function (timeInSeconds) {
   const minutes = Math.floor(timeInSeconds / 60);
   const seconds = (timeInSeconds % 60).toFixed(0);
-  return `${minutes > 0 ? minutes : ""}${minutes > 0 ? "min" : ""} ${seconds}s`;
+  return `${minutes > 0 ? minutes : ""}${minutes > 0 ? "min " : ""}${seconds}s`;
 };
