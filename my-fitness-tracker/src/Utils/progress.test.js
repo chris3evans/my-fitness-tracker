@@ -34,4 +34,16 @@ describe("checkResistanceProgress()", () => {
     const result = checkResistanceProgress(input);
     expect(result[1]).toStrictEqual(["improve", "improve", "improve"]);
   });
+
+  it('should return 2 "improve" if for sets being greater than previous session', () => {
+    const input = [mockData1, mockData3];
+    const result = checkResistanceProgress(input);
+    expect(result[1]).toStrictEqual(["same", "improve", "improve"]);
+  });
+
+  it('should return 1 "improve" if just reps are greater than previous session', () => {
+    const input = [mockData1, mockData2];
+    const result = checkResistanceProgress(input);
+    expect(result[1]).toStrictEqual(["same", "same", "improve"]);
+  });
 });
