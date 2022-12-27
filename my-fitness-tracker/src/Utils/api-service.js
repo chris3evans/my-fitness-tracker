@@ -31,7 +31,6 @@ export const getAllWorkouts = async function () {
     });
     return await response.json();
   } catch (error) {
-    console.log(url, "url");
     console.error(error);
     console.log("Error in getting all of the workouts (client side)");
     return "Error in retrieving all workouts";

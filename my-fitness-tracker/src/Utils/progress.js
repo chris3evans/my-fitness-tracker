@@ -1,80 +1,76 @@
 export const checkResistanceProgress = function (resistanceSessions) {
-  try {
-    const colorCodesArray = [];
+  const colorCodesArray = [];
 
-    if (!Array.isArray(resistanceSessions))
-      throw new Error("Non array value entered");
+  if (!Array.isArray(resistanceSessions)) return "Invalid input";
 
-    if (resistanceSessions.length === 0) throw new Error("No session data");
-    if (resistanceSessions.length === 1) return ["same", "same", "same"];
+  if (resistanceSessions.length === 0) return "No session data provided";
+  if (resistanceSessions.length === 1) return ["same", "same", "same"];
 
-    for (let i = 0; i < resistanceSessions.length; i++) {
-      let weightColor = "";
-      let setsColor = "";
-      let repsColor = "";
+  for (let i = 0; i < resistanceSessions.length; i++) {
+    let weightColor = "";
+    let setsColor = "";
+    let repsColor = "";
 
-      const colorCodeArray = [weightColor, setsColor, repsColor];
+    const colorCodeArray = [weightColor, setsColor, repsColor];
 
-      if (i === 0) {
-        colorCodeArray[0] = "same";
-        colorCodeArray[1] = "same";
-        colorCodeArray[2] = "same";
-        colorCodesArray.push(colorCodeArray);
-      } else {
-        if (resistanceSessions[i].reps > resistanceSessions[i - 1].reps) {
-          colorCodeArray[2] = "improve";
-        }
-        if (resistanceSessions[i].reps === resistanceSessions[i - 1].reps) {
-          colorCodeArray[2] = "same";
-        }
-        if (resistanceSessions[i].reps < resistanceSessions[i - 1].reps) {
-          colorCodeArray[2] = "worse";
-        }
-
-        if (resistanceSessions[i].sets > resistanceSessions[i - 1].sets) {
-          colorCodeArray[1] = "improve";
-          colorCodeArray[2] = "improve";
-        }
-        if (resistanceSessions[i].sets === resistanceSessions[i - 1].sets) {
-          colorCodeArray[1] = "same";
-        }
-        if (resistanceSessions[i].sets < resistanceSessions[i - 1].sets) {
-          colorCodeArray[1] = "worse";
-          colorCodeArray[2] = "worse";
-        }
-
-        if (
-          resistanceSessions[i].maxweight > resistanceSessions[i - 1].maxweight
-        ) {
-          colorCodeArray[0] = "improve";
-          colorCodeArray[1] = "improve";
-          colorCodeArray[2] = "improve";
-        }
-        if (
-          resistanceSessions[i].maxweight ===
-          resistanceSessions[i - 1].maxweight
-        ) {
-          colorCodeArray[0] = "same";
-        }
-        if (
-          resistanceSessions[i].maxweight < resistanceSessions[i - 1].maxweight
-        ) {
-          colorCodeArray[0] = "worse";
-          colorCodeArray[1] = "worse";
-          colorCodeArray[2] = "worse";
-        }
-
-        colorCodesArray.push(colorCodeArray);
+    if (i === 0) {
+      colorCodeArray[0] = "same";
+      colorCodeArray[1] = "same";
+      colorCodeArray[2] = "same";
+      colorCodesArray.push(colorCodeArray);
+    } else {
+      if (resistanceSessions[i].reps > resistanceSessions[i - 1].reps) {
+        colorCodeArray[2] = "improve";
       }
+      if (resistanceSessions[i].reps === resistanceSessions[i - 1].reps) {
+        colorCodeArray[2] = "same";
+      }
+      if (resistanceSessions[i].reps < resistanceSessions[i - 1].reps) {
+        colorCodeArray[2] = "worse";
+      }
+
+      if (resistanceSessions[i].sets > resistanceSessions[i - 1].sets) {
+        colorCodeArray[1] = "improve";
+        colorCodeArray[2] = "improve";
+      }
+      if (resistanceSessions[i].sets === resistanceSessions[i - 1].sets) {
+        colorCodeArray[1] = "same";
+      }
+      if (resistanceSessions[i].sets < resistanceSessions[i - 1].sets) {
+        colorCodeArray[1] = "worse";
+        colorCodeArray[2] = "worse";
+      }
+
+      if (
+        resistanceSessions[i].maxweight > resistanceSessions[i - 1].maxweight
+      ) {
+        colorCodeArray[0] = "improve";
+        colorCodeArray[1] = "improve";
+        colorCodeArray[2] = "improve";
+      }
+      if (
+        resistanceSessions[i].maxweight === resistanceSessions[i - 1].maxweight
+      ) {
+        colorCodeArray[0] = "same";
+      }
+      if (
+        resistanceSessions[i].maxweight < resistanceSessions[i - 1].maxweight
+      ) {
+        colorCodeArray[0] = "worse";
+        colorCodeArray[1] = "worse";
+        colorCodeArray[2] = "worse";
+      }
+
+      colorCodesArray.push(colorCodeArray);
     }
-    return colorCodesArray;
-  } catch (error) {
-    console.log(error, "Error with checkResistanceProgress");
   }
+  return colorCodesArray;
 };
 
 export const checkCardioProgress = function (cardioSessions) {
   const colorCodesArray = [];
+
+  if (cardioSessions.length === 1) return ["same", "same", "same"];
 
   for (let i = 0; i < cardioSessions.length; i++) {
     let weightColor = "";

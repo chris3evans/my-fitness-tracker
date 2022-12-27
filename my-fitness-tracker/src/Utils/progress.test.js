@@ -42,6 +42,47 @@ const mockData8 = {
   reps: 1,
 };
 
+const mockData9 = {
+  maxspeed: 1,
+  sets: 1,
+  time: 1,
+};
+const mockData10 = {
+  maxspeed: 2,
+  sets: 1,
+  time: 1,
+};
+const mockData11 = {
+  maxspeed: 1,
+  sets: 2,
+  time: 1,
+};
+const mockData12 = {
+  maxspeed: 1,
+  sets: 1,
+  time: 2,
+};
+const mockData13 = {
+  maxspeed: 2,
+  sets: 2,
+  time: 2,
+};
+const mockData14 = {
+  maxspeed: 1,
+  sets: 2,
+  time: 2,
+};
+const mockData15 = {
+  maxspeed: 2,
+  sets: 1,
+  time: 2,
+};
+const mockData16 = {
+  maxspeed: 2,
+  sets: 2,
+  time: 1,
+};
+
 describe("checkResistanceProgress()", () => {
   it('should return 3 "same" if first row of data', () => {
     const input = [mockData1];
@@ -96,26 +137,52 @@ describe("checkResistanceProgress()", () => {
     const inputObject = mockData1;
     const inputBool = false;
 
-    const resultFn1 = () => {
-      checkResistanceProgress(inputString);
-    };
-    const resultFn2 = () => {
-      checkResistanceProgress(inputObject);
-    };
-    const resultFn3 = () => {
-      checkResistanceProgress(inputBool);
-    };
+    const resultFn1 = checkResistanceProgress(inputString);
+    const resultFn2 = checkResistanceProgress(inputObject);
 
-    expect(resultFn1).toThrow(/Non array value entered/);
-    expect(resultFn2).toThrow(/Non array value entered/);
-    expect(resultFn3).toThrow(/Non array value entered/);
+    const resultFn3 = checkResistanceProgress(inputBool);
+
+    expect(resultFn1).toBe("Invalid input");
+    expect(resultFn2).toBe("Invalid input");
+    expect(resultFn3).toBe("Invalid input");
   });
 
   it("should throw an error with correct error message if an empty array is provided", () => {
     const input = [];
-    const resultFn = () => {
-      checkResistanceProgress(input);
-    };
-    expect(resultFn).toThrow(/No session data/);
+    const resultFn = checkResistanceProgress(input);
+
+    expect(resultFn).toBe("No session data provided");
+  });
+});
+
+describe("checkCardioProgress()", () => {
+  it('should return 3 "same" if first row of data', () => {
+    const input = [mockData9];
+    const result = checkCardioProgress(input);
+    expect(result).toStrictEqual(["same", "same", "same"]);
+  });
+
+  it('should return 3 "same" if maxspeed, sets and time are equal to the previous session', () => {
+    const input = [mockData9, mockData9];
+    const result = checkCardioProgress(input);
+    expect(result[0]).toStrictEqual(["same", "same", "same"]);
+  });
+
+  it('should return 3 "improve" even if just maxpseed is greater than previous session', () => {
+    const input = [mockData9, mockData10];
+    const result = checkCardioProgress(input);
+    expect(result[1]).toStrictEqual(["improve", "improve", "improve"]);
+  });
+
+  it('should return 2 "improve" for sets greater than previous session', () => {
+    const input = [mockData9, mockData11];
+    const result = checkCardioProgress(input);
+    expect(result[1]).toStrictEqual(["same", "improve", "improve"]);
+  });
+
+  it('should return 1 "improve" if just time is greater than previous session', () => {
+    const input = [mockData9, mockData12];
+    const result = checkCardioProgress(input);
+    expect(result[1]).toStrictEqual(["same", "same", "improve"]);
   });
 });
