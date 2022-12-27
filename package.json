@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node server/index",
     "populate": "node server/Seed/seed-script.js",
     "start": "cd server && npm install && node index.js",
-    "heroku-postbuild": "cd my-fitness-tracker && npm install && npm run build"
+    "heroku-postbuild": "cd my-fitness-tracker && npm install && npm run build",
+    "test": "vitest --run --reporter verbose"
   },
   "author": "chris evans",
   "license": "ISC",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "eslint": "^8.27.0",
-    "eslint-plugin-react": "^7.31.10"
+    "eslint-plugin-react": "^7.31.10",
+    "vitest": "^0.26.2"
   }
 }
