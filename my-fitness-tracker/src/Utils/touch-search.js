@@ -53,9 +53,7 @@ export const touchSearch = function (standardExercises, curSearch) {
     ) {
       return true;
     }
-
     return false;
   });
-
   return matchingResults;
 };
