@@ -223,6 +223,6 @@ describe("checkCardioProgress()", () => {
     const input = [];
     const resultFn = checkResistanceProgress(input);
 
-    expect(resultFn).toBe("No session data provided asdjasdkajsd");
+    expect(resultFn).toBe("No session data provided");
   });
 });
