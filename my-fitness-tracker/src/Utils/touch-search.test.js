@@ -22,3 +22,21 @@ describe("resistanceExerciseNames", () => {
     expect(onlyStrings).toBe(false);
   });
 });
+
+describe("cardioExerciseNames", () => {
+  it("should exist", () => {
+    expect(cardioExerciseNames).toBeTruthy();
+  });
+
+  it("should be of type Array", () => {
+    const isArray = Array.isArray(cardioExerciseNames);
+    expect(isArray).toBe(true);
+  });
+
+  it("should only contain string elements", () => {
+    const onlyStrings = cardioExerciseNames.some((name) => {
+      return typeof name !== "string";
+    });
+    expect(onlyStrings).toBe(false);
+  });
+});
